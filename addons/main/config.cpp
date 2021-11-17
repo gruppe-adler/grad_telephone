@@ -7,7 +7,7 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = { "cba_a3" };
-        authors[] = { "nomisum };
+        authors[] = { "nomisum" };
         VERSION_CONFIG;
     };
 };
