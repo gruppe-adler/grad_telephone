@@ -7,7 +7,7 @@ private _allPhones = [];
     {
        _allPhones pushBackUnique _x;
     } forEach _phoneBoothsInArea;
-} forEach _CLASSNAMES_PHONE;
+} forEach GRAD_TELEPHONE_CLASSNAMES_PHONE;
 
 
 {

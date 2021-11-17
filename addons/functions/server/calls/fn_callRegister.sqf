@@ -1,4 +1,4 @@
 params ["_caller", "_receiver"];
 
-_CALLS_RUNNING pushBack [_caller, _receiver];
-publicVariable "_CALLS_RUNNING";
+GRAD_TELEPHONE_CALLS_RUNNING pushBack [_caller, _receiver];
+publicVariable "GRAD_TELEPHONE_CALLS_RUNNING";

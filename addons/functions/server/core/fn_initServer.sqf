@@ -2,18 +2,18 @@
 
 if (!isServer) exitWith {};
 
-missionNamespace setVariable ["_CLASSNAMES_PHONE", _CLASSNAMES_PHONE, true]; // yes, actually necessary bc its only included here otherwise
-missionNamespace setVariable ["_CLASSNAMES_GMN", _CLASSNAMES_GMN, true];
-missionNamespace setVariable ["_ALLNUMBERS", [], true];
-missionNamespace setVariable ["_ALLPHONES", [], true];
-missionNamespace setVariable ["_CALLS_RUNNING", [], true];
+missionNamespace setVariable ["GRAD_TELEPHONE_CLASSNAMES_PHONE", _CLASSNAMES_PHONE, true]; // yes, actually necessary bc its only included here otherwise
+missionNamespace setVariable ["GRAD_TELEPHONE_CLASSNAMES_GMN", _CLASSNAMES_GMN, true];
+missionNamespace setVariable ["GRAD_TELEPHONE_ALLNUMBERS", [], true];
+missionNamespace setVariable ["GRAD_TELEPHONE_ALLPHONES", [], true];
+missionNamespace setVariable ["GRAD_TELEPHONE_CALLS_RUNNING", [], true];
 
-_PHONENUMBERS_HASH = [] call CBA_fnc_hashCreate;
+GRAD_TELEPHONE_PHONENUMBERS_HASH = [] call CBA_fnc_hashCreate;
 
 [] call grad_telephone_fnc_distributePhones;
 
 
-[] remoteExec ["_fnc_addSelfAction", [0,-2] select isDedicated, true];
+[] remoteExec ["grad_telephone_fnc_addSelfAction", [0,-2] select isDedicated, true];
 
 
 // special treatment for curator

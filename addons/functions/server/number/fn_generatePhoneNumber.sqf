@@ -20,8 +20,8 @@ private _result = [];
 // check if generated number already exists
 while {true} do {
 
-	private _phonePrefixCurrent = [str (selectRandom _NUMBER_PREFIXES)] call grad_telephone_fnc_extractNumberFromPrefix;
-	private _phoneBaseNumber = [_NUMBER_LENGTH select 0, _NUMBER_LENGTH select 1] call grad_telephone_fnc_generateBaseNumber;
+	private _phonePrefixCurrent = [str (selectRandom GRAD_TELEPHONE_NUMBER_PREFIXES)] call grad_telephone_fnc_extractNumberFromPrefix;
+	private _phoneBaseNumber = [GRAD_TELEPHONE_NUMBER_LENGTH select 0, GRAD_TELEPHONE_NUMBER_LENGTH select 1] call grad_telephone_fnc_generateBaseNumber;
 
 	_result = _phonePrefixCurrent + _phoneBaseNumber;
 

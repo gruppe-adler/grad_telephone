@@ -1,3 +1,3 @@
 params ["_object", "_status"];
 
-_object setVariable ["_phoneStatus", _status, true];
+_object setVariable ["grad_telephone_phoneStatus", _status, true];

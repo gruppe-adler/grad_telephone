@@ -15,9 +15,9 @@ ARRAY: Settings [
             9: BOOLEAN - On
         ]
 */
-// 
-// 
-// 
+//
+//
+//
 // private _lr_settings = [0, TFAR_default_radioVolume, [], 0, nil, -1, 0, nil, false, true];
 // channel, volume, frequencies, STEREO, encryption, additional active channel, additional active stereo, empty, speaker mode, turned on
 private _settingsID = "radio_settings";
@@ -32,15 +32,15 @@ TFAR_OverrideActiveLRRadio = if (_status) then {
 
     // generate radio settings for fake radio
     private _settings = [0, TFAR_default_radioVolume, _frequencies, 2, _encryptionKey, -1, 2, nil, false, true];
-    
+
     _phoneObject setVariable [_settingsID, _settings, true];
-    
+
         // log all the shit
-    systemChat format ["grad-landline-debug: TFAR_OverrideActiveLRRadio: %1, settings are %2", _phoneObject, _settings];
-    diag_log format ["grad-landline-debug: TFAR_OverrideActiveLRRadio: %1, settings are %2", _phoneObject, _settings];
+    systemChat format ["grad-telephone-debug: TFAR_OverrideActiveLRRadio: %1, settings are %2", _phoneObject, _settings];
+    diag_log format ["grad-telephone-debug: TFAR_OverrideActiveLRRadio: %1, settings are %2", _phoneObject, _settings];
 
 
-    [_phoneObject, _settingsID] 
+    [_phoneObject, _settingsID]
 
 } else {
 
@@ -48,7 +48,7 @@ TFAR_OverrideActiveLRRadio = if (_status) then {
     // remove radio settings from fake radio
     _phoneObject setVariable [_settingsID, nil, true];
 
-    diag_log format ["grad-landline-debug: TFAR_OverrideActiveLRRadio set to nil"];
+    diag_log format ["grad-telephone-debug: TFAR_OverrideActiveLRRadio set to nil"];
 
     nil
 

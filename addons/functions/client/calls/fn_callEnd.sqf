@@ -4,11 +4,11 @@ params ["_object", "_state"];
 private _storedData = [_object] call grad_telephone_fnc_callGetInfo;
 
 _storedData params [
-    ["_phone1", objNull], 
-    ["_phone2", objNull], 
-    ["_number1", "undefined"], 
-    ["_number2", "undefined"], 
-    ["_player1", objNull], 
+    ["_phone1", objNull],
+    ["_phone2", objNull],
+    ["_number1", "undefined"],
+    ["_number2", "undefined"],
+    ["_player1", objNull],
     ["_player2", objNull]
 ];
 
@@ -16,7 +16,7 @@ private _isCaller = player isEqualTo _player1;
 
 
 // execute state stuff
-switch (_state) do { 
+switch (_state) do {
 	case "waiting": {
 		// set self to idle state
 		[_object, "idle"] call grad_telephone_fnc_callSetStatus;
@@ -28,9 +28,9 @@ switch (_state) do {
 
 		// play sound
 		if (_isCaller) then {
-			[_phone1, "_phoneHangUp"] remoteExec ["say3D", [0,-2] select isDedicated];
+			[_phone1, "grad_telephone_sound_phoneHangUp"] remoteExec ["say3D", [0,-2] select isDedicated];
 		} else {
-			[_phone2, "_phoneHangUp"] remoteExec ["say3D", [0,-2] select isDedicated];
+			[_phone2, "grad_telephone_sound_phoneHangUp"] remoteExec ["say3D", [0,-2] select isDedicated];
 		};
 
 		// tfar
@@ -50,7 +50,7 @@ switch (_state) do {
 		// set self to idle state
 		[_object, "idle"] call grad_telephone_fnc_callSetStatus;
 
-		[_object, "_phoneHangUp"] remoteExec ["say3D", [0,-2] select isDedicated];
+		[_object, "grad_telephone_sound_phoneHangUp"] remoteExec ["say3D", [0,-2] select isDedicated];
 
 		// debug whats happening
 		systemChat "hanging up from busy";
@@ -82,12 +82,12 @@ switch (_state) do {
 		if (!isNull _player1 && !_isCaller) then {
 			[_phone1, "remoteEnd"] remoteExec ["_fnc_callEnd", _player1];
 		};
-		
+
 		// play sound
-		[_object, "_phoneHangUp"] remoteExec ["say3D", [0,-2] select isDedicated];
+		[_object, "grad_telephone_sound_phoneHangUp"] remoteExec ["say3D", [0,-2] select isDedicated];
 
 		// tell server there is no transmission left
-		[_number1, _number2] remoteExec ["_fnc_callUnregister", 2];
+		[_number1, _number2] remoteExec ["grad_telephone_fnc_callUnregister", 2];
 
 		// tfar
 		[_object, _number1 + _number2] call grad_telephone_fnc_callPluginDeactivate;
@@ -122,13 +122,13 @@ switch (_state) do {
 		[_object, "idle"] call grad_telephone_fnc_callSetStatus;
 
 		// play sound
-		[_object, "_phoneHangUp"] remoteExec ["say3D", [0,-2] select isDedicated];
-		
+		[_object, "grad_telephone_sound_phoneHangUp"] remoteExec ["say3D", [0,-2] select isDedicated];
+
 		// debug whats happening
 		systemChat "hanging up from ending";
 		player setVariable ['_isCalling', false];
 	};
-	
+
 
 	default { diag_log "grad-landline: error code 1337"; };
 };

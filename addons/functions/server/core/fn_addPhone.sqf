@@ -23,20 +23,20 @@ if (_position isEqualTo [0,0,0]) then {
    _position = position _object;
 };
 
-private _id = missionNamespace getVariable ['grad_telephone_phoneCount", 0];
+private _id = missionNamespace getVariable ['grad_telephone_phoneCount', 0];
 _id = _id + 1;
-missionNamespace setVariable ["_phoneCount", _id, true];
+missionNamespace setVariable ["grad_telephone_phoneCount", _id, true];
 
-_object setVariable ["_isPhone", true, true];
-_object setVariable ["_phoneID", _id, true];
-_object setVariable ["_isRotary", _isRotary, true];
-_object setVariable ["_skipDialing", _canOnlyCallNumber != "all", true];
-_object setVariable ["_hasPublicPhoneBookEntry", _hasPublicPhoneBookEntry, true];
-_object setVariable ["_phonePosition", _position];
+_object setVariable ["grad_telephone_isPhone", true, true];
+_object setVariable ["grad_telephone_phoneID", _id, true];
+_object setVariable ["grad_telephone_isRotary", _isRotary, true];
+_object setVariable ["grad_telephone_skipDialing", _canOnlyCallNumber != "all", true];
+_object setVariable ["grad_telephone_hasPublicPhoneBookEntry", _hasPublicPhoneBookEntry, true];
+_object setVariable ["grad_telephone_phonePosition", _position];
 
 // zeus & direct call
 if (_canOnlyCallNumber != "all") then {
-    _object setVariable ["_directConnect", _canOnlyCallNumber, true];
+    _object setVariable ["grad_telephone_directConnect", _canOnlyCallNumber, true];
 };
 
 [_object, _number] call grad_telephone_fnc_assignNumber;
@@ -45,5 +45,5 @@ if (_canOnlyCallNumber != "all") then {
 
 // zeus phone will receive extra action, not here
 if (_canOnlyCallNumber != "none" || _hasPublicPhoneBookEntry) then {
-    [_object] remoteExec ["_fnc_addAction", [0,-2] select isDedicated, true];
+    [_object] remoteExec ["grad_telephone_fnc_addAction", [0,-2] select isDedicated, true];
 };

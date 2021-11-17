@@ -1,7 +1,7 @@
 params ["_object", "_number"];
 
 // get all existing numbers
-private _currentNumbers = missionNamespace getVariable ['grad_telephone_ALLNUMBERS", []];
+private _currentNumbers = missionNamespace getVariable ['GRAD_TELEPHONE_ALLNUMBERS', []];
 
 if (_number == "none") then {
     _number = [_currentNumbers] call grad_telephone_fnc_generatePhoneNumber;
@@ -22,15 +22,15 @@ if (count _path < 1) then {
     _currentNumbers set [_selector, [_number, _existingObjects]];
 };
 // only one entry in phonebook for each number
-missionNamespace setVariable ["_ALLNUMBERS", _currentNumbers, true];
+missionNamespace setVariable ["GRAD_TELEPHONE_ALLNUMBERS", _currentNumbers, true];
 
 
-private _currentPhones = missionNamespace getVariable ['grad_telephone_ALLPHONES", []];
+private _currentPhones = missionNamespace getVariable ['GRAD_TELEPHONE_ALLPHONES', []];
 _currentPhones pushback _object;
-missionNamespace setVariable ["_ALLPHONES", _currentPhones, true];
+missionNamespace setVariable ["GRAD_TELEPHONE_ALLPHONES", _currentPhones, true];
 
 
 // [_PHONENUMBERS_HASH, _object, _number] call CBA_fnc_hashSet;
-diag_log format ["GRAD-LANDLINE: assigning %1 to %2", _number, _object];
+diag_log format ["GRAD-TELEPHONE: assigning %1 to %2", _number, _object];
 
-_object setVariable ["_NUMBER_ASSIGNED", _number, true];
+_object setVariable ["GRAD_TELEPHONE_NUMBER_ASSIGNED", _number, true];

@@ -20,10 +20,10 @@ private _dummy = createVehicle ["Sign_Sphere25cm_Geometry_F", [0,0,0], [], 0, "C
 hideObjectGlobal _dummy;
 _dummy setPos _position;
 
-// dont ring at zeus
-if (!(_receiverPhoneObject getVariable ["GRAD_nvacommand_isCommander", false])) then {
+// dont ring if needed
+if (!(_receiverPhoneObject getVariable ["grad_telephone_dontRing", false])) then {
     // todo hide dummy visually
-    [_dummy] remoteExec ["_fnc_soundRing", [0,-2] select isDedicated];
+    [_dummy] remoteExec ["grad_telephone_fnc_soundRing", [0,-2] select isDedicated];
 };
 
 waitUntil { !([_receiverPhoneObject, "ringing"] call grad_telephone_fnc_callGetStatus) };

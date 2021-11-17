@@ -1,6 +1,6 @@
 params ["_object"];
 
-player setVariable ["_objCaller", _object];
+player setVariable ["grad_telephone_objCaller", _object];
 
 createDialog "_rscPhoneBook";
 waitUntil {dialog};
@@ -56,8 +56,8 @@ _selectionMarker setMarkerTypeLocal "Select";
 private _button = _dialog displayCtrl 3000;
 
 // store elements to delete them later on
-player setVariable ["_phoneList", [_phoneList, _button]];
-player setVariable ["_markerList", _allMarkers];
+player setVariable ["grad_telephone_phoneList", [_phoneList, _button]];
+player setVariable ["grad_telephone_markerList", _allMarkers];
 
 
 // _selectionMarker setMarkerPosLocal (getMarkerPos (_allMarkers select (lbCurSel 2000)));
@@ -90,7 +90,7 @@ _button ctrlAddEventHandler ["ButtonClick", {
         _selectionMarker setMarkerTypeLocal "mil_dot";
         _selectionMarker setMarkerColorLocal "ColorRed";
 
-        player setVariable ["_objCaller", objNull];
+        player setVariable ["grad_telephone_objCaller", objNull];
 
         closeDialog 0;
 }];
