@@ -1,3 +1,3 @@
-{ ctrlDelete _x; } forEach (player getVariable ["_phoneList",[]]); 
-{ deleteMarkerLocal _x; } forEach (player getVariable ["_markerList", []]);
+{ ctrlDelete _x; } forEach (player getVariable ['grad_telephone_phoneList',[]]);
+{ deleteMarkerLocal _x; } forEach (player getVariable ['grad_telephone_markerList', []]);
 deleteMarkerLocal "mrk_PhoneSelect";

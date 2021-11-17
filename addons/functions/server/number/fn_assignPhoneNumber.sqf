@@ -5,19 +5,19 @@
 /*
 params ["_object", "_number"];
 
-private _newNumber = [_ALLNUMBERS] call _fnc_generatePhoneNumber;
+private _newNumber = [_ALLNUMBERS] call grad_telephone_fnc_generatePhoneNumber;
 
 if (_number != "none") then {
     _newNumber = _number;
 };
 
 // store in simple array for easy access above
-private _currentNumbers = missionNamespace getVariable ["_ALLNUMBERS", []];
+private _currentNumbers = missionNamespace getVariable ['grad_telephone_ALLNUMBERS", []];
 _currentNumbers pushback [_object, _newNumber];
 missionNamespace setVariable ["_ALLNUMBERS", _currentNumbers, true];
 
 
-private _currentPhones = missionNamespace getVariable ["_ALLPHONES", []];
+private _currentPhones = missionNamespace getVariable ['grad_telephone_ALLPHONES", []];
 _currentPhones pushback _object;
 missionNamespace setVariable ["_ALLPHONES", _currentPhones, true];
 

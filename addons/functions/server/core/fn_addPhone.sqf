@@ -2,7 +2,7 @@
 
 	can be called out of 3DEN init of object:
 
-	[this] call _fnc_addPhone;
+	[this] call grad_telephone_fnc_addPhone;
 
 	* Arguments:
 	* Object which will get the phone functionality <object>
@@ -23,7 +23,7 @@ if (_position isEqualTo [0,0,0]) then {
    _position = position _object;
 };
 
-private _id = missionNamespace getVariable ["_phoneCount", 0];
+private _id = missionNamespace getVariable ['grad_telephone_phoneCount", 0];
 _id = _id + 1;
 missionNamespace setVariable ["_phoneCount", _id, true];
 
@@ -39,8 +39,8 @@ if (_canOnlyCallNumber != "all") then {
     _object setVariable ["_directConnect", _canOnlyCallNumber, true];
 };
 
-[_object, _number] call _fnc_assignNumber;
-[_object, "idle"] call _fnc_callSetStatus;
+[_object, _number] call grad_telephone_fnc_assignNumber;
+[_object, "idle"] call grad_telephone_fnc_callSetStatus;
 
 
 // zeus phone will receive extra action, not here

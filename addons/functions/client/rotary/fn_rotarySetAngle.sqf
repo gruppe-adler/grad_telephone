@@ -1,6 +1,6 @@
 params ["_timeUp", "_timeDown", "_newAngle", "_number"];
 
-private _dialog = uiNamespace getVariable ['_rscRotary',controlNull];
+private _dialog = uiNamespace getVariable ['grad_telephone_rscRotary',controlNull];
 
 if (!dialog) exitWith {};
 

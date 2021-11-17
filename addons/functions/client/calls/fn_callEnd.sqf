@@ -1,7 +1,7 @@
 params ["_object", "_state"];
 
 // storedData
-private _storedData = [_object] call _fnc_callGetInfo;
+private _storedData = [_object] call grad_telephone_fnc_callGetInfo;
 
 _storedData params [
     ["_phone1", objNull], 
@@ -19,11 +19,11 @@ private _isCaller = player isEqualTo _player1;
 switch (_state) do { 
 	case "waiting": {
 		// set self to idle state
-		[_object, "idle"] call _fnc_callSetStatus;
+		[_object, "idle"] call grad_telephone_fnc_callSetStatus;
 
 		// if there is no other owner, take command of other phone as well
 		if (_isCaller && isNull _player2) then {
-			[_phone2, "idle"] call _fnc_callSetStatus;
+			[_phone2, "idle"] call grad_telephone_fnc_callSetStatus;
 		};
 
 		// play sound
@@ -35,10 +35,10 @@ switch (_state) do {
 
 		// tfar
 		// todo: careful to set if busy state
-		[_object, _number1 + _number2] call _fnc_callPluginDeactivate;
+		[_object, _number1 + _number2] call grad_telephone_fnc_callPluginDeactivate;
 
 		// delete partner reference
-		[_phone1, _phone2] call _fnc_callDeleteInfo;
+		[_phone1, _phone2] call grad_telephone_fnc_callDeleteInfo;
 
 		// debug whats happening
 		systemChat "hanging up from waiting";
@@ -48,7 +48,7 @@ switch (_state) do {
 
 	case "busy": {
 		// set self to idle state
-		[_object, "idle"] call _fnc_callSetStatus;
+		[_object, "idle"] call grad_telephone_fnc_callSetStatus;
 
 		[_object, "_phoneHangUp"] remoteExec ["say3D", [0,-2] select isDedicated];
 
@@ -60,18 +60,18 @@ switch (_state) do {
 
 	case "calling" : {
 		// set self to idle state
-		[_object, "idle"] call _fnc_callSetStatus;
+		[_object, "idle"] call grad_telephone_fnc_callSetStatus;
 
 		// if there is no other owner, take command of other phone as well
 		if (isNull _player1) then {
-			[_phone1, "idle"] call _fnc_callSetStatus;
+			[_phone1, "idle"] call grad_telephone_fnc_callSetStatus;
 			// delete partner reference
-			[_phone1, _phone2] call _fnc_callDeleteInfo;
+			[_phone1, _phone2] call grad_telephone_fnc_callDeleteInfo;
 		};
 		if (isNull _player2) then {
-			[_phone2, "idle"] call _fnc_callSetStatus;
+			[_phone2, "idle"] call grad_telephone_fnc_callSetStatus;
 			// delete partner reference
-			[_phone1, _phone2] call _fnc_callDeleteInfo;
+			[_phone1, _phone2] call grad_telephone_fnc_callDeleteInfo;
 		};
 
 		// if other side was called and other still exists
@@ -90,7 +90,7 @@ switch (_state) do {
 		[_number1, _number2] remoteExec ["_fnc_callUnregister", 2];
 
 		// tfar
-		[_object, _number1 + _number2] call _fnc_callPluginDeactivate;
+		[_object, _number1 + _number2] call grad_telephone_fnc_callPluginDeactivate;
 
 		// debug whats happening
 		systemChat "hanging up from calling";
@@ -100,16 +100,16 @@ switch (_state) do {
 
 	case "remoteEnd" : {
 		// set self to ending state
-		[_object, "ending"] call _fnc_callSetStatus;
+		[_object, "ending"] call grad_telephone_fnc_callSetStatus;
 
 		// initiate beep beep..
-		[_object] call _fnc_soundInterrupted;
+		[_object] call grad_telephone_fnc_soundInterrupted;
 
 		// tfar
-		[_object, _number1 + _number2] call _fnc_callPluginDeactivate;
+		[_object, _number1 + _number2] call grad_telephone_fnc_callPluginDeactivate;
 
 		// delete partner reference
-		[_phone1, _phone2] call _fnc_callDeleteInfo;
+		[_phone1, _phone2] call grad_telephone_fnc_callDeleteInfo;
 
 		// debug whats happening
 		systemChat "other side hung up";
@@ -119,7 +119,7 @@ switch (_state) do {
 
 	case "ending": {
 		// set self to idle state
-		[_object, "idle"] call _fnc_callSetStatus;
+		[_object, "idle"] call grad_telephone_fnc_callSetStatus;
 
 		// play sound
 		[_object, "_phoneHangUp"] remoteExec ["say3D", [0,-2] select isDedicated];

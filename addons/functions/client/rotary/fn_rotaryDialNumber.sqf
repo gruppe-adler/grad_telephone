@@ -1,6 +1,6 @@
 params ["_number"];
 
-private _numberArray = [_number] call _fnc_extractNumberFromPrefix;
+private _numberArray = [_number] call grad_telephone_fnc_extractNumberFromPrefix;
 
 createdialog "_rscRotary";
 waitUntil {dialog};
@@ -8,7 +8,7 @@ waitUntil {dialog};
 sleep 1;
 
 {
-    private _processing = [_x] spawn _fnc_rotaryProcessInput;
+    private _processing = [_x] spawn grad_telephone_fnc_rotaryProcessInput;
     waitUntil { scriptDone _processing };
     sleep 1;
 } forEach _numberArray;

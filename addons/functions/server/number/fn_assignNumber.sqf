@@ -1,10 +1,10 @@
 params ["_object", "_number"];
 
 // get all existing numbers
-private _currentNumbers = missionNamespace getVariable ["_ALLNUMBERS", []];
+private _currentNumbers = missionNamespace getVariable ['grad_telephone_ALLNUMBERS", []];
 
 if (_number == "none") then {
-    _number = [_currentNumbers] call _fnc_generatePhoneNumber;
+    _number = [_currentNumbers] call grad_telephone_fnc_generatePhoneNumber;
 };
 
 // find possible duplicate - numbers can have multiple assigned objects (first pick up takes the call)
@@ -25,7 +25,7 @@ if (count _path < 1) then {
 missionNamespace setVariable ["_ALLNUMBERS", _currentNumbers, true];
 
 
-private _currentPhones = missionNamespace getVariable ["_ALLPHONES", []];
+private _currentPhones = missionNamespace getVariable ['grad_telephone_ALLPHONES", []];
 _currentPhones pushback _object;
 missionNamespace setVariable ["_ALLPHONES", _currentPhones, true];
 

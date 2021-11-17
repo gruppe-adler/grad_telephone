@@ -4,8 +4,8 @@ params ["_callerPhoneObject"];
     params ["_args", "_handle"];
     _args params ["_callerPhoneObject"];
 
-    if (!([_callerPhoneObject, "busy"] call _fnc_callGetStatus) ||
-        !(player getVariable ['_isCalling', false])) exitWith { 
+    if (!([_callerPhoneObject, "busy"] call grad_telephone_fnc_callGetStatus) ||
+        !(player getVariable ['grad_telephone_isCalling', false])) exitWith { 
         [_handle] call CBA_fnc_removePerFrameHandler; 
     };
 

@@ -4,7 +4,7 @@ player setVariable ['_isCalling', true];
 
 private _encryptionKey = ""; // must be nothing
 
-[_phoneObject, _lineNumber, _encryptionKey, true] call _fnc_setTFARfakeRadio;
+[_phoneObject, _lineNumber, _encryptionKey, true] call grad_telephone_fnc_setTFARfakeRadio;
 
 private _hintText = format[
 							"Anruf läuft",
@@ -28,7 +28,7 @@ private _hintText = format[
 NO ENCRYPTION NOW
 
 */
-private _id = _phoneObject getVariable ["_phoneID", 0];
+private _id = _phoneObject getVariable ['grad_telephone_phoneID', 0];
 private _classname = "_" + str _id; // could be anything, as long as its not identical to other participants
 
 private _pluginCommand = format[
@@ -48,6 +48,6 @@ systemChat format ["grad-landline-debug: linenumber: %1, encryption: %2, classna
 diag_log format ["grad-landline-debug: linenumber: %1, encryption: %2, classname: %3", _lineNumber, _encryptionKey, _classname];
 
 diag_log format [
-    "grad-landline-debug: TF_lr_active_radio is nil: %1, TFAR_OverrideActiveLRRadio is nil: %2", 
+    "grad-landline-debug: TF_lr_active_radio is nil: %1, TFAR_OverrideActiveLRRadio is nil: %2",
     isNil "TF_lr_active_radio", isNil "TFAR_OverrideActiveLRRadio"
 ];

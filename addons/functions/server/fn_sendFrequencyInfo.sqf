@@ -121,7 +121,7 @@ TFAR_fnc_sendFrequencyInfo = {
         private _receivingDistanceMultiplicator = (TFAR_currentUnit getVariable ["tf_receivingDistanceMultiplicator",1.0]) * (1/TFAR_globalRadioRangeCoef);
 
         // HACK for grad landline
-        private _isOnLandline = player getVariable ["_isCalling", false];
+        private _isOnLandline = player getVariable ['grad_telephone_isCalling", false];
         if (_isOnLandline) then { _freq_lr = ["No_LR_Radio"]; };
 
         //Async call will always return "OK"

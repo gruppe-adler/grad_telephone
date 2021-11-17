@@ -1,12 +1,12 @@
 params ["_button"];
 
-_button ctrlEnable false; 
+_button ctrlEnable false;
 
-if ([player, player] call _fnc_conditionAccept) exitWith {
-    [player] call _fnc_callAccept;
+if ([player, player] call grad_telephone_fnc_conditionAccept) exitWith {
+    [player] call grad_telephone_fnc_callAccept;
 };
 
-if ([player, player] call _fnc_conditionEnd) exitWith {
-    private _state = player getVariable ['_phoneStatus', 'idle']; 
-    [player, _state] call _fnc_callEnd;
+if ([player, player] call grad_telephone_fnc_conditionEnd) exitWith {
+    private _state = player getVariable ['grad_telephone_phoneStatus', 'idle'];
+    [player, _state] call grad_telephone_fnc_callEnd;
 };

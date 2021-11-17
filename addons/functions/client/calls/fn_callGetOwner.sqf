@@ -1,3 +1,3 @@
 params ["_object"];
 
-_object getVariable ["_phoneOwner", objNull]
+_object getVariable ['grad_telephone_phoneOwner', objNull]

@@ -6,7 +6,7 @@
 
 params ["_receiverPhoneObject"];
 
-[_receiverPhoneObject, "ringing"] call _fnc_callSetStatus;
+[_receiverPhoneObject, "ringing"] call grad_telephone_fnc_callSetStatus;
 
 private _position = getPos _receiverPhoneObject;
 private _boundingBox = boundingBoxReal vehicle player;
@@ -26,6 +26,6 @@ if (!(_receiverPhoneObject getVariable ["GRAD_nvacommand_isCommander", false])) 
     [_dummy] remoteExec ["_fnc_soundRing", [0,-2] select isDedicated];
 };
 
-waitUntil { !([_receiverPhoneObject, "ringing"] call _fnc_callGetStatus) };
+waitUntil { !([_receiverPhoneObject, "ringing"] call grad_telephone_fnc_callGetStatus) };
 
 deleteVehicle _dummy;

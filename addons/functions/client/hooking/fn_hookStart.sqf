@@ -7,7 +7,7 @@ systemChat format ["hookStart - getInfo %1 %2", _callerPhoneObject, _receiverPho
 
 private _storedData = [
     _callerPhoneObject
-] call _fnc_callGetInfo;
+] call grad_telephone_fnc_callGetInfo;
 
 _storedData params [
     ["_phone1", objNull], 
@@ -28,12 +28,12 @@ if (!isNull _player2) then {
     [] remoteExec ["_fnc_soundHookRemote", _player2];
 };
 
-[] call _fnc_soundHookStart;
+[] call grad_telephone_fnc_soundHookStart;
 
 systemChat format ["hookStart - hooking into call from %1 to %2", _number1, _number2];
 
 // activate tfar stuff
-[_phone1, _number1 + _number2] call _fnc_callPluginActivate;
+[_phone1, _number1 + _number2] call grad_telephone_fnc_callPluginActivate;
 
 player setVariable ["_hooking", true];
 player setVariable ["_hookingCache", _storedData];

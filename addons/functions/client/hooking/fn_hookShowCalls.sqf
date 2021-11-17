@@ -1,5 +1,5 @@
 /*
-    
+
     lists all calls currently taken
 
 */
@@ -7,7 +7,7 @@
 createDialog "_rscPhoneBook";
 waitUntil {dialog};
 
-private _dialog = uiNamespace getVariable ['_rscPhoneBook',controlNull];
+private _dialog = uiNamespace getVariable ['grad_telephone_rscPhoneBook',controlNull];
 
 if (isNull _dialog) exitWith { hint "something went wrong"; };
 
@@ -15,15 +15,15 @@ if (isNull _dialog) exitWith { hint "something went wrong"; };
 
 // fill phonelist
 private _phoneList = _dialog displayCtrl 1000;
-private _allCalls = missionNamespace getVariable ["_CALLS_RUNNING", []];
+private _allCalls = missionNamespace getVariable ['GRAD_TELEPHONE_CALLS_RUNNING', []];
 private _allMarkerLines = [];
 private _map = _dialog displayCtrl 2000;
 {
     private _phone1 = _x select 0;
     private _phone2 = _x select 1;
 
-    private _number1 = _phone1 getVariable ["_NUMBER_ASSIGNED", "0123456789"];
-    private _number2 = _phone2 getVariable ["_NUMBER_ASSIGNED", "0123456789"];
+    private _number1 = _phone1 getVariable ['GRAD_TELEPHONE_NUMBER_ASSIGNED', "0123456789"];
+    private _number2 = _phone2 getVariable ['GRAD_TELEPHONE_NUMBER_ASSIGNED', "0123456789"];
 
     private _identifier = _phoneList lbAdd (_number1 + " calling " + _number2);
     // _phoneList lbSetValue [_forEachIndex, _identifier];
@@ -32,12 +32,12 @@ private _map = _dialog displayCtrl 2000;
 
 } forEach _allCalls;
 
-missionNamespace setVariable ["_CALLS_RUNNING_PHONES", _allMarkerLines];
+missionNamespace setVariable ["GRAD_TELEPHONE_CALLS_RUNNING_PHONES", _allMarkerLines];
 
 
 _map ctrlAddEventHandler ["Draw","
     private _map = (_this select 0);
-    private _lines = missionNamespace getVariable ['_CALLS_RUNNING_PHONES', []];
+    private _lines = missionNamespace getVariable ['GRAD_TELEPHONE_CALLS_RUNNING_PHONES', []];
 
     if (count _lines > 0) then {
         {
@@ -87,22 +87,22 @@ _button ctrlAddEventHandler ["ButtonClick", {
         params ["_ctrl"];
 
         // we cant start hooking if a hook is running, so end it
-        if (player getVariable ["_hooking", false]) then {
-            [] call _fnc_hookEnd;
+        if (player getVariable ['grad_telephone_hooking', false]) then {
+            [] call grad_telephone_fnc_hookEnd;
         };
 
-        private _dialog = uiNamespace getVariable ['_rscPhoneBook',controlNull];
+        private _dialog = uiNamespace getVariable ['grad_telephone_rscPhoneBook',controlNull];
         private _listBox = _dialog displayCtrl 1000;
 
         private _objIndex = lbCurSel _listBox;
         systemChat format ["%1", _objIndex];
 
-        private _allPhones = missionNamespace getVariable ["_ALLPHONES", []];
+        private _allPhones = missionNamespace getVariable ['GRAD_TELEPHONE_ALLPHONES', []];
         private _objReceiver = _allPhones select _objIndex;
-        private _receiverNumber = _objReceiver getVariable ["_NUMBER_ASSIGNED", "none"];
+        private _receiverNumber = _objReceiver getVariable ['GRAD_TELEPHONE_NUMBER_ASSIGNED', "none"];
 
-        private _objCaller = player getVariable ["_objCaller", objNull];
+        private _objCaller = player getVariable ['grad_telephone_objCaller', objNull];
 
-        
-        [_objCaller, _objReceiver] call _fnc_hookStart;
+
+        [_objCaller, _objReceiver] call grad_telephone_fnc_hookStart;
 }];

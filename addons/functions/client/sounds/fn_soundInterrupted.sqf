@@ -4,7 +4,7 @@ params ["_object"];
     params ["_args", "_handle"];
     _args params ["_object"];
 
-    if ([_object, "idle"] call _fnc_callGetStatus) exitWith { 
+    if ([_object, "idle"] call grad_telephone_fnc_callGetStatus) exitWith { 
         [_handle] call CBA_fnc_removePerFrameHandler; 
     };
 

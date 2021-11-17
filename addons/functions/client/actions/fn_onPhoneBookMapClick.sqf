@@ -4,7 +4,7 @@ private _position = _control ctrlMapScreenToWorld [_xPos, _yPos];
 
 private _nearestPhone = objNull;
 private _nearestPhoneIndex = 0;
-private _allNumbers = missionNamespace getVariable ["_ALLNUMBERS", []];
+private _allNumbers = missionNamespace getVariable ['GRAD_TELEPHONE_ALLNUMBERS', []];
 {
     private _phoneObjects = _x select 1;
     private _numberIndex = _forEachIndex;
@@ -24,7 +24,7 @@ private _allNumbers = missionNamespace getVariable ["_ALLNUMBERS", []];
     } forEach _phoneObjects;
 } forEach _allNumbers;
 
-private _dialog = uiNamespace getVariable ['_rscPhoneBook',controlNull];
+private _dialog = uiNamespace getVariable ['grad_telephone_rscPhoneBook',controlNull];
 
 if (isNull _dialog) exitWith { hint "something went wrong"; };
 

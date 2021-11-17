@@ -1,18 +1,18 @@
 player addAction [
     "Show Calls",
     {
-         [] call _fnc_hookShowCalls;
+         [] call grad_telephone_fnc_hookShowCalls;
     },
     [],1.5,true,true,"",
-    "player getVariable ['_canHook', false]"
+    "player getVariable ['grad_telephone_canHook', false]"
 ];
 
 
 player addAction [
     "End Hooking",
     {
-         [] call _fnc_hookEnd;
+         [] call grad_telephone_fnc_hookEnd;
     },
     [],1.5,true,true,"",
-    "player getVariable ['_hooking', false]"
+    "player getVariable ['grad_telephone_hooking', false]"
 ];

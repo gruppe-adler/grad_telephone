@@ -2,7 +2,7 @@ params ["_selectedNumber"];
 
 if (!dialog) exitWith {};
 
-private _dialog = uiNamespace getVariable ['_rscKeypad',controlNull];
+private _dialog = uiNamespace getVariable ['grad_telephone_rscKeypad',controlNull];
 private _name = format ["grad-landline\data\keypad_%1.paa", _selectedNumber];
 
 private _ctrl = _dialog displayCtrl 5000;

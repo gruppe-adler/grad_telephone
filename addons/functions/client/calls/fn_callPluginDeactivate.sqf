@@ -33,7 +33,7 @@ TF_tangent_lr_pressed = false; // necessary?
 player call TFAR_fnc_releaseAllTangents; // "task_force_radio_pipe" callExtension (format ["RELEASE_ALL_TANGENTS	%1~", name player]);
 
 // set tfar fake radio stuff AFTER tangent release?
-[_phoneObject, _lineNumber, _encryptionKey, false] call _fnc_setTFARfakeRadio;
+[_phoneObject, _lineNumber, _encryptionKey, false] call grad_telephone_fnc_setTFARfakeRadio;
 
 systemChat format ["grad-landline-debug: linenumber: %1, encryption: %2", _lineNumber, _encryptionKey];
 diag_log format ["grad-landline-debug: linenumber: %1, encryption: %2", _lineNumber, _encryptionKey];

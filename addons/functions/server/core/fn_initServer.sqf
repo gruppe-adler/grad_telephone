@@ -10,7 +10,7 @@ missionNamespace setVariable ["_CALLS_RUNNING", [], true];
 
 _PHONENUMBERS_HASH = [] call CBA_fnc_hashCreate;
 
-[] call _fnc_distributePhones;
+[] call grad_telephone_fnc_distributePhones;
 
 
 [] remoteExec ["_fnc_addSelfAction", [0,-2] select isDedicated, true];
@@ -18,11 +18,11 @@ _PHONENUMBERS_HASH = [] call CBA_fnc_hashCreate;
 
 // special treatment for curator
 [{
-    
+
 
 {
       if (_x getVariable ["GRAD_nvacommand_isCommander", false]) then {
-            [_x, "1337", false, "none"] call _fnc_addPhone;
+            [_x, "1337", false, "none"] call grad_telephone_fnc_addPhone;
       };
     } forEach allPlayers;
 }, [], 10] call CBA_fnc_waitAndExecute;
