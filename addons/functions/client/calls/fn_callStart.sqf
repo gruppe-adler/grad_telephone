@@ -1,0 +1,102 @@
+params ["_callerPhoneObject", ["_receiverPhoneObjects", []]];
+
+private _receiverPhoneObject = _receiverPhoneObjects select 0;
+// if no number is assigned
+// if (count _callerNumber isEqualTo 0) exitWith { diag_log "error, no number"; };
+
+private _callerNumber = _callerPhoneObject getVariable ["_NUMBER_ASSIGNED", "none"];
+private _receiverNumber = _receiverPhoneObject getVariable ["_NUMBER_ASSIGNED", "none"];
+private _isRotary = _callerPhoneObject getVariable ["_isRotary", false];
+
+
+private ["_dialing"];
+
+if (_callerPhoneObject getVariable ["_skipDialing", false]) then {
+    _dialing = [] spawn {};
+} else {
+    if (_isRotary) then {
+        _dialing = [_receiverNumber] spawn _fnc_rotaryDialNumber;
+    } else {
+        _dialing = [_receiverNumber] spawn _fnc_keypadDialNumber;
+    };
+};
+
+
+player setVariable ['_isCalling', true];
+
+{   
+    private _receiverPhoneObject = _x;
+    
+    [{
+        params ["_dialing"];
+        scriptDone _dialing
+    }, {
+        params ["_dialing", "_callerPhoneObject", "_receiverPhoneObject", "_callerNumber", "_receiverNumber"];
+
+            [player, _callerPhoneObject] call _fnc_callSetOwner; // set self to owner of current phone
+
+            // prevent calling yourself
+            // [WORKS]
+            if (_callerPhoneObject isEqualTo _receiverPhoneObject) exitWith {
+                hint "cant call yourself, dumbass";
+
+                [_callerPhoneObject, "busy"] call _fnc_callSetStatus;
+
+                [_callerPhoneObject] call _fnc_soundBusy;
+
+                systemChat "callStart - busy";
+            };
+
+            systemChat format ["callStart - saveInfo %1 %2", _callerPhoneObject, _receiverPhoneObject];
+
+            [
+                _callerPhoneObject, _receiverPhoneObject,
+                player, objNull
+            ] call _fnc_callSaveInfo;
+
+
+            // go to calling, if receiver can receive
+            if ([_receiverPhoneObject, "idle"] call _fnc_callGetStatus) then {
+                // self assign status
+                [_callerPhoneObject, "waiting"] call _fnc_callSetStatus;
+
+                // let server handle receiver status
+                [_receiverPhoneObject] remoteExec ["_fnc_callRinging", 2];
+
+                [_callerPhoneObject] call _fnc_callWaiting;
+
+                [{
+                        params ["_callerPhoneObject", "_receiverPhoneObject", "_callerNumber", "_receiverNumber"];
+                        ([_receiverPhoneObject, "calling"] call _fnc_callGetStatus)
+                }, {
+
+                        params ["_callerPhoneObject", "_receiverPhoneObject", "_callerNumber", "_receiverNumber"];
+                        systemChat format ["callStart - waiting %1 from %2", _receiverNumber, _callerNumber];
+                        private _storedData = [_callerPhoneObject] call _fnc_callGetInfo;
+
+                        _storedData params [
+                            ["_phone1", objNull],
+                            ["_phone2", _callerPhoneObject],
+                            ["_number1", "undefined"],
+                            ["_number2", "undefined"],
+                            ["_player1", objNull],
+                            ["_player2", player]
+                        ];
+                        systemChat format ["callStart - waiting %1 from %2", _number2, _number1];
+
+                        // activate tfar stuff
+                        [_callerPhoneObject, _callerNumber + _receiverNumber] call _fnc_callPluginActivate;
+                }, [_callerPhoneObject, _receiverPhoneObject, _callerNumber, _receiverNumber]] call CBA_fnc_waitUntilAndExecute;
+
+            } else {
+                [_callerPhoneObject, "busy"] call _fnc_callSetStatus;
+                // todo check if this fix helps busy beep when calling busy lines - should beep now
+                [_callerPhoneObject] call _fnc_soundBusy;
+
+                systemChat "callStart - busy";
+            };
+
+    }, [_dialing, _callerPhoneObject, _receiverPhoneObject, _callerNumber, _receiverNumber]] call CBA_fnc_waitUntilAndExecute;
+
+
+} forEach _receiverPhoneObjects;

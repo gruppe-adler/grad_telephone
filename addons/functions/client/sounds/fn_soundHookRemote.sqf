@@ -1,0 +1,1 @@
+["_hookRemote"] call BIS_fnc_playSound;

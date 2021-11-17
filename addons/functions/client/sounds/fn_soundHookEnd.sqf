@@ -1,0 +1,1 @@
+["_hookEnd"] call BIS_fnc_playSound;

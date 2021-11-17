@@ -1,0 +1,13 @@
+name = "GRAD stasi";
+author = "Gruppe Adler";
+picture = "logo_grad_ca.paa";
+actionName = "Website";
+action = "https://github.com/gruppe-adler/grad_telephone/releases";
+description = "Gruppe Adler Telephone";
+logo = "logo_grad_ca.paa";
+logoOver = "logo_grad_ca.paa";
+tooltip = "Gruppe Adler Telephone";
+overview = "GRAD Telephone allows for landline phones to work.";
+overviewPicture = "Adler.paa";
+overviewText = "";
+overviewFootnote = "";
