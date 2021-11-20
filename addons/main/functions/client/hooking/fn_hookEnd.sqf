@@ -20,5 +20,5 @@ systemChat "hanging up from hooking";
 
 [] call grad_telephone_fnc_soundHookEnd;
 
-player setVariable ['_hooking', false];
-player setVariable ['_hookingCache', []];
+player setVariable ['grad_telephone_hooking', false];
+player setVariable ['grad_telephone_hookingCache', []];

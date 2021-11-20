@@ -42,7 +42,7 @@ switch (_state) do {
 
 		// debug whats happening
 		systemChat "hanging up from waiting";
-		player setVariable ['_isCalling', false];
+		player setVariable ['grad_telephone_isCalling', false];
 	};
 
 
@@ -54,7 +54,7 @@ switch (_state) do {
 
 		// debug whats happening
 		systemChat "hanging up from busy";
-		player setVariable ['_isCalling', false];
+		player setVariable ['grad_telephone_isCalling', false];
 	};
 
 
@@ -76,11 +76,11 @@ switch (_state) do {
 
 		// if other side was called and other still exists
 		if (!isNull _player2 && _isCaller) then {
-			[_phone2, "remoteEnd"] remoteExec ["_fnc_callEnd", _player2];
+			[_phone2, "remoteEnd"] remoteExec ["grad_telephone_fnc_callEnd", _player2];
 		};
 		// if this side was called and other still exists
 		if (!isNull _player1 && !_isCaller) then {
-			[_phone1, "remoteEnd"] remoteExec ["_fnc_callEnd", _player1];
+			[_phone1, "remoteEnd"] remoteExec ["grad_telephone_fnc_callEnd", _player1];
 		};
 
 		// play sound
@@ -94,7 +94,7 @@ switch (_state) do {
 
 		// debug whats happening
 		systemChat "hanging up from calling";
-		player setVariable ['_isCalling', false];
+		player setVariable ['grad_telephone_isCalling', false];
 	};
 
 
@@ -113,7 +113,7 @@ switch (_state) do {
 
 		// debug whats happening
 		systemChat "other side hung up";
-		player setVariable ['_isCalling', false];
+		player setVariable ['grad_telephone_isCalling', false];
 	};
 
 
@@ -126,7 +126,7 @@ switch (_state) do {
 
 		// debug whats happening
 		systemChat "hanging up from ending";
-		player setVariable ['_isCalling', false];
+		player setVariable ['grad_telephone_isCalling', false];
 	};
 
 

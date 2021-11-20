@@ -96,7 +96,7 @@ class cfgFunctions {
 
            class addPhone;
            class distributePhones;
-           class initServer { preInit = 1; };
+           class initServer { postInit = 1; };
         };
 
         class server_number {

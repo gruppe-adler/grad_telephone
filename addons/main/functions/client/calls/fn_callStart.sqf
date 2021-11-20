@@ -22,7 +22,7 @@ if (_callerPhoneObject getVariable ['grad_telephone_skipDialing', false]) then {
 };
 
 
-player setVariable ['_isCalling', true];
+player setVariable ['grad_telephone_isCalling', true];
 
 {
     private _receiverPhoneObject = _x;

@@ -14,3 +14,4 @@ releases/*
 *.biprivatekey
 keys/*
 .hemtt/local
+keys/grad_telephone_0.1.0.0.bikey
