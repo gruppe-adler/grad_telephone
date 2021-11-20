@@ -1,7 +1,7 @@
 class cfgFunctions {
 
     class grad_telephone {
-
+        tag = "grad_telephone";
         class client_actions {
             file = "x\grad_telephone\addons\functions\client\actions";
 
