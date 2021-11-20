@@ -10,8 +10,6 @@
 * generates random phone number but not one from the given array
 *
 */
-#include "..\..\..\config.hpp"
-
 params ["_phoneList"];
 
 
