@@ -14,7 +14,7 @@ class CfgPatches {
 
 #include "cfgFunctions.hpp"
 #include "cfgSounds.hpp"
-#include "\dialogs\rscDefines.hpp"
-#include "\dialogs\rscKeypad.hpp"
-#include "\dialogs\rscRotary.hpp"
-#include "\dialogs\rscPhonebook.hpp"
+#include "dialogs\rscDefines.hpp"
+#include "dialogs\rscKeypad.hpp"
+#include "dialogs\rscRotary.hpp"
+#include "dialogs\rscPhonebook.hpp"
