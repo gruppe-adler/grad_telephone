@@ -14,7 +14,7 @@ class CfgPatches {
 
 #include "cfgFunctions.hpp"
 #include "cfgSounds.hpp"
-#include "dialogs\rscDefines.hpp"
-#include "dialogs\rscKeypad.hpp"
-#include "dialogs\rscRotary.hpp"
-#include "dialogs\rscPhonebook.hpp"
+#include "x\grad_telephone\addons\main\dialogs\rscDefines.hpp"
+#include "x\grad_telephone\addons\main\dialogs\rscKeypad.hpp"
+#include "x\grad_telephone\addons\main\dialogs\rscRotary.hpp"
+#include "x\grad_telephone\addons\main\dialogs\rscPhonebook.hpp"

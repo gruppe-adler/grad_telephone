@@ -1,8 +1,11 @@
 // todo: prefilter for static objects
 private _allPhones = [];
 {
-    private _phoneBooths = ([worldSize/2, worldSize/2] nearObjects [_x, worldsize/2]);
-    _allPhones pushBackUnique _x;
+    private _classname = _x;
+    private _phonesDetected = ([worldSize/2, worldSize/2] nearObjects [_classname, worldsize/2]);
+    {
+        _allPhones pushBackUnique _x; 
+    } forEach _phonesDetected;
 } forEach GRAD_TELEPHONE_CLASSNAMES_PHONE;
 
 
