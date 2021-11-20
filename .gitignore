@@ -10,3 +10,7 @@ releases/0.1.0.0/@grad_telephone/README.md
 keys/grad_telephone_0.1.0.0.bikey
 keys/grad_telephone_0.1.0.0.bikey
 *.bikey
+releases/*
+*.biprivatekey
+keys/*
+.hemtt/local
