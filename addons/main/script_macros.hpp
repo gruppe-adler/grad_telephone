@@ -1,4 +1,4 @@
-#include "\z\ace\addons\main\script_macros.hpp"
+#include "ace_macros.hpp"
 
 #define KPATCH(PVAR) DOUBLES(PREFIX,PVAR)
 #define QKPATCH(PVAR) QUOTE(KPATCH(PVAR))
