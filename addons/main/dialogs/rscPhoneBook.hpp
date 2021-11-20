@@ -1,5 +1,3 @@
-#include "rscDefines.hpp"
-
 class grad_telephone_rscPhoneBook {
     idd = -1;
     fadein = 0.25;
