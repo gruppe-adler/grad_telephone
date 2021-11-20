@@ -1,5 +1,3 @@
-#include "..\..\..\config.hpp"
-
 if (!isServer) exitWith {};
 
 #define GRAD_TELEPHONE_DEBUG_MODE true
