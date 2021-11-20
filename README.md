@@ -1,5 +1,7 @@
 Telephone Functionality in Arma (heavy WIP)
 
+![](logo_telephone_adler.png)
+
 * requires TFAR + CBA
 * will support vanilla phone booths + GM phone booths
 * will support rotary and digit number phones
