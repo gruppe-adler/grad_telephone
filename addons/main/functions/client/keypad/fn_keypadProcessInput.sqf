@@ -3,7 +3,7 @@ params ["_selectedNumber"];
 if (!dialog) exitWith {};
 
 private _dialog = uiNamespace getVariable ['grad_telephone_rscKeypad',controlNull];
-private _name = format ["grad_telephone\addons\data\keypad_%1.paa", _selectedNumber];
+private _name = format ["x\grad_telephone\addons\main\data\keypad_%1.paa", _selectedNumber];
 
 private _ctrl = _dialog displayCtrl 5000;
 _ctrl ctrlSetText _name;
