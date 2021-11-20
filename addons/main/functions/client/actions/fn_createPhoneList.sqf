@@ -2,7 +2,7 @@ params ["_object"];
 
 player setVariable ["grad_telephone_objCaller", _object];
 
-createDialog "_rscPhoneBook";
+createDialog "grad_telephone_rscPhoneBook";
 waitUntil {dialog};
 
 private _dialog = uiNamespace getVariable ['grad_telephone_rscPhoneBook',controlNull];

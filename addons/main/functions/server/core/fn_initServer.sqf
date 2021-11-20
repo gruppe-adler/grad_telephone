@@ -29,7 +29,7 @@ GRAD_TELEPHONE_PHONENUMBERS_HASH = [] call CBA_fnc_hashCreate;
 
 {
       if (_x getVariable ["GRAD_nvacommand_isCommander", false]) then {
-            [_x, "1337", false, "none"] call grad_telephone_fnc_addPhone;
+            [_x, false, "1337", "none"] call grad_telephone_fnc_addPhone;
       };
     } forEach allPlayers;
 }, [], 10] call CBA_fnc_waitAndExecute;

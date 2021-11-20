@@ -16,5 +16,5 @@ private _allPhones = [];
     diag_log format ["GRAD-LANDLINE: type detected is %1", _type];
     private _isRotary = if (_type == "land_gm_euro_misc_feh_62_e") then { true } else { false };
 
-	[_x, "none", _isRotary, "all", true] call grad_telephone_fnc_addPhone;
+	[_x, _isRotary, "none", "all", true] call grad_telephone_fnc_addPhone;
 } forEach _allPhones;

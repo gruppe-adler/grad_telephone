@@ -13,7 +13,7 @@
 */
 
 
-params [["_object", objNull], ["_number", "none"], ["_isRotary", false], ["_canOnlyCallNumber", "all"], ["_hasPublicPhoneBookEntry", false], ["_position", [0,0,0]]];
+params [["_object", objNull], ["_isRotary", false], ["_number", "none"], ["_canOnlyCallNumber", "all"], ["_hasPublicPhoneBookEntry", false], ["_position", [0,0,0]]];
 
 if (!isServer) exitWith {};
 

@@ -2,7 +2,7 @@ params ["_number"];
 
 private _numberArray = [_number] call grad_telephone_fnc_extractNumberFromPrefix;
 
-createdialog "_rscRotary";
+createdialog "grad_telephone_rscRotary";
 waitUntil {dialog};
 
 sleep 1;

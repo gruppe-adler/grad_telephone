@@ -26,7 +26,7 @@
 #define _PHONEBOOK_W      GRAD_COLUMN_W*4
 #define _PHONEBOOK_H      GRAD_ROW_H*16
 
-class _RscPicture
+class grad_telephone_RscPicture
 {
  type = CT_STATIC;
  idc = -1;
@@ -41,7 +41,7 @@ class _RscPicture
  shadow = 0;
 };
 
-class _RscButton
+class grad_telephone_RscButton
 {
   type = CT_BUTTON;
   text = "";
@@ -73,7 +73,7 @@ class _RscButton
   period = 0;
 };
 
-class _RscStructuredText {
+class grad_telephone__RscStructuredText {
     idc = -1;
     access = 0;
     type = CT_STRUCTURED_TEXT;
@@ -96,7 +96,7 @@ class _RscStructuredText {
 };
 
 
-class _RscListBox
+class grad_telephone_RscListBox
 { 
   idc = -1;
   type = CT_LISTBOX;
@@ -145,7 +145,7 @@ class _RscListBox
 };
 
 
-class _RscMapControl
+class grad_telephone_RscMapControl
 {
   idc = -1;
   type = CT_MAP_MAIN;
