@@ -106,7 +106,7 @@ if (_isVehicle) then {
             {
                 params ["_target", "_caller", "_actionId", "_arguments"];
 
-                    hint format ["%1", _target getVariable ['grad_telephone_NUMBER_ASSIGNED',"no Number"]];
+                hint format ["%1", _target getVariable ['GRAD_TELEPHONE_NUMBER_ASSIGNED', 'no Number']];
             },
             [],1.5,true,true,"",
             "_this distance _target < 2 && !(_target getVariable ['grad_telephone_skipDialing', false])"

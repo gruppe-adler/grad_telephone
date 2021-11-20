@@ -8,8 +8,8 @@ class grad_telephone_rscKeypad {
     enableSimulation = 1;
     enableDisplay = 1;
 
-    onLoad = "uiNamespace setVariable ['_rscKeypad', _this select 0];";
-    onUnload = "uiNamespace setVariable ['_rscKeypad', controlNull];";
+    onLoad = "uiNamespace setVariable ['grad_telephone_rscKeypad', _this select 0];";
+    onUnload = "uiNamespace setVariable ['grad_telephone_rscKeypad', controlNull];";
 
     class ControlsBackground { };
     
@@ -19,9 +19,9 @@ class grad_telephone_rscKeypad {
         class keypad_back: grad_telephone_RscPicture
             {
                idc = 4000;
-               text = "grad_telephone\addons\data\keypad_init.paa";
-               x = _100W/2 - 0.5;
-               y = _100H/2 - 0.5;
+               text = "x\grad_telephone\addons\main\data\keypad_init.paa";
+               x = GRAD_TELEPHONE_100W/2 - 0.5;
+               y = GRAD_TELEPHONE_100H/2 - 0.5;
                w = 1;
                h = 1;
              };
@@ -29,9 +29,9 @@ class grad_telephone_rscKeypad {
         class keypad_front: grad_telephone_RscPicture
             {
                idc = 5000;
-               text = "grad_telephone\addons\data\keypad_1.paa";
-               x = _100W/2 - 0.5;
-               y = _100H/2 - 0.5;
+               text = "x\grad_telephone\addons\main\data\keypad_1.paa";
+               x = GRAD_TELEPHONE_100W/2 - 0.5;
+               y = GRAD_TELEPHONE_100H/2 - 0.5;
                w = 1;
                h = 1;
                show = 0;

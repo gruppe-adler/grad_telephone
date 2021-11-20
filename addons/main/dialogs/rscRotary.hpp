@@ -19,9 +19,9 @@ class grad_telephone_rscRotary {
         class rotary_back: grad_telephone_RscPicture
             {
                idc = 4000;
-               text = "grad_telephone\addons\data\rotary_back.paa";
-               x = _100W/2 - 0.5;
-               y = _100H/2 - 0.5;
+               text = "x\grad_telephone\addons\main\data\rotary_back.paa";
+               x = GRAD_TELEPHONE_100W/2 - 0.5;
+               y = GRAD_TELEPHONE_100H/2 - 0.5;
                w = 1;
                h = 1;
              };
@@ -29,9 +29,9 @@ class grad_telephone_rscRotary {
         class rotary_front: grad_telephone_RscPicture
             {
                idc = 5000;
-               text = "grad_telephone\addons\data\rotary_front.paa";
-               x = _100W/2 - 0.5;
-               y = _100H/2 - 0.5;
+               text = "x\grad_telephone\addons\main\data\rotary_front.paa";
+               x = GRAD_TELEPHONE_100W/2 - 0.5;
+               y = GRAD_TELEPHONE_100H/2 - 0.5;
                w = 1;
                h = 1;
              };
@@ -39,9 +39,9 @@ class grad_telephone_rscRotary {
         class rotary_ping: grad_telephone_RscPicture
             {
                idc = -1;
-               text = "grad_telephone\addons\data\rotary_ping.paa";
-               x = _100W/2 - 0.5;
-               y = _100H/2 - 0.5;
+               text = "x\grad_telephone\addons\main\data\rotary_ping.paa";
+               x = GRAD_TELEPHONE_100W/2 - 0.5;
+               y = GRAD_TELEPHONE_100H/2 - 0.5;
                w = 1;
                h = 1;
              };

@@ -14,17 +14,17 @@
 #define CT_STRUCTURED_TEXT          13
 #define ST_LEFT                     0x00
 
-#define _100H             safeZoneH
-#define _100W             safeZoneX + safeZoneW
+#define GRAD_TELEPHONE_100H             safeZoneH
+#define GRAD_TELEPHONE_100W             safeZoneX + safeZoneW
 #define GRAD_COLUMN_COUNT              10
-#define GRAD_COLUMN_W                  _100W/GRAD_COLUMN_COUNT
+#define GRAD_COLUMN_W                  GRAD_TELEPHONE_100W/GRAD_COLUMN_COUNT
 #define GRAD_ROW_COUNT                 20
-#define GRAD_ROW_H                     (safeZoneY + _100H)/GRAD_ROW_COUNT
+#define GRAD_ROW_H                     (safeZoneY + GRAD_TELEPHONE_100H)/GRAD_ROW_COUNT
 
-#define _PHONEBOOK_X      GRAD_COLUMN_W // single column padding
-#define _PHONEBOOK_Y      GRAD_ROW_H*2 + safeZoneY
-#define _PHONEBOOK_W      GRAD_COLUMN_W*4
-#define _PHONEBOOK_H      GRAD_ROW_H*16
+#define GRAD_TELEPHONE_PHONEBOOK_X      GRAD_COLUMN_W // single column padding
+#define GRAD_TELEPHONE_PHONEBOOK_Y      GRAD_ROW_H*2 + safeZoneY
+#define GRAD_TELEPHONE_PHONEBOOK_W      GRAD_COLUMN_W*4
+#define GRAD_TELEPHONE_PHONEBOOK_H      GRAD_ROW_H*16
 
 class grad_telephone_RscPicture
 {
@@ -73,7 +73,7 @@ class grad_telephone_RscButton
   period = 0;
 };
 
-class grad_telephone__RscStructuredText {
+class grad_telephone_RscStructuredText {
     idc = -1;
     access = 0;
     type = CT_STRUCTURED_TEXT;
