@@ -17,4 +17,4 @@ class CfgPatches {
 #include "rscDefines.hpp"
 #include "rscKeypad.hpp"
 #include "rscRotary.hpp"
-#include "rscPhonebook.hpp"
+#include "rscPhoneBook.hpp"
