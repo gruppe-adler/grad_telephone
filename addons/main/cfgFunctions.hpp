@@ -3,7 +3,7 @@ class cfgFunctions {
     class grad_telephone {
         tag = "grad_telephone";
         class client_actions {
-            file = "x\grad_telephone\addons\mains\functions\client\actions";
+            file = "x\grad_telephone\addons\main\functions\client\actions";
 
             class addAction;
             class addSelfAction;
@@ -19,14 +19,14 @@ class cfgFunctions {
         };
 
          class client_keypad {
-            file = "x\grad_telephone\addons\mains\functions\client\keypad";
+            file = "x\grad_telephone\addons\main\functions\client\keypad";
 
             class keypadDialNumber;
             class keypadProcessInput;
         };
 
         class client_rotary {
-            file = "x\grad_telephone\addons\mains\functions\client\rotary";
+            file = "x\grad_telephone\addons\main\functions\client\rotary";
 
             class rotaryDialNumber;
             class rotaryProcessInput;
@@ -34,7 +34,7 @@ class cfgFunctions {
         };
 
         class client_calls {
-            file = "x\grad_telephone\addons\mains\functions\client\calls";
+            file = "x\grad_telephone\addons\main\functions\client\calls";
 
             class callAccept;
             class callDeleteInfo;
@@ -53,7 +53,7 @@ class cfgFunctions {
         };
 
         class client_hooking {
-            file = "x\grad_telephone\addons\mains\functions\client\hooking";
+            file = "x\grad_telephone\addons\main\functions\client\hooking";
 
             class hookEnd;
             class hookStart;
@@ -62,7 +62,7 @@ class cfgFunctions {
 
 
         class client_sounds {
-            file = "x\grad_telephone\addons\mains\functions\client\sounds";
+            file = "x\grad_telephone\addons\main\functions\client\sounds";
 
             class soundBusy;
             class soundHookEnd;
@@ -75,7 +75,7 @@ class cfgFunctions {
         };
 
         class client_far {
-            file = "x\grad_telephone\addons\mains\functions\client\tfar";
+            file = "x\grad_telephone\addons\main\functions\client\tfar";
 
           class setTFARfakeRadio;
         };
@@ -84,7 +84,7 @@ class cfgFunctions {
 
 
         class server_calls {
-           file = "x\grad_telephone\addons\mains\functions\server\calls";
+           file = "x\grad_telephone\addons\main\functions\server\calls";
 
            class callRegister;
            class callRinging;
@@ -92,7 +92,7 @@ class cfgFunctions {
         };
 
         class server_core {
-           file = "x\grad_telephone\addons\mains\functions\server\core";
+           file = "x\grad_telephone\addons\main\functions\server\core";
 
            class addPhone;
            class distributePhones;
@@ -100,7 +100,7 @@ class cfgFunctions {
         };
 
         class server_number {
-           file = "x\grad_telephone\addons\mains\functions\server\number";
+           file = "x\grad_telephone\addons\main\functions\server\number";
 
            class assignNumber;
            class extractNumberFromPrefix;
