@@ -18,7 +18,7 @@ private _result = [];
 // check if generated number already exists
 while {true} do {
 
-	private _phonePrefixCurrent = toArray (selectRandom GRAD_TELEPHONE_NUMBER_PREFIXES); // quick and easy conversion from string to array, accepts characters if need be
+	private _phonePrefixCurrent = ((selectRandom GRAD_TELEPHONE_NUMBER_PREFIXES) splitString ""); // quick and easy conversion from string to array, accepts characters if need be
 	private _phoneBaseNumber = [GRAD_TELEPHONE_NUMBER_LENGTH select 0, GRAD_TELEPHONE_NUMBER_LENGTH select 1] call grad_telephone_fnc_generateBaseNumber;
 
 	_result = _phonePrefixCurrent + _phoneBaseNumber;
