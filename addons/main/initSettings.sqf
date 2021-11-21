@@ -47,40 +47,46 @@
     "GRAD_telephone_setting_classnames_rotary_phones",
     "EDITBOX",
     ["Rotary Phones","comma separated classnames without quotation marks."],
-    true, 1, {}, true
+    ["GRAD Telephone", "Phones"],
+    "", 1, {}, true
 ] call CBA_fnc_addSetting;
 
 [
     "GRAD_telephone_setting_classnames_digits_phones",
     "EDITBOX",
     ["Digit Phones","comma separated classnames without quotation marks."],
-    true, 1, {}, true
+    ["GRAD Telephone", "Phones"],
+    "", 1, {}, true
 ] call CBA_fnc_addSetting;
 
 [
     "GRAD_telephone_setting_classnames_rotary_phonebooths",
     "EDITBOX",
     ["Rotary Phonebooths","comma separated classnames without quotation marks."],
-    true, 1, {}, true
+    ["GRAD Telephone", "Phonebooths"],
+    "", 1, {}, true
 ] call CBA_fnc_addSetting;
 
 [
     "GRAD_telephone_setting_classnames_digits_phonebooths",
     "EDITBOX",
     ["Digit Phonebooths","comma separated classnames without quotation marks."],
-    true, 1, {}, true
+    ["GRAD Telephone", "Phonebooths"],
+    "", 1, {}, true
 ] call CBA_fnc_addSetting;
 
 [
     "GRAD_telephone_setting_areacodes",
     "EDITBOX",
     ["Area Codes","Phone number prefixes of any generated number. Comma separated numbers. Default: [030,040]."],
-    true, 1, {}, true
+    ["GRAD Telephone", "Area Codes"],
+    "", 1, {}, true
 ] call CBA_fnc_addSetting;
 
 [
     "GRAD_telephone_setting_numberlength",
     "EDITBOX",
     ["Phone Number Length","Array of phone number length [MIN,MAX]. Default: [7,8]."],
-    true, 1, {}, true
+    ["GRAD Telephone", "Number Length"],
+    "", 1, {}, true
 ] call CBA_fnc_addSetting;
