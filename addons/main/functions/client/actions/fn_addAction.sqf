@@ -15,6 +15,7 @@ params ["_object"];
 
 if (isNull _object) exitWith { diag_log format [": cant add action to deleted object %1", _object]; };
 
+private _unit = player;
 private _isVehicle = _object isKindOf "LandVehicle";
 
 if (_isVehicle) then {
