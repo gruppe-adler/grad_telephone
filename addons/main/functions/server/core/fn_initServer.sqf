@@ -19,7 +19,9 @@ private _numberLength = if (count _numberLengthSetting > 0) then {
   };
 missionNamespace setVariable ["GRAD_TELEPHONE_NUMBER_LENGTH", _numberLength, true];
 
-
+private _classnamePhones = 
+("GRAD_telephone_setting_classnames_digits_phones" call CBA_settings_fnc_get) + 
+("GRAD_telephone_setting_classnames_rotary_phones" call CBA_settings_fnc_get);
 missionNamespace setVariable ["GRAD_TELEPHONE_CLASSNAMES_PHONE",
       ([
             "Land_IPPhone_01_black_F",
@@ -30,11 +32,12 @@ missionNamespace setVariable ["GRAD_TELEPHONE_CLASSNAMES_PHONE",
             "Item_SatPhone",
             "SatPhone"
       ] +
-      GRAD_telephone_setting_classnames_digits_phones +
-      GRAD_telephone_setting_classnames_rotary_phones),
+      _classnamePhones),
 true];
 
-
+private _classnamePhoneBooths = 
+("GRAD_telephone_setting_classnames_digits_phonebooths" call CBA_settings_fnc_get) + 
+("GRAD_telephone_setting_classnames_rotary_phonebooths" call CBA_settings_fnc_get);
 missionNamespace setVariable ["GRAD_TELEPHONE_CLASSNAMES_PHONEBOOTHS",
       ([
             "land_gm_euro_misc_feh_62_e",
@@ -45,8 +48,7 @@ missionNamespace setVariable ["GRAD_TELEPHONE_CLASSNAMES_PHONEBOOTHS",
             "Land_PhoneBooth_02_F",
             "Land_PhoneBooth_01_F"
       ] +
-      GRAD_telephone_setting_classnames_digits_phonebooths +
-      GRAD_telephone_setting_classnames_rotary_phonebooths),
+      _classnamePhoneBooths),
 true];
 
 
