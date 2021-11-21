@@ -3,17 +3,17 @@ if (!isServer) exitWith {};
 private _debugMode = missionNamespace getVariable ["GRAD_TELEPHONE_DEBUG_MODE", false];
 missionNamespace setVariable ["GRAD_TELEPHONE_DEBUG_MODE", _debugMode, true];
 
-
-private _prefixes = if (count GRAD_telephone_setting_areacodes > 0) then {
-    [compile GRAD_telephone_setting_areacodes]
+private _areaCodes = "GRAD_telephone_setting_areacodes" call CBA_settings_fnc_get;
+private _prefixes = if (count _areaCodes > 0) then {
+    [compile _areaCodes]
   } else {
       [030,040]
   };
 missionNamespace setVariable ["GRAD_TELEPHONE_NUMBER_PREFIXES", _prefixes, true];
 
-
-private _numberLength = if (count GRAD_telephone_setting_numberlength > 0) then {
-    compile GRAD_telephone_setting_numberlength
+private _numberLengthSetting = "GRAD_telephone_setting_numberlength" call CBA_settings_fnc_get;
+private _numberLength = if (count _numberLengthSetting > 0) then {
+    compile _numberLengthSetting
   } else {
       [7,8]
   };
