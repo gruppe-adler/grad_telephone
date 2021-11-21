@@ -33,9 +33,9 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
       ] call ace_interact_menu_fnc_createAction;
 
       if (!_selfAction) then {
-          [_object, 0, ["ACE_MainActions"], _action, false] call ace_interact_menu_fnc_addActionToObject;
+          [_object, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
       } else {
-          [_unit, 1, ["ACE_SelfActions"], _action, false] call ace_interact_menu_fnc_addActionToObject;
+          [_unit, 1, ["ACE_SelfActions"], _action] call ace_interact_menu_fnc_addActionToObject;
       };
 
 } else {
