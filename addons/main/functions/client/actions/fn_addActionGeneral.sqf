@@ -21,15 +21,16 @@ if (GRAD_TELEPHONE_DEBUG_MODE) then {
 if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
 
       // ACE INTERACTION
-      private _selfAction = !isNull _unit;
+      private _selfAction = _unit isEqualTo _object;
 
       private _action = [
           _stringID,
           ("<t color='" + _color + "'>" + (_displayName) + "</t>"),
           _icon,
-          { [_player, _target] call compile _functionToCall; },
+          { _actionParams params ["_functionToCall", "_condition"];
+            [_player, _target] call compile _functionToCall; },
           { [_player, _target] call compile _condition; },
-          nil, nil, nil, _distance
+          nil, [_functionToCall, _condition], nil, _distance
       ] call ace_interact_menu_fnc_createAction;
 
       if (!_selfAction) then {
