@@ -35,7 +35,7 @@
 
 [
     "GRAD_telephone_setting_debugMode",
-    ["GRAD Telephone", "CHECKBOX"],
+    "CHECKBOX",
     ["Debug Mode", "Debug Mode (Systemchat) enabled"],
     ["GRAD Telephone", "Debug Mode"],
     true, 1, {
@@ -43,46 +43,44 @@
     }, true
 ] call CBA_fnc_addSetting;
 
-["Test_Setting_1", "CHECKBOX", ["-test checkbox-", "-tooltip-"], "My Category", true] call CBA_fnc_addSetting;
-
 [
     "GRAD_telephone_setting_classnames_rotary_phones",
-    ["GRAD Telephone", "EDITBOX"],
+    "GRAD Telephone", "EDITBOX",
     ["Rotary Phones","comma separated classnames without quotation marks."],
     true, 1, {}, true
 ] call CBA_fnc_addSetting;
 
 [
     "GRAD_telephone_setting_classnames_digits_phones",
-    ["GRAD Telephone", "EDITBOX"],
+    "GRAD Telephone", "EDITBOX",
     ["Digit Phones","comma separated classnames without quotation marks."],
     true, 1, {}, true
 ] call CBA_fnc_addSetting;
 
 [
     "GRAD_telephone_setting_classnames_rotary_phonebooths",
-    ["GRAD Telephone", "EDITBOX"],
+    "GRAD Telephone", "EDITBOX",
     ["Rotary Phonebooths","comma separated classnames without quotation marks."],
     true, 1, {}, true
 ] call CBA_fnc_addSetting;
 
 [
     "GRAD_telephone_setting_classnames_digits_phonebooths",
-    ["GRAD Telephone", "EDITBOX"],
+    "GRAD Telephone", "EDITBOX",
     ["Digit Phonebooths","comma separated classnames without quotation marks."],
     true, 1, {}, true
 ] call CBA_fnc_addSetting;
 
 [
     "GRAD_telephone_setting_areacodes",
-    ["GRAD Telephone", "EDITBOX"],
+    "GRAD Telephone", "EDITBOX",
     ["Area Codes","Phone number prefixes of any generated number. Comma separated numbers. Default: [030,040]."],
     true, 1, {}, true
 ] call CBA_fnc_addSetting;
 
 [
     "GRAD_telephone_setting_numberlength",
-    ["GRAD Telephone", "EDITBOX"],
+    "GRAD Telephone", "EDITBOX",
     ["Phone Number Length","Array of phone number length [MIN,MAX]. Default: [7,8]."],
     true, 1, {}, true
 ] call CBA_fnc_addSetting;
