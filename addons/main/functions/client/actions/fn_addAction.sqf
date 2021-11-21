@@ -88,8 +88,8 @@ if (_isVehicle) then {
           "x\grad_telephone\addons\main\data\ico_phone.paa",
           "grad_telephone_action_showNumber",
           localize "STR_grad_telephone_showNumber", "#FF1111",
-          { hint format ['%1', _target getVariable ['GRAD_TELEPHONE_NUMBER_ASSIGNED', 'no Number']]; },
-          { _this distance _target < 2 && !(_target getVariable ['grad_telephone_skipDialing', false]) }
+          { params ["_unit", "_object"]; hint format ['%1', _object getVariable ['GRAD_TELEPHONE_NUMBER_ASSIGNED', 'no Number']]; },
+          { params ["_unit", "_object"]; _unit distance _object < 2 && !(_object getVariable ['grad_telephone_skipDialing', false]) }
         ] call GRAD_telephone_fnc_addActionGeneral;
 
 };

@@ -25,7 +25,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
 
       private _action = [
           _stringID,
-          ("<t color='" + _color + "'>" + (_displayName) + "</t>"),
+          ("<t color=" + _color + ">" + (_displayName) + "</t>"),
           _icon,
           { 
             params ["_target", "_player", "_params"];
@@ -37,7 +37,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
             _params params ["_functionToCall", "_condition"]; 
             ([_player, _target] call _condition)
           },
-          nil, [_functionToCall, _condition], nil, _distance
+          {}, [_functionToCall, _condition], nil, _distance
       ] call ace_interact_menu_fnc_createAction;
 
       if (!_selfAction) then {
