@@ -7,7 +7,7 @@ private _encryptionKey = ""; // must be nothing
 private _hintText = format[
 							localize "STR_grad_telephone_callEnded",
 							format ["%1<img size='1.5' image='%2'/>",
-									"Festnetz",
+									localize "STR_grad_telephone_landline",
 									""
 									],
 							1,

@@ -53,5 +53,9 @@
             <English>Ending call (because too far away from phone).</English>
             <German>Anruf beendet (zu weit weg vom Telefon).</German>
         </Key>
+         <Key ID="STR_grad_telephone_landline">
+            <English>Landline Call</English>
+            <German>Festnetz-Anruf</German>
+        </Key>
     </Package>
 </Project>

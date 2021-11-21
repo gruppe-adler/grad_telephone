@@ -9,7 +9,7 @@ private _encryptionKey = ""; // must be nothing
 private _hintText = format[
 							localize "STR_grad_telephone_callRunning",
 							format ["%1<img size='1.5' image='%2'/>",
-									"Festnetz",
+									localize "STR_grad_telephone_landline",
 									""
 									],
 							1,
@@ -51,3 +51,5 @@ diag_log format [
     "GRAD TELEPHONE-debug: TF_lr_active_radio is nil: %1, TFAR_OverrideActiveLRRadio is nil: %2",
     isNil "TF_lr_active_radio", isNil "TFAR_OverrideActiveLRRadio"
 ];
+
+[] call grad_telephone_fnc_tfarAnimation;

@@ -19,6 +19,7 @@ class cfgFunctions {
             class curatorTogglePhone;
             class onPhoneBookEntrySelect;
             class onPhoneBookMapClick;
+            class tfarAnimation;
         };
 
          class client_keypad {
