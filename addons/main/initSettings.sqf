@@ -20,6 +20,17 @@
             2,
             nil,
             _needsMissionRestart
+
+    [
+        QGVAR(enabled),
+        "CHECKBOX",
+        "Enable grad_civs",
+        _settingsGroup,
+        false,
+        true,
+        {},
+        true
+    ] call CBA_fnc_addSetting;
 */
 
 [
