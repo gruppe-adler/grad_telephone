@@ -1,5 +1,5 @@
 class Extended_PreInit_EventHandlers {
-    class My_pre_init_event {
-        init = "call compile preprocessFileLineNumbers 'XEH_preInit.sqf'";
+    class grad_telephone_preinitEh {
+        init = "call compile preprocessFileLineNumbers 'x\grad_telephone\addons\main\XEH_preInit.sqf'";
     };
 };
