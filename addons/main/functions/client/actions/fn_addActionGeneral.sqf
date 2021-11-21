@@ -13,14 +13,15 @@ params [
 if (GRAD_TELEPHONE_DEBUG_MODE) then {
   diag_log format ["
     GRAD TELEPHONE: %1 %2 %3 %4 %5 %6 %7 %8 %9
-  ", _unit, _object, _icon, _stringID, _displayName, _color, _functionToCall, _condition, _distance];
+  ", _unit, _object, _icon, _stringID, _displayName, _color, _functionToCall, _condition, _distance
+  ];
 };
 
 
 if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
 
       // ACE INTERACTION
-      private _selfAction = (_unit isEqualTo _object);
+      private _selfAction = !isNull _unit;
 
       private _action = [
           _stringID,
@@ -32,9 +33,9 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
       ] call ace_interact_menu_fnc_createAction;
 
       if (!_selfAction) then {
-          [typeOf _object, 0, ["ACE_MainActions"], _action, false] call ace_interact_menu_fnc_addActionToClass;
+          [_object, 0, ["ACE_MainActions"], _action, false] call ace_interact_menu_fnc_addActionToObject;
       } else {
-          [_object, 1, ["ACE_SelfActions"], _action, false] call ace_interact_menu_fnc_addActionToObject;
+          [_unit, 1, ["ACE_SelfActions"], _action, false] call ace_interact_menu_fnc_addActionToObject;
       };
 
 } else {

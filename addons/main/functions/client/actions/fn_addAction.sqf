@@ -13,7 +13,7 @@
 
 params ["_object"];
 
-if (isNull _object) exitWith { diag_log format [": cant add action to deleted object %1", _object]; };
+if (isNull _object) exitWith { diag_log format ["GRAD TELEPHONE: cant add action to deleted object %1", _object]; };
 
 private _unit = player;
 private _isVehicle = _object isKindOf "LandVehicle";
@@ -26,8 +26,8 @@ if (_isVehicle) then {
           "x\grad_telephone\addons\main\data\ico_phone.paa",
           "grad_telephone_action_callAccept",
           localize "STR_grad_telephone_callAccept", "#11FF11",
-          "[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_callAccept",
-          "[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_conditionAccept && driver" + (str _object) + " == " + (str _unit)
+          ("[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_callAccept"),
+          ("[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_conditionAccept && driver" + (str _object) + " == " + (str _unit))
         ] call GRAD_telephone_fnc_addActionGeneral;
 
         [
@@ -36,8 +36,8 @@ if (_isVehicle) then {
           "x\grad_telephone\addons\main\data\ico_phone.paa",
           "grad_telephone_action_callEnd",
           localize "STR_grad_telephone_callEnd", "#FF1111",
-          "[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_callEnd",
-          "[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_conditionEnd && driver" + (str _object) + " == " + (str _unit)
+          ("[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_callEnd"),
+          ("[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_conditionEnd && driver" + (str _object) + " == " + (str _unit))
         ] call GRAD_telephone_fnc_addActionGeneral;
 
 } else {
@@ -48,8 +48,8 @@ if (_isVehicle) then {
           "x\grad_telephone\addons\main\data\ico_phone.paa",
           "grad_telephone_action_callDial",
           localize "STR_grad_telephone_callDial", "#FF1111",
-          "[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_createPhoneList",
-          "[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_conditionCall"
+          ("[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_createPhoneList"),
+          ("[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_conditionCall")
         ] call GRAD_telephone_fnc_addActionGeneral;
 
         [
@@ -58,8 +58,8 @@ if (_isVehicle) then {
           "x\grad_telephone\addons\main\data\ico_phone.paa",
           "grad_telephone_action_callCIC",
           localize "STR_grad_telephone_callCIC", "#FF1111",
-          "[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_createPhoneList",
-          "[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_conditionDirectCall"
+          ("[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_createPhoneList"),
+          ("[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_conditionDirectCall")
         ] call GRAD_telephone_fnc_addActionGeneral;
 
         [
@@ -68,8 +68,8 @@ if (_isVehicle) then {
           "x\grad_telephone\addons\main\data\ico_phone.paa",
           "grad_telephone_action_callAccept",
           localize "STR_grad_telephone_callAccept", "#11FF11",
-          "[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_callAccept",
-          "[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_conditionAccept"
+          ("[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_callAccept"),
+          ("[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_conditionAccept")
         ] call GRAD_telephone_fnc_addActionGeneral;
 
         [
@@ -78,8 +78,8 @@ if (_isVehicle) then {
           "x\grad_telephone\addons\main\data\ico_phone.paa",
           "grad_telephone_action_callEnd",
           localize "STR_grad_telephone_callEnd", "#FF1111",
-          "[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_callEnd",
-          "[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_conditionEnd"
+          ("[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_callEnd"),
+          ("[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_conditionEnd")
         ] call GRAD_telephone_fnc_addActionGeneral;
 
         [
