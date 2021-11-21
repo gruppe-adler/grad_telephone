@@ -12,6 +12,7 @@ class CfgPatches {
     };
 };
 
+#include "cfgEventHandlers.hpp"
 #include "cfgFunctions.hpp"
 #include "cfgSounds.hpp"
 #include "rscDefines.hpp"
