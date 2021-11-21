@@ -108,6 +108,7 @@ class cfgFunctions {
            file = "x\grad_telephone\addons\main\functions\server\number";
 
            class assignNumber;
+           class extractNumberFromPrefix;
            class generateBaseNumber;
            class generatePhoneNumber;
         };
