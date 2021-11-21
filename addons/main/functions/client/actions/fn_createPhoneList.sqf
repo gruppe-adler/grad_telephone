@@ -21,7 +21,7 @@ private _allMarkers = [];
 
     private _hasPublicPhoneBookEntry = (_objectsArray select 0) getVariable ['grad_telephone_hasPublicPhoneBookEntry', false];
     private _position = (_objectsArray select 0) getVariable ['grad_telephone_phonePosition', [0,0,0]];
-
+    private _isPhoneBooth = (_objectsArray select 0) getVariable ['grad_telephone_isPhonebooth', false];
     if (_hasPublicPhoneBookEntry) then {
 
         private _identifier = _phoneList lbAdd _number;
@@ -31,8 +31,13 @@ private _allMarkers = [];
         _position params ["_xPos", "_yPos"];
         private _marker = createMarkerLocal [format ["mrk_Phone_%1", [_xPos,_yPos]],[_xPos,_yPos]];
         _marker setMarkerShapeLocal "ICON";
-        _marker setMarkerTypeLocal "mil_marker";
-        _marker setMarkerColorLocal "ColorYellow";
+
+        if (_isPhoneBooth) then {
+            _marker setMarkerTypeLocal "ico_phonebooth";
+        } else {
+            _marker setMarkerTypeLocal "ico_phone";
+        };
+        _marker setMarkerColorLocal "colorBlack";
         _marker setMarkerDirLocal 180;
 
         _allMarkers pushBack _marker;

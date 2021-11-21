@@ -17,23 +17,29 @@ missionNamespace setVariable ["GRAD_TELEPHONE_NUMBER_LENGTH",
 true];
 missionNamespace setVariable ["GRAD_TELEPHONE_CLASSNAMES_PHONE",
       [
-            "land_gm_euro_misc_feh_62_e",
-            "land_gm_euro_misc_telh_78_w",
             "Land_IPPhone_01_black_F",
             "Land_IPPhone_01_olive_F",
             "Land_IPPhone_01_sand_F",
             "Land_SatellitePhone_F",
-            "Land_PhoneBooth_01_lxWS",
-            "Land_PhoneBooth_02_malden_F",
-            "Land_PhoneBooth_01_malden_F",
-            "Land_PhoneBooth_02_F",
-            "Land_PhoneBooth_01_F",
             "CUP_phonebox",
             "Item_SatPhone",
             "SatPhone"
       ] +
-      GRAD_telephone_setting_classnames_digits +
-      GRAD_telephone_setting_classnames_rotary,
+      GRAD_telephone_setting_classnames_digits_phones +
+      GRAD_telephone_setting_classnames_rotary_phones,
+true];
+missionNamespace setVariable ["GRAD_TELEPHONE_CLASSNAMES_PHONEBOOTHS",
+      [
+            "land_gm_euro_misc_feh_62_e",
+            "land_gm_euro_misc_telh_78_w"
+            "Land_PhoneBooth_01_lxWS",
+            "Land_PhoneBooth_02_malden_F",
+            "Land_PhoneBooth_01_malden_F",
+            "Land_PhoneBooth_02_F",
+            "Land_PhoneBooth_01_F"
+      ] +
+      GRAD_telephone_setting_classnames_digits_phonebooths +
+      GRAD_telephone_setting_classnames_rotary_phonebooths,
 true];
 missionNamespace setVariable ["GRAD_TELEPHONE_CLASSNAMES_GMN", ["land_gm_wall_gc_borderpost_03", "land_gm_wall_gc_borderpost_04"], true];
 

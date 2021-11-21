@@ -16,7 +16,7 @@
 
 
 [
-    "GRAD_telephone_setting_classnames_rotary",
+    "GRAD_telephone_setting_classnames_rotary_phones",
     "EDITBOX",
     ["Rotary Phones","comma separated classnames without quotation marks."],
     "Objects that should become phones",
@@ -24,9 +24,25 @@
 ] call CBA_fnc_addSetting;
 
 [
-    "GRAD_telephone_setting_classnames_digits",
+    "GRAD_telephone_setting_classnames_digits_phones",
     "EDITBOX",
     ["Digit Phones","comma separated classnames without quotation marks."],
+    "Objects that should become phones",
+    false, true, {}, true
+] call CBA_fnc_addSetting;
+
+[
+    "GRAD_telephone_setting_classnames_rotary_phonebooths",
+    "EDITBOX",
+    ["Rotary Phonebooths","comma separated classnames without quotation marks."],
+    "Objects that should become phones",
+    false, true, {}, true
+] call CBA_fnc_addSetting;
+
+[
+    "GRAD_telephone_setting_classnames_digits_phonebooths",
+    "EDITBOX",
+    ["Digit Phonebooths","comma separated classnames without quotation marks."],
     "Objects that should become phones",
     false, true, {}, true
 ] call CBA_fnc_addSetting;

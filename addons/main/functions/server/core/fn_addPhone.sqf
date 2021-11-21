@@ -13,7 +13,15 @@
 */
 
 
-params [["_object", objNull], ["_isRotary", false], ["_number", "none"], ["_canOnlyCallNumber", "all"], ["_hasPublicPhoneBookEntry", false], ["_position", [0,0,0]]];
+params [
+  ["_object", objNull],
+  ["_isRotary", false],
+  ["_number", "none"],
+  ["_canOnlyCallNumber", "all"],
+  ["_hasPublicPhoneBookEntry", false],
+  ["_position", [0,0,0]],
+  ["_isPhoneBooth", false]
+];
 
 if (!isServer) exitWith {};
 
@@ -33,6 +41,8 @@ _object setVariable ["grad_telephone_isRotary", _isRotary, true];
 _object setVariable ["grad_telephone_skipDialing", _canOnlyCallNumber != "all", true];
 _object setVariable ["grad_telephone_hasPublicPhoneBookEntry", _hasPublicPhoneBookEntry, true];
 _object setVariable ["grad_telephone_phonePosition", _position, true];
+_object setVariable ["grad_telephone_isPhonebooth", _isPhoneBooth, true];
+
 
 // zeus & direct call
 if (_canOnlyCallNumber != "all") then {
