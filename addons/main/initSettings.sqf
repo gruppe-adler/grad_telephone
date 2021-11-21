@@ -17,8 +17,8 @@
     "GRAD_telephone_setting_debugMode",
     "CHECKBOX",
     ["Debug Mode", "Debug Mode (Systemchat) enabled"],
-    "",
-    false, true, {
+    "Debug Mode",
+    1, {
         GRAD_TELEPHONE_DEBUG_MODE = true; publicVariable "GRAD_TELEPHONE_DEBUG_MODE";
     }, true
 ] call CBA_fnc_addSetting;
@@ -28,7 +28,7 @@
     "EDITBOX",
     ["Rotary Phones","comma separated classnames without quotation marks."],
     "Objects that should become phones",
-    false, true, {}, true
+    1, {}, true
 ] call CBA_fnc_addSetting;
 
 [
@@ -36,7 +36,7 @@
     "EDITBOX",
     ["Digit Phones","comma separated classnames without quotation marks."],
     "Objects that should become phones",
-    false, true, {}, true
+    1, {}, true
 ] call CBA_fnc_addSetting;
 
 [
@@ -44,7 +44,7 @@
     "EDITBOX",
     ["Rotary Phonebooths","comma separated classnames without quotation marks."],
     "Objects that should become phones",
-    false, true, {}, true
+    1, {}, true
 ] call CBA_fnc_addSetting;
 
 [
@@ -52,7 +52,7 @@
     "EDITBOX",
     ["Digit Phonebooths","comma separated classnames without quotation marks."],
     "Objects that should become phones",
-    false, true, {}, true
+    1, {}, true
 ] call CBA_fnc_addSetting;
 
 [
@@ -60,7 +60,7 @@
     "EDITBOX",
     ["Area Codes","Phone number prefixes of any generated number. Comma separated numbers. Default: [030,040]."],
     "Phone Numbers",
-    false, true, {}, true
+    1, {}, true
 ] call CBA_fnc_addSetting;
 
 [
@@ -68,5 +68,5 @@
     "EDITBOX",
     ["Phone Number Length","Array of phone number length [MIN,MAX]. Default: [7,8]."],
     "Phone Numbers",
-    false, true, {}, true
+    1, {}, true
 ] call CBA_fnc_addSetting;
