@@ -14,7 +14,7 @@ params [
 if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
 
       // ACE INTERACTION
-      private _selfAction = (_unit isEqualTo _object);
+      private _selfAction = (_unit == _object);
 
       private _action = [
           _stringID,
