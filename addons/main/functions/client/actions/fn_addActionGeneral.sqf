@@ -4,7 +4,7 @@ params [
     ["_icon", ""],
     ["_stringID", "noID"],
     ["_displayName", "display Name"],
-    ["_color", "#11FF11"],
+    ["_color", "'#11FF11'"],
     ["_functionToCall", {}, [{}]],
     ["_condition", {}, [{}]],
     ["_distance", 5]
