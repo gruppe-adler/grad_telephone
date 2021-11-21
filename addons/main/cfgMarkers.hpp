@@ -4,10 +4,10 @@ class CfgMarkers
 
   class ico_phonebooth: Flag
   {
-    scope = 1; //Accessibility 1=public, 0=private
-    name = "GRAD TELEPHONE Phone Booth"; //Name used in the Editor and other UIs
-    icon = "x\grad_telephone\addons\main\data\ico_phonebooth.paa"; //Marker icon
-    texture = "x\grad_telephone\addons\main\data\ico_phonebooth.paa""; //?
+    scope = 1;
+    name = "GRAD TELEPHONE Phone Booth";
+    icon = "x\grad_telephone\addons\main\data\ico_phonebooth.paa";
+    texture = "x\grad_telephone\addons\main\data\ico_phonebooth.paa";
     color[] = {0, 0, 0, 1}; //Color used for the icon and text
     shadow = 0; //1=Shadow, 0=No shadow
     markerClass = "Locations"; //
@@ -21,7 +21,7 @@ class CfgMarkers
     scope = 1; //Accessibility 1=public, 0=private
     name = "GRAD TELEPHONE Phone"; //Name used in the Editor and other UIs
     icon = "x\grad_telephone\addons\main\data\ico_phone.paa"; //Marker icon
-    texture = "x\grad_telephone\addons\main\data\ico_phone.paa""; //?
+    texture = "x\grad_telephone\addons\main\data\ico_phone.paa"; //?
     color[] = {0, 0, 0, 1}; //Color used for the icon and text
     shadow = 0; //1=Shadow, 0=No shadow
     markerClass = "Locations"; //

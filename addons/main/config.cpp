@@ -20,3 +20,4 @@ class CfgPatches {
 #include "rscRotary.hpp"
 #include "rscPhoneBook.hpp"
 #include "cfgVehicles.hpp"
+#include "cfgMarkers.hpp"
