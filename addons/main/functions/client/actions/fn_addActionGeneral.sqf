@@ -1,13 +1,13 @@
 params [
-    ["_unit", objNull],
-    ["_object", objNull],
-    ["_icon", ""],
-    ["_stringID", "noID"],
-    ["_displayName", "display Name"],
-    ["_color", "'#11FF11'"],
+    ["_unit", objNull, [objNull]]],
+    ["_object", objNull, [objNull]]],
+    ["_icon", "", [""]]],
+    ["_stringID", "noID", [""]]],
+    ["_displayName", "display Name", [""]]],
+    ["_color", "'#11FF11'", [""]],
     ["_functionToCall", {}, [{}]],
     ["_condition", {}, [{}]],
-    ["_distance", 5]
+    ["_distance", 5, [5]]
 ];
 
 if (GRAD_TELEPHONE_DEBUG_MODE) then {
