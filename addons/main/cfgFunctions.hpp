@@ -10,9 +10,11 @@ class cfgFunctions {
             class addSelfAction;
             class cleanPhoneBookMap;
             class conditionAccept;
+            class conditionAcceptDriver;
             class conditionCall;
             class conditionDirectCall;
             class conditionEnd;
+            class conditionEndDriver;
             class createPhoneList;
             class curatorTogglePhone;
             class onPhoneBookEntrySelect;

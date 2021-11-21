@@ -27,8 +27,8 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
           _stringID,
           ("<t color='" + _color + "'>" + (_displayName) + "</t>"),
           _icon,
-          [_player, _target] call compile _functionToCall,
-          compile _condition,
+          { [_player, _target] call compile _functionToCall; },
+          { [_player, _target] call compile _condition; },
           nil, nil, nil, _distance
       ] call ace_interact_menu_fnc_createAction;
 
@@ -43,7 +43,9 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
       // VANILLA ACTION
       _object addAction [
           ("<t color='" + _color + "'>" + (_displayName) + "</t>"),
-          compile _functionToCall,
+          { params ["_target", "_caller", "_actionId", "_arguments"]; 
+            [_caller, _target] call compile _functionToCall;
+          },
           [],99,true,true,"",
           _condition
       ];

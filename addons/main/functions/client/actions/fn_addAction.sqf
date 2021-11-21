@@ -27,7 +27,7 @@ if (_isVehicle) then {
           "grad_telephone_action_callAccept",
           localize "STR_grad_telephone_callAccept", "#11FF11",
           "grad_telephone_fnc_callAccept",
-          ("[_player, _target] call grad_telephone_fnc_conditionAccept && driver _target == _player")
+          "grad_telephone_fnc_conditionAcceptDriver"
         ] call GRAD_telephone_fnc_addActionGeneral;
 
         [
@@ -37,7 +37,7 @@ if (_isVehicle) then {
           "grad_telephone_action_callEnd",
           localize "STR_grad_telephone_callEnd", "#FF1111",
           "grad_telephone_fnc_callEnd",
-          ("[_player, _target] call grad_telephone_fnc_conditionEnd && driver _target == _player")
+          "grad_telephone_fnc_conditionEndDriver"
         ] call GRAD_telephone_fnc_addActionGeneral;
 
 } else {
@@ -48,8 +48,8 @@ if (_isVehicle) then {
           "x\grad_telephone\addons\main\data\ico_phone.paa",
           "grad_telephone_action_callDial",
           localize "STR_grad_telephone_callDial", "#FF1111",
-          ("grad_telephone_fnc_createPhoneList"),
-          ("[_player, _target] call grad_telephone_fnc_conditionCall")
+          "grad_telephone_fnc_createPhoneList",
+          "grad_telephone_fnc_conditionCall"
         ] call GRAD_telephone_fnc_addActionGeneral;
 
         [
@@ -58,8 +58,8 @@ if (_isVehicle) then {
           "x\grad_telephone\addons\main\data\ico_phone.paa",
           "grad_telephone_action_callCIC",
           localize "STR_grad_telephone_callCIC", "#FF1111",
-          ("[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_createPhoneList"),
-          ("[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_conditionDirectCall")
+          "grad_telephone_fnc_createPhoneList",
+          "grad_telephone_fnc_conditionDirectCall"
         ] call GRAD_telephone_fnc_addActionGeneral;
 
         [
@@ -68,8 +68,8 @@ if (_isVehicle) then {
           "x\grad_telephone\addons\main\data\ico_phone.paa",
           "grad_telephone_action_callAccept",
           localize "STR_grad_telephone_callAccept", "#11FF11",
-          ("[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_callAccept"),
-          ("[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_conditionAccept")
+          "grad_telephone_fnc_callAccept",
+          "grad_telephone_fnc_conditionAccept"
         ] call GRAD_telephone_fnc_addActionGeneral;
 
         [
@@ -78,8 +78,8 @@ if (_isVehicle) then {
           "x\grad_telephone\addons\main\data\ico_phone.paa",
           "grad_telephone_action_callEnd",
           localize "STR_grad_telephone_callEnd", "#FF1111",
-          ("[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_callEnd"),
-          ("[" + (str _unit) + "," + (str _object) + "] call grad_telephone_fnc_conditionEnd")
+          "grad_telephone_fnc_callEnd",
+          "grad_telephone_fnc_conditionEnd"
         ] call GRAD_telephone_fnc_addActionGeneral;
 
         [
