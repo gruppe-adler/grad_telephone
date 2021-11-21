@@ -11,62 +11,73 @@
     _script      - Script to execute when setting is changed. (optional) <CODE>
     _needRestart - Setting will be marked as needing mission restart after being changed. (optional, default false) <BOOL>
 
+
+ format ["grad_minui_%1_%2", _component, configName _x],
+            _type,
+            [_title, _tooltip],
+            [MODDISPLAYNAME, _categoryName],
+            call compile _valueInfo,
+            2,
+            nil,
+            _needsMissionRestart
 */
 
 [
     "GRAD_telephone_setting_debugMode",
     "CHECKBOX",
     ["Debug Mode", "Debug Mode (Systemchat) enabled"],
-    "Debug Mode",
-    1, {
+    ["GRAD Telephone", "Debug Mode"],
+    "true", "1" {
         GRAD_TELEPHONE_DEBUG_MODE = true; publicVariable "GRAD_TELEPHONE_DEBUG_MODE";
     }, true
 ] call CBA_fnc_addSetting;
 
+["Test_Setting_1", "CHECKBOX", ["-test checkbox-", "-tooltip-"], "My Category", true] call CBA_fnc_addSetting;
+
 [
     "GRAD_telephone_setting_classnames_rotary_phones",
-    "EDITBOX",
+    ["GRAD Telephone", "EDITBOX"],
     ["Rotary Phones","comma separated classnames without quotation marks."],
     "Objects that should become phones",
-    1, {}, true
+    "true", "1" {}, true
 ] call CBA_fnc_addSetting;
 
 [
     "GRAD_telephone_setting_classnames_digits_phones",
-    "EDITBOX",
+    ["GRAD Telephone", "EDITBOX"],
     ["Digit Phones","comma separated classnames without quotation marks."],
     "Objects that should become phones",
-    1, {}, true
+    "true", "1" {}, true
 ] call CBA_fnc_addSetting;
 
 [
     "GRAD_telephone_setting_classnames_rotary_phonebooths",
-    "EDITBOX",
+    ["GRAD Telephone", "EDITBOX"],
     ["Rotary Phonebooths","comma separated classnames without quotation marks."],
     "Objects that should become phones",
-    1, {}, true
+    "true", "1" {}, true
 ] call CBA_fnc_addSetting;
 
 [
     "GRAD_telephone_setting_classnames_digits_phonebooths",
-    "EDITBOX",
+    ["GRAD Telephone", "EDITBOX"],
     ["Digit Phonebooths","comma separated classnames without quotation marks."],
     "Objects that should become phones",
-    1, {}, true
+    "true", "1" {}, true
 ] call CBA_fnc_addSetting;
 
 [
     "GRAD_telephone_setting_areacodes",
-    "EDITBOX",
+    ["GRAD Telephone", "EDITBOX"],
     ["Area Codes","Phone number prefixes of any generated number. Comma separated numbers. Default: [030,040]."],
     "Phone Numbers",
-    1, {}, true
+    "true", "1" {}, true
 ] call CBA_fnc_addSetting;
 
 [
     "GRAD_telephone_setting_numberlength",
-    "EDITBOX",
+    ["GRAD Telephone", "EDITBOX"],
     ["Phone Number Length","Array of phone number length [MIN,MAX]. Default: [7,8]."],
     "Phone Numbers",
-    1, {}, true
+    "true", "1" {}, true
 ] call CBA_fnc_addSetting;
