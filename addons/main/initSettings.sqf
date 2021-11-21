@@ -13,7 +13,15 @@
 
 */
 
-
+[
+    "GRAD_telephone_setting_debugMode",
+    "CHECKBOX",
+    ["Debug Mode", "Debug Mode (Systemchat) enabled"],
+    "",
+    false, true, {
+        GRAD_TELEPHONE_DEBUG_MODE = true; publicVariable "GRAD_TELEPHONE_DEBUG_MODE";
+    }, true
+] call CBA_fnc_addSetting;
 
 [
     "GRAD_telephone_setting_classnames_rotary_phones",

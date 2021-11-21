@@ -3,7 +3,9 @@ params ["_callerPhoneObject", "_receiverPhoneObject"];
 // if no number is assigned
 // if (count _callerNumber isEqualTo 0) exitWith { diag_log "error, no number"; };
 
-systemChat format ["hookStart - getInfo %1 %2", _callerPhoneObject, _receiverPhoneObject];
+if (GRAD_TELEPHONE_DEBUG_MODE) then {
+  systemChat format ["hookStart - getInfo %1 %2", _callerPhoneObject, _receiverPhoneObject];
+};
 
 private _storedData = [
     _callerPhoneObject
@@ -30,8 +32,9 @@ if (!isNull _player2) then {
 
 [] call grad_telephone_fnc_soundHookStart;
 
-systemChat format ["hookStart - hooking into call from %1 to %2", _number1, _number2];
-
+if (GRAD_TELEPHONE_DEBUG_MODE) then {
+  systemChat format ["hookStart - hooking into call from %1 to %2", _number1, _number2];
+};
 // activate tfar stuff
 [_phone1, _number1 + _number2] call grad_telephone_fnc_callPluginActivate;
 

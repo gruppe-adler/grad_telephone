@@ -16,5 +16,5 @@ _map ctrlMapAnimAdd [0.1, 0.05, _position];
 ctrlMapAnimCommit _map;
 
 if (count _objReceiverArray > 1) then {
-    hint "Mehrere Empfänger - hier nur ein zufälliger abgebildet";
+    hint (localize STR_grad_telephone_multipleRecipients);
 };

@@ -13,6 +13,9 @@ params ["_callerPhoneObject"];
     params ["_callerPhoneObject"];
     if (!([player, _callerPhoneObject] call grad_telephone_fnc_conditionEnd)) then {
         [_callerPhoneObject, _callerPhoneObject getVariable ['grad_telephone_phoneStatus', "idle"]] call grad_telephone_fnc_callEnd;
-        systemChat "ending call because too far away";
+
+        if (GRAD_TELEPHONE_DEBUG_MODE) then {
+          hint (localize "STR_grad_telephone_tooFarAway");
+        };
     };
 }, [_callerPhoneObject]] call CBA_fnc_waitUntilAndExecute;

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="GRAD">
+    <Package name="telephone">
+        <Key ID="STR_grad_telephone_callAccept">
+            <English>Accept Call</English>
+            <German>Anruf annehmen</German>
+        </Key>
+        <Key ID="STR_grad_telephone_callEnd">
+            <English>End Call</English>
+            <German>Anruf beenden</German>
+        </Key>
+        <Key ID="STR_grad_telephone_callDial">
+            <English>Dial Number</English>
+            <German>Nummer wählen</German>
+        </Key>
+        <Key ID="STR_grad_telephone_callCIC">
+            <English>"Call Combat Information Center"</English>
+            <German>OPZ anrufen</German>
+        </Key>
+        <Key ID="STR_grad_telephone_showNumber">
+            <English>Show Number of this Phone</English>
+            <German>Nummer dieses Telefons anzeigen</German>
+        </Key>
+        <Key ID="STR_grad_telephone_hookShow">
+            <English>Show running Calls</English>
+            <German>Laufende Anrufe anzeigen</German>
+        </Key>
+        <Key ID="STR_grad_telephone_hookEnd">
+            <English>End Wiretap</English>
+            <German>Abhören beenden</German>
+        </Key>
+        <Key ID="STR_grad_telephone_error">
+            <English>Error: Something went wrong</English>
+            <German>Fehler: Etwas ist schiefgelaufen</German>
+        </Key>
+        <Key ID="STR_grad_telephone_multipleRecipients">
+            <English>Multiple Recipients - only one random shown here</English>
+            <German>Mehrere Empfänger - hier nur ein zufälliger abgebildet</German>
+        </Key>
+        <Key ID="STR_grad_telephone_callRunning">
+            <English>Running Call</English>
+            <German>Anruf läuft</German>
+        </Key>
+        <Key ID="STR_grad_telephone_callRunning">
+            <English>Ended Call</English>
+            <German>Anruf beendet</German>
+        </Key>
+        <Key ID="STR_grad_telephone_hookStart">
+            <English>Wiretap Call</English>
+            <German>Anruf abhören</German>
+        </Key>
+        <Key ID="STR_grad_telephone_tooFarAway">
+            <English>Ending call (because too far away from phone).</English>
+            <German>Anruf beendet (zu weit weg vom Telefon).</German>
+        </Key>
+    </Package>
+</Project>

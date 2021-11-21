@@ -44,10 +44,14 @@ player setVariable ['grad_telephone_isCalling', true];
 
                 [_callerPhoneObject] call grad_telephone_fnc_soundBusy;
 
-                systemChat "callStart - busy";
+                if (GRAD_TELEPHONE_DEBUG_MODE) then {
+                  systemChat "callStart - busy";
+                };
             };
 
-            systemChat format ["callStart - saveInfo %1 %2", _callerPhoneObject, _receiverPhoneObject];
+            if (GRAD_TELEPHONE_DEBUG_MODE) then {
+              systemChat format ["callStart - saveInfo %1 %2", _callerPhoneObject, _receiverPhoneObject];
+            };
 
             [
                 _callerPhoneObject, _receiverPhoneObject,
@@ -82,7 +86,9 @@ player setVariable ['grad_telephone_isCalling', true];
                             ["_player1", objNull],
                             ["_player2", player]
                         ];
-                        systemChat format ["callStart - waiting %1 from %2", _number2, _number1];
+                        if (GRAD_TELEPHONE_DEBUG_MODE) then {
+                          systemChat format ["callStart - waiting %1 from %2", _number2, _number1];
+                        };
 
                         // activate tfar stuff
                         [_callerPhoneObject, _callerNumber + _receiverNumber] call grad_telephone_fnc_callPluginActivate;
@@ -93,7 +99,9 @@ player setVariable ['grad_telephone_isCalling', true];
                 // todo check if this fix helps busy beep when calling busy lines - should beep now
                 [_callerPhoneObject] call grad_telephone_fnc_soundBusy;
 
-                systemChat "callStart - busy";
+                if (GRAD_TELEPHONE_DEBUG_MODE) then {
+                  systemChat "callStart - busy";
+                };
             };
 
     }, [_dialing, _callerPhoneObject, _receiverPhoneObject, _callerNumber, _receiverNumber]] call CBA_fnc_waitUntilAndExecute;

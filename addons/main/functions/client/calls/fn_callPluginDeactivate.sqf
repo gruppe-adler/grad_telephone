@@ -5,7 +5,7 @@ private _encryptionKey = ""; // must be nothing
 
 
 private _hintText = format[
-							"Anruf beendet",
+							localize "STR_grad_telephone_callEnded",
 							format ["%1<img size='1.5' image='%2'/>",
 									"Festnetz",
 									""
@@ -38,6 +38,6 @@ player call TFAR_fnc_releaseAllTangents; // "task_force_radio_pipe" callExtensio
 systemChat format ["GRAD TELEPHONE-debug: linenumber: %1, encryption: %2", _lineNumber, _encryptionKey];
 diag_log format ["GRAD TELEPHONE-debug: linenumber: %1, encryption: %2", _lineNumber, _encryptionKey];
 diag_log format [
-	"GRAD TELEPHONE-debug: TF_lr_active_radio is nil: %1, TFAR_OverrideActiveLRRadio is nil: %2", 
+	"GRAD TELEPHONE-debug: TF_lr_active_radio is nil: %1, TFAR_OverrideActiveLRRadio is nil: %2",
 	isNil "TF_lr_active_radio", isNil "TFAR_OverrideActiveLRRadio"
 ];

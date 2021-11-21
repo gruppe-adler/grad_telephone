@@ -6,7 +6,7 @@ params ["_object"];
 
     if (isNull _object) exitWith { [_handle] call CBA_fnc_removePerFrameHandler; };
 
-    _object say3D [(selectRandom ["_phoneRing1", "_phoneRing2"]), 50];
+    _object say3D [(selectRandom ["grad_telephone_sound_phoneRing1", "grad_telephone_sound_phoneRing2"]), 50];
     // systemChat "ring";
     diag_log format ["_object %1 is ringing", _object];
 

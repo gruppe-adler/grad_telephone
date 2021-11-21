@@ -1,6 +1,7 @@
 if (!isServer) exitWith {};
 
-missionNamespace setVariable ["GRAD_TELEPHONE_DEBUG_MODE", true, true];
+private _debugMode = missionNamespace getVariable ["GRAD_TELEPHONE_DEBUG_MODE", false];
+missionNamespace setVariable ["GRAD_TELEPHONE_DEBUG_MODE", _debugMode, true];
 missionNamespace setVariable ["GRAD_TELEPHONE_NUMBER_PREFIXES",
   if (count GRAD_telephone_setting_areacodes > 0) then {
     [compile GRAD_telephone_setting_areacodes]

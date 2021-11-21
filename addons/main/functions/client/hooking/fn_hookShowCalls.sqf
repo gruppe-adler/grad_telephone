@@ -9,7 +9,7 @@ waitUntil {dialog};
 
 private _dialog = uiNamespace getVariable ['grad_telephone_rscPhoneBook',controlNull];
 
-if (isNull _dialog) exitWith { hint "something went wrong"; };
+if (isNull _dialog) exitWith { hint (localize "STR_grad_telephone_error"); };
 
 
 
@@ -80,7 +80,7 @@ if (lbSize _listBox > 0) then {
 
 
 private _button = _dialog displayCtrl 3000;
-_button ctrlSetText "Einklinken";
+_button ctrlSetText (localize "STR_grad_telephone_hookStart");
 
 
 _button ctrlAddEventHandler ["ButtonClick", {

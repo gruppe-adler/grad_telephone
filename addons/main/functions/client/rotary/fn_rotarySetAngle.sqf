@@ -6,7 +6,7 @@ if (!dialog) exitWith {};
 
 
 private _ctrl = _dialog displayCtrl 5000;
-private _sound = "_rotary_" + (str _number) + "_up";
+private _sound = "grad_telephone_sound_rotary_" + (str _number) + "_up";
 
 if (!dialog) exitWith {};
 
@@ -25,7 +25,7 @@ _ctrl ctrlCommit _timeUp;
 
 if (!dialog) exitWith {};
 
-private _sound = "_rotary_" + (str _number) + "_down";
+private _sound = "grad_telephone_sound_rotary_" + (str _number) + "_down";
 
 _ctrl ctrlSetAngle [_newAngle, _centerX, _centerY, true];
 _ctrl ctrlSetAngle [0, _centerX, _centerY, false];

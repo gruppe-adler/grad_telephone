@@ -7,7 +7,7 @@ private _encryptionKey = ""; // must be nothing
 [_phoneObject, _lineNumber, _encryptionKey, true] call grad_telephone_fnc_setTFARfakeRadio;
 
 private _hintText = format[
-							"Anruf läuft",
+							localize "STR_grad_telephone_callRunning",
 							format ["%1<img size='1.5' image='%2'/>",
 									"Festnetz",
 									""
@@ -29,7 +29,7 @@ NO ENCRYPTION NOW
 
 */
 private _id = _phoneObject getVariable ['grad_telephone_phoneID', 0];
-private _classname = "_" + str _id; // could be anything, as long as its not identical to other participants
+private _classname = "grad_telephone_" + str _id; // could be anything, as long as its not identical to other participants
 
 private _pluginCommand = format[
                                 "TANGENT_LR	PRESSED	%1%2	%3	%4	%5",

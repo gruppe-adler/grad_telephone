@@ -42,7 +42,9 @@ switch (_state) do {
 		[_phone1, _phone2] call grad_telephone_fnc_callDeleteInfo;
 
 		// debug whats happening
-		systemChat "hanging up from waiting";
+    if (GRAD_TELEPHONE_DEBUG_MODE) then {
+      systemChat "hanging up from waiting";
+    };
 		player setVariable ['grad_telephone_isCalling', false];
 	};
 
@@ -54,7 +56,9 @@ switch (_state) do {
 		[_object, "grad_telephone_sound_phoneHangUp"] remoteExec ["say3D", [0,-2] select isDedicated];
 
 		// debug whats happening
-		systemChat "hanging up from busy";
+    if (GRAD_TELEPHONE_DEBUG_MODE) then {
+		    systemChat "hanging up from busy";
+    };
 		player setVariable ['grad_telephone_isCalling', false];
 	};
 
@@ -94,7 +98,9 @@ switch (_state) do {
 		[_object, _number1 + _number2] call grad_telephone_fnc_callPluginDeactivate;
 
 		// debug whats happening
-		systemChat "hanging up from calling";
+    if (GRAD_TELEPHONE_DEBUG_MODE) then {
+		    systemChat "hanging up from calling";
+    };
 		player setVariable ['grad_telephone_isCalling', false];
 	};
 
@@ -113,7 +119,9 @@ switch (_state) do {
 		[_phone1, _phone2] call grad_telephone_fnc_callDeleteInfo;
 
 		// debug whats happening
-		systemChat "other side hung up";
+    if (GRAD_TELEPHONE_DEBUG_MODE) then {
+		    systemChat "other side hung up";
+    };
 		player setVariable ['grad_telephone_isCalling', false];
 	};
 
@@ -126,7 +134,9 @@ switch (_state) do {
 		[_object, "grad_telephone_sound_phoneHangUp"] remoteExec ["say3D", [0,-2] select isDedicated];
 
 		// debug whats happening
-		systemChat "hanging up from ending";
+    if (GRAD_TELEPHONE_DEBUG_MODE) then {
+		    systemChat "hanging up from ending";
+    };
 		player setVariable ['grad_telephone_isCalling', false];
 	};
 

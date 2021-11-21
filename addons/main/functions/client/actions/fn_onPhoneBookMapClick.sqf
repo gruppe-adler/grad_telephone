@@ -26,7 +26,7 @@ private _allNumbers = missionNamespace getVariable ['GRAD_TELEPHONE_ALLNUMBERS',
 
 private _dialog = uiNamespace getVariable ['grad_telephone_rscPhoneBook',controlNull];
 
-if (isNull _dialog) exitWith { hint "something went wrong"; };
+if (isNull _dialog) exitWith { hint (localize "STR_grad_telephone_error"); };
 
 private _phoneList = _dialog displayCtrl 1000;
 _phoneList lbSetCurSel _nearestPhoneIndex;

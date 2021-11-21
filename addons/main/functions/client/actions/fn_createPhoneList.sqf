@@ -7,7 +7,7 @@ waitUntil {dialog};
 
 private _dialog = uiNamespace getVariable ['grad_telephone_rscPhoneBook',controlNull];
 
-if (isNull _dialog) exitWith { hint "something went wrong"; };
+if (isNull _dialog) exitWith { hint (localize "STR_grad_telephone_error"); };
 
 
 
@@ -74,7 +74,10 @@ _button ctrlAddEventHandler ["ButtonClick", {
         private _phoneList = _dialog displayCtrl 1000;
 
         private _selectionIndex = lbCurSel _phoneList;
-        systemChat format ["%1", _selectionIndex];
+
+        if (GRAD_TELEPHONE_DEBUG_MODE) then {
+          systemChat format ["%1", _selectionIndex];
+        };
 
         private _receiverObjects = _phoneList getVariable [str _selectionIndex, []];
 
