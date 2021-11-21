@@ -41,7 +41,6 @@ private _allMarkers = [];
         } else {
             _marker setMarkerTypeLocal "ico_phone";
         };
-        _marker setMarkerColorLocal "colorBlack";
         _marker setMarkerDirLocal 180;
 
         _allMarkers pushBack _marker;

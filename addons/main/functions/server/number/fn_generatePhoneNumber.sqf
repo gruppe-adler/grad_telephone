@@ -21,7 +21,7 @@ while {true} do {
 	private _phonePrefixCurrent = ((str(selectRandom GRAD_TELEPHONE_NUMBER_PREFIXES)) splitString ""); // quick and easy conversion from string to array, accepts characters if need be
 	_phonePrefix = [];
 	{
-			_phonePrefix pushBack (compile _x);
+			_phonePrefix pushBack (call compile _x);
 	} forEach _phonePrefixCurrent;
 	private _phoneBaseNumber = [GRAD_TELEPHONE_NUMBER_LENGTH select 0, GRAD_TELEPHONE_NUMBER_LENGTH select 1] call grad_telephone_fnc_generateBaseNumber;
 
