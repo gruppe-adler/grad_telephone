@@ -24,7 +24,7 @@
 
 [
     "GRAD_telephone_setting_debugMode",
-    "CHECKBOX",
+    ["GRAD Telephone", "CHECKBOX"],
     ["Debug Mode", "Debug Mode (Systemchat) enabled"],
     ["GRAD Telephone", "Debug Mode"],
     true, 1, {
