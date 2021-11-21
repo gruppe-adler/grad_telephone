@@ -26,8 +26,8 @@ if (_isVehicle) then {
           "x\grad_telephone\addons\main\data\ico_phone.paa",
           "grad_telephone_action_callAccept",
           localize "STR_grad_telephone_callAccept", "#11FF11",
-          "grad_telephone_fnc_callAccept",
-          "grad_telephone_fnc_conditionAcceptDriver"
+          grad_telephone_fnc_callAccept,
+          grad_telephone_fnc_conditionAcceptDriver
         ] call GRAD_telephone_fnc_addActionGeneral;
 
         [
@@ -36,8 +36,8 @@ if (_isVehicle) then {
           "x\grad_telephone\addons\main\data\ico_phone.paa",
           "grad_telephone_action_callEnd",
           localize "STR_grad_telephone_callEnd", "#FF1111",
-          "grad_telephone_fnc_callEnd",
-          "grad_telephone_fnc_conditionEndDriver"
+          grad_telephone_fnc_callEnd,
+          grad_telephone_fnc_conditionEndDriver
         ] call GRAD_telephone_fnc_addActionGeneral;
 
 } else {
@@ -48,8 +48,8 @@ if (_isVehicle) then {
           "x\grad_telephone\addons\main\data\ico_phone.paa",
           "grad_telephone_action_callDial",
           localize "STR_grad_telephone_callDial", "#FF1111",
-          "grad_telephone_fnc_createPhoneList",
-          "grad_telephone_fnc_conditionCall"
+          grad_telephone_fnc_createPhoneList,
+          grad_telephone_fnc_conditionCall
         ] call GRAD_telephone_fnc_addActionGeneral;
 
         [
@@ -58,8 +58,8 @@ if (_isVehicle) then {
           "x\grad_telephone\addons\main\data\ico_phone.paa",
           "grad_telephone_action_callCIC",
           localize "STR_grad_telephone_callCIC", "#FF1111",
-          "grad_telephone_fnc_createPhoneList",
-          "grad_telephone_fnc_conditionDirectCall"
+          grad_telephone_fnc_createPhoneList,
+          grad_telephone_fnc_conditionDirectCall
         ] call GRAD_telephone_fnc_addActionGeneral;
 
         [
@@ -68,8 +68,8 @@ if (_isVehicle) then {
           "x\grad_telephone\addons\main\data\ico_phone.paa",
           "grad_telephone_action_callAccept",
           localize "STR_grad_telephone_callAccept", "#11FF11",
-          "grad_telephone_fnc_callAccept",
-          "grad_telephone_fnc_conditionAccept"
+          grad_telephone_fnc_callAccept,
+          grad_telephone_fnc_conditionAccept
         ] call GRAD_telephone_fnc_addActionGeneral;
 
         [
@@ -78,8 +78,8 @@ if (_isVehicle) then {
           "x\grad_telephone\addons\main\data\ico_phone.paa",
           "grad_telephone_action_callEnd",
           localize "STR_grad_telephone_callEnd", "#FF1111",
-          "grad_telephone_fnc_callEnd",
-          "grad_telephone_fnc_conditionEnd"
+          grad_telephone_fnc_callEnd,
+          grad_telephone_fnc_conditionEnd
         ] call GRAD_telephone_fnc_addActionGeneral;
 
         [
@@ -88,8 +88,8 @@ if (_isVehicle) then {
           "x\grad_telephone\addons\main\data\ico_phone.paa",
           "grad_telephone_action_showNumber",
           localize "STR_grad_telephone_showNumber", "#FF1111",
-          "hint format ['%1', (" + (str _object) + " getVariable ['GRAD_TELEPHONE_NUMBER_ASSIGNED', 'no Number'])];",
-          (str _unit) + "distance " + (str _object) + " < 2 && !(" + str _object + " getVariable ['grad_telephone_skipDialing', false])"
+          { hint format ['%1', _target getVariable ['GRAD_TELEPHONE_NUMBER_ASSIGNED', 'no Number']]; },
+          { _this distance _target < 2 && !(_target getVariable ['grad_telephone_skipDialing', false]) }
         ] call GRAD_telephone_fnc_addActionGeneral;
 
 };

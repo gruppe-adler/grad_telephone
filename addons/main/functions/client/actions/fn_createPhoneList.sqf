@@ -1,5 +1,9 @@
 params ["_object"];
 
+if (!canSuspend) exitWith {
+    [_object] spawn grad_telephone_fnc_createPhoneList;
+};
+
 player setVariable ["grad_telephone_objCaller", _object];
 
 createDialog "grad_telephone_rscPhoneBook";

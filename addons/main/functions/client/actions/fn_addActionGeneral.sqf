@@ -5,8 +5,8 @@ params [
     ["_stringID", "noID"],
     ["_displayName", "display Name"],
     ["_color", "#11FF11"],
-    ["_functionToCall", "GRAD_telephone_fnc_nothing"],
-    ["_condition", "true"],
+    ["_functionToCall", {}, [{}]],
+    ["_condition", {}, [{}]],
     ["_distance", 5]
 ];
 
@@ -28,12 +28,14 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
           ("<t color='" + _color + "'>" + (_displayName) + "</t>"),
           _icon,
           { 
-            _actionParams params ["_functionToCall", "_condition"];
-            [_player, _target] call compile _functionToCall; 
+            params ["_target", "_player", "_params"];
+            _params params ["_functionToCall", "_condition"];
+            [_player, _target] call _functionToCall; 
           },
           { 
-            _actionParams params ["_functionToCall", "_condition"]; 
-            [_player, _target] call compile _condition;
+            params ["_target", "_player", "_params"];
+            _params params ["_functionToCall", "_condition"]; 
+            ([_player, _target] call _condition)
           },
           nil, [_functionToCall, _condition], nil, _distance
       ] call ace_interact_menu_fnc_createAction;
@@ -51,9 +53,9 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
           ("<t color='" + _color + "'>" + (_displayName) + "</t>"),
           { params ["_target", "_caller", "_actionId", "_arguments"];
             _arguments params ["_functionToCall"];
-            [_caller, _target] call compile _functionToCall;
+            [_caller, _target] call _functionToCall;
           },
           [_functionToCall],99,true,true,"",
-          str (compile _condition)
+          ("_this call " + str (_condition))
       ];
 };
