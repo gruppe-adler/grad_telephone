@@ -1,7 +1,8 @@
-params ["_object", "_state"];
+params ["_object"];
 
 // storedData
 private _storedData = [_object] call grad_telephone_fnc_callGetInfo;
+private _state = _object getVariable ['grad_telephone_phoneStatus', "idle"];
 
 _storedData params [
     ["_phone1", objNull],

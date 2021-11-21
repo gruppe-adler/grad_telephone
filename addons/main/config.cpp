@@ -18,3 +18,4 @@ class CfgPatches {
 #include "rscKeypad.hpp"
 #include "rscRotary.hpp"
 #include "rscPhoneBook.hpp"
+#include "cfgVehicles.hpp"

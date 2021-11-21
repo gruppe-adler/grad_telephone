@@ -6,6 +6,7 @@ class cfgFunctions {
             file = "x\grad_telephone\addons\main\functions\client\actions";
 
             class addAction;
+            class addActionGeneral;
             class addSelfAction;
             class cleanPhoneBookMap;
             class conditionAccept;
@@ -37,6 +38,7 @@ class cfgFunctions {
             file = "x\grad_telephone\addons\main\functions\client\calls";
 
             class callAccept;
+            class callCIC;
             class callDeleteInfo;
             class callEnd;
             class callGetInfo;

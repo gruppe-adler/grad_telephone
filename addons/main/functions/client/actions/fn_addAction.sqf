@@ -1,11 +1,14 @@
 /*
-private _callAction = ["startCall", "Call someone", "", {
-    [] call grad_telephone_fnc_callStart;
-},
-{true}] call ace_interact_menu_fnc_createAction;
 
-["Land_PhoneBooth_02_F", 0, ["ACE_MainActions"], _callAction, true] call ace_interact_menu_fnc_addActionToClass;
-["Land_PhoneBooth_02_malden_F", 0, ["ACE_MainActions"], _callAction, true] call ace_interact_menu_fnc_addActionToClass;
+["_object", objNull],
+["_icon", "iconPath.paa"],
+["_stringID", "noID"],
+["_displayName", ["display Name"]],
+["_color", ["#11FF11"]],
+["_functionToCall", "GRAD_telephone_fnc_nothing"]
+["_condition", {true}],
+["_distance", 5]
+
 */
 
 params ["_object"];
@@ -16,100 +19,69 @@ private _isVehicle = _object isKindOf "LandVehicle";
 
 if (_isVehicle) then {
 
-        _object addAction [
-            "<t color='#11FF11'>Anruf annehmen</t>",
-            {
-                params ["_target", "_caller", "_actionId", "_arguments"];
+        [
+          _object,
+          "x\grad_telephone\addons\main\data\ico_phone.paa",
+          "grad_telephone_action_callAccept",
+          "Accept Call", "#11FF11",
+          "[" + str _unit + "," + str _object + "] call grad_telephone_fnc_callAccept",
+          "[" + str _unit + "," + str _object + "] call grad_telephone_fnc_conditionAccept && driver" + str _object + " == " + str _unit
+        ] call GRAD_telephone_fnc_addActionGeneral;
 
-                    [_target] call grad_telephone_fnc_callAccept;
-            },
-            [],99,true,true,"",
-            "[_this, _target] call grad_telephone_fnc_conditionAccept && driver _target == _this"
-        ];
-
-        _object addAction [
-            "<t color='#FF1111'>Anruf beenden</t>",
-            {
-                params ["_target", "_caller", "_actionId", "_arguments"];
-                diag_log ("end call: " + str [_target, _caller, _actionId, _arguments]);
-
-                private _state = _target getVariable ['grad_telephone_phoneStatus', "idle"];
-                [_target, _state] call grad_telephone_fnc_callEnd;
-            },
-            [],99,true,true,"",
-            "[_this, _target] call grad_telephone_fnc_conditionEnd && driver _target == _this"
-        ];
+        [
+          _object,
+          "x\grad_telephone\addons\main\data\ico_phone.paa",
+          "grad_telephone_action_callEnd",
+          "End Call", "#FF1111",
+          "[" + str _unit + "," + str _object + "] call grad_telephone_fnc_callEnd",
+          "[" + str _unit + "," + str _object + "] call grad_telephone_fnc_conditionEnd && driver" + str _object + " == " + str _unit
+        ] call GRAD_telephone_fnc_addActionGeneral;
 
 } else {
 
-        // todo make ace interact instead of mousewheel menu
-        _object addAction [
-            "Nummer wählen",
-            {
-                params ["_target", "_caller", "_actionId", "_arguments"];
+        [
+          _object,
+          "x\grad_telephone\addons\main\data\ico_phone.paa",
+          "grad_telephone_action_callDial",
+          "Dial Number", "#FF1111",
+          "[" + str _unit + "," + str _object + "] call grad_telephone_fnc_createPhoneList",
+          "[" + str _unit + "," + str _object + "] call grad_telephone_fnc_conditionCall"
+        ] call GRAD_telephone_fnc_addActionGeneral;
 
-                    [_target] call grad_telephone_fnc_createPhoneList;
-            },
-            [],99,true,true,"",
-            "[_this, _target] call grad_telephone_fnc_conditionCall"
-        ];
+        [
+          _object,
+          "x\grad_telephone\addons\main\data\ico_phone.paa",
+          "grad_telephone_action_callCIC",
+          "Call Combat Information Center", "#FF1111",
+          "[" + str _unit + "," + str _object + "] call grad_telephone_fnc_createPhoneList",
+          "[" + str _unit + "," + str _object + "] call grad_telephone_fnc_conditionDirectCall"
+        ] call GRAD_telephone_fnc_addActionGeneral;
 
-        // later implementation for grenzmeldenetz
-        _object addAction [
-            "Kommandozentrale anrufen",
-            {
-                params ["_target", "_caller", "_actionId", "_arguments"];
+        [
+          _object,
+          "x\grad_telephone\addons\main\data\ico_phone.paa",
+          "grad_telephone_action_callAccept",
+          "Accept Call", "#11FF11",
+          "[" + str _unit + "," + str _object + "] call grad_telephone_fnc_callAccept",
+          "[" + str _unit + "," + str _object + "] call grad_telephone_fnc_conditionAccept"
+        ] call GRAD_telephone_fnc_addActionGeneral;
 
-                    private _targetNumber = _target getVariable ['grad_telephone_directConnect', "all"];
-                    private _allPhones = missionNamespace getVariable ['grad_telephone_ALLPHONES', []];
-                    private _targetPhone = objNull;
-                    {
-                        private _phoneNumber = _x getVariable ['grad_telephone_NUMBER_ASSIGNED', "all"];
-                        if (_targetNumber == _phoneNumber) exitWith {
-                            _targetPhone = _x;
-                        };
-                    } forEach _allPhones;
+        [
+          _object,
+          "x\grad_telephone\addons\main\data\ico_phone.paa",
+          "grad_telephone_action_callEnd",
+          "End Call", "#FF1111",
+          "[" + str _unit + "," + str _object + "] call grad_telephone_fnc_callEnd",
+          "[" + str _unit + "," + str _object + "] call grad_telephone_fnc_conditionEnd"
+        ] call GRAD_telephone_fnc_addActionGeneral;
 
-                    [_target, [_targetPhone]] call grad_telephone_fnc_callStart;
-            },
-            [],99,true,true,"",
-            "[_this, _target] call grad_telephone_fnc_conditionDirectCall"
-        ];
-
-
-        _object addAction [
-            "<t color='#11FF11'>Anruf annehmen</t>",
-            {
-                params ["_target", "_caller", "_actionId", "_arguments"];
-
-                    [_target] call grad_telephone_fnc_callAccept;
-            },
-            [],99,true,true,"",
-            "[_this, _target] call grad_telephone_fnc_conditionAccept"
-        ];
-
-        _object addAction [
-            "<t color='#FF1111'>Anruf beenden</t>",
-            {
-                params ["_target", "_caller", "_actionId", "_arguments"];
-                diag_log ("end call: " + str [_target, _caller, _actionId, _arguments]);
-
-                private _state = _target getVariable ['grad_telephone_phoneStatus', "idle"];
-                [_target, _state] call grad_telephone_fnc_callEnd;
-            },
-            [],99,true,true,"",
-            "[_this, _target] call grad_telephone_fnc_conditionEnd"
-        ];
-
-        _object addAction [
-            "Nummer des Apparats anzeigen",
-            {
-                params ["_target", "_caller", "_actionId", "_arguments"];
-
-                hint format ["%1", _target getVariable ['GRAD_TELEPHONE_NUMBER_ASSIGNED', 'no Number']];
-            },
-            [],1.5,true,true,"",
-            "_this distance _target < 2 && !(_target getVariable ['grad_telephone_skipDialing', false])"
-        ];
+        [
+          _object,
+          "x\grad_telephone\addons\main\data\ico_phone.paa",
+          "grad_telephone_action_showNumber",
+          "Show Number of this Phone", "#FF1111",
+          "hint format ['%1', " + str _object + " getVariable ['GRAD_TELEPHONE_NUMBER_ASSIGNED', 'no Number']]",
+          (str _unit) + "distance " + str _object + " < 2 && !(" + str _object + " getVariable ['grad_telephone_skipDialing', false])"
+        ] call GRAD_telephone_fnc_addActionGeneral;
 
 };
