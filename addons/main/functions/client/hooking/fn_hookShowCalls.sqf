@@ -4,6 +4,10 @@
 
 */
 
+if (!canSuspend) exitWith {
+    [] spawn GRAD_telephone_fnc_hookShowCalls;  
+};
+
 createDialog "grad_telephone_rscPhoneBook";
 waitUntil {dialog};
 
