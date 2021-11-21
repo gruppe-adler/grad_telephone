@@ -1,11 +1,23 @@
 if (!isServer) exitWith {};
 
 missionNamespace setVariable ["GRAD_TELEPHONE_DEBUG_MODE", true, true];
-missionNamespace setVariable ["GRAD_TELEPHONE_NUMBER_PREFIXES", [0030], true];
-missionNamespace setVariable ["GRAD_TELEPHONE_NUMBER_LENGTH", [7,8], true];
-missionNamespace setVariable ["GRAD_TELEPHONE_CLASSNAMES_PHONE", 
+missionNamespace setVariable ["GRAD_TELEPHONE_NUMBER_PREFIXES",
+  if (count GRAD_telephone_setting_areacodes > 0) then {
+    [compile GRAD_telephone_setting_areacodes]
+  } else {
+      [030,040]
+  },
+true];
+missionNamespace setVariable ["GRAD_TELEPHONE_NUMBER_LENGTH",
+  if (count GRAD_telephone_setting_numberlength > 0) then {
+    compile GRAD_telephone_setting_numberlength
+  } else {
+      [7,8]
+  },
+true];
+missionNamespace setVariable ["GRAD_TELEPHONE_CLASSNAMES_PHONE",
       [
-            "land_gm_euro_misc_feh_62_e", 
+            "land_gm_euro_misc_feh_62_e",
             "land_gm_euro_misc_telh_78_w",
             "Land_IPPhone_01_black_F",
             "Land_IPPhone_01_olive_F",
@@ -19,7 +31,9 @@ missionNamespace setVariable ["GRAD_TELEPHONE_CLASSNAMES_PHONE",
             "CUP_phonebox",
             "Item_SatPhone",
             "SatPhone"
-      ], 
+      ] +
+      GRAD_telephone_setting_classnames_digits +
+      GRAD_telephone_setting_classnames_rotary,
 true];
 missionNamespace setVariable ["GRAD_TELEPHONE_CLASSNAMES_GMN", ["land_gm_wall_gc_borderpost_03", "land_gm_wall_gc_borderpost_04"], true];
 

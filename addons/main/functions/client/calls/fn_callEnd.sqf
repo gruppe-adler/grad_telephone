@@ -130,5 +130,5 @@ switch (_state) do {
 	};
 
 
-	default { diag_log "grad-landline: error code 1337"; };
+	default { diag_log "GRAD TELEPHONE: error code 1337"; };
 };

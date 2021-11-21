@@ -44,10 +44,10 @@ private _pluginCommand = format[
 
 TF_tangent_lr_pressed = true; // necessary?
 
-systemChat format ["grad-landline-debug: linenumber: %1, encryption: %2, classname: %3", _lineNumber, _encryptionKey, _classname];
-diag_log format ["grad-landline-debug: linenumber: %1, encryption: %2, classname: %3", _lineNumber, _encryptionKey, _classname];
+systemChat format ["GRAD TELEPHONE-debug: linenumber: %1, encryption: %2, classname: %3", _lineNumber, _encryptionKey, _classname];
+diag_log format ["GRAD TELEPHONE-debug: linenumber: %1, encryption: %2, classname: %3", _lineNumber, _encryptionKey, _classname];
 
 diag_log format [
-    "grad-landline-debug: TF_lr_active_radio is nil: %1, TFAR_OverrideActiveLRRadio is nil: %2",
+    "GRAD TELEPHONE-debug: TF_lr_active_radio is nil: %1, TFAR_OverrideActiveLRRadio is nil: %2",
     isNil "TF_lr_active_radio", isNil "TFAR_OverrideActiveLRRadio"
 ];

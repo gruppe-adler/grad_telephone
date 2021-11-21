@@ -120,7 +120,7 @@ TFAR_fnc_sendFrequencyInfo = {
         //smaller value == bigger range
         private _receivingDistanceMultiplicator = (TFAR_currentUnit getVariable ["tf_receivingDistanceMultiplicator",1.0]) * (1/TFAR_globalRadioRangeCoef);
 
-        // HACK for grad landline
+        // HACK for GRAD TELEPHONE
         private _isOnLandline = player getVariable ['grad_telephone_isCalling', false];
         if (_isOnLandline) then { _freq_lr = ["No_LR_Radio"]; };
 
