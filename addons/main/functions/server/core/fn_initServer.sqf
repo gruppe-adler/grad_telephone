@@ -2,22 +2,26 @@ if (!isServer) exitWith {};
 
 private _debugMode = missionNamespace getVariable ["GRAD_TELEPHONE_DEBUG_MODE", false];
 missionNamespace setVariable ["GRAD_TELEPHONE_DEBUG_MODE", _debugMode, true];
-missionNamespace setVariable ["GRAD_TELEPHONE_NUMBER_PREFIXES",
-  if (count GRAD_telephone_setting_areacodes > 0) then {
+
+
+private _prefixes = if (count GRAD_telephone_setting_areacodes > 0) then {
     [compile GRAD_telephone_setting_areacodes]
   } else {
       [030,040]
-  },
-true];
-missionNamespace setVariable ["GRAD_TELEPHONE_NUMBER_LENGTH",
-  if (count GRAD_telephone_setting_numberlength > 0) then {
+  };
+missionNamespace setVariable ["GRAD_TELEPHONE_NUMBER_PREFIXES", _prefixes, true];
+
+
+private _numberLength = if (count GRAD_telephone_setting_numberlength > 0) then {
     compile GRAD_telephone_setting_numberlength
   } else {
       [7,8]
-  },
-true];
+  };
+missionNamespace setVariable ["GRAD_TELEPHONE_NUMBER_LENGTH", _numberLength, true];
+
+
 missionNamespace setVariable ["GRAD_TELEPHONE_CLASSNAMES_PHONE",
-      [
+      ([
             "Land_IPPhone_01_black_F",
             "Land_IPPhone_01_olive_F",
             "Land_IPPhone_01_sand_F",
@@ -27,12 +31,14 @@ missionNamespace setVariable ["GRAD_TELEPHONE_CLASSNAMES_PHONE",
             "SatPhone"
       ] +
       GRAD_telephone_setting_classnames_digits_phones +
-      GRAD_telephone_setting_classnames_rotary_phones,
+      GRAD_telephone_setting_classnames_rotary_phones),
 true];
+
+
 missionNamespace setVariable ["GRAD_TELEPHONE_CLASSNAMES_PHONEBOOTHS",
-      [
+      ([
             "land_gm_euro_misc_feh_62_e",
-            "land_gm_euro_misc_telh_78_w"
+            "land_gm_euro_misc_telh_78_w",
             "Land_PhoneBooth_01_lxWS",
             "Land_PhoneBooth_02_malden_F",
             "Land_PhoneBooth_01_malden_F",
@@ -40,8 +46,10 @@ missionNamespace setVariable ["GRAD_TELEPHONE_CLASSNAMES_PHONEBOOTHS",
             "Land_PhoneBooth_01_F"
       ] +
       GRAD_telephone_setting_classnames_digits_phonebooths +
-      GRAD_telephone_setting_classnames_rotary_phonebooths,
+      GRAD_telephone_setting_classnames_rotary_phonebooths),
 true];
+
+
 missionNamespace setVariable ["GRAD_TELEPHONE_CLASSNAMES_GMN", ["land_gm_wall_gc_borderpost_03", "land_gm_wall_gc_borderpost_04"], true];
 
 missionNamespace setVariable ["GRAD_TELEPHONE_ALLNUMBERS", [], true];

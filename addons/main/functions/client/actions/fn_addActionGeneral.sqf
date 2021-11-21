@@ -2,11 +2,11 @@ params [
     ["_unit", objNull],
     ["_object", objNull],
     ["_icon", ""],
-    ["_stringID", "noID"]
+    ["_stringID", "noID"],
     ["_displayName", "display Name"],
     ["_color", "#11FF11"],
-    ["_functionToCall", "GRAD_telephone_fnc_nothing"]
-    ["_condition", {true}],
+    ["_functionToCall", "GRAD_telephone_fnc_nothing"],
+    ["_condition", "true"],
     ["_distance", 5]
 ];
 
