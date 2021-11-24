@@ -1,4 +1,4 @@
-params ["_object"];
+params ["_player", "_object"];
 
 if (!canSuspend) exitWith {
     [_object] spawn grad_telephone_fnc_createPhoneList;
