@@ -65,7 +65,7 @@ player setVariable ['grad_telephone_isCalling', true];
                 [_callerPhoneObject, "waiting"] call grad_telephone_fnc_callSetStatus;
 
                 // let server handle receiver status
-                [_receiverPhoneObject] remoteExec ["_fnc_callRinging", 2];
+                [_receiverPhoneObject] remoteExec ["grad_telephone_fnc_callRinging", 2];
 
                 [_callerPhoneObject] call grad_telephone_fnc_callWaiting;
 

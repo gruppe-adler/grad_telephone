@@ -7,7 +7,7 @@
 params ["_receiverPhoneObject"];
 
 if (!canSuspend) exitWith {
-    [_receiverPhoneObject] call grad_telephone_fnc_callRinging;
+    [_receiverPhoneObject] spawn grad_telephone_fnc_callRinging;
 };
 
 [_receiverPhoneObject, "ringing"] call grad_telephone_fnc_callSetStatus;
