@@ -1,5 +1,6 @@
 [
   player,
+  player,
   "x\grad_telephone\addons\main\data\ico_phone.paa",
   "grad_telephone_action_hookShow",
   localize "STR_grad_telephone_hookShow", "'#11FF11'",
@@ -8,6 +9,7 @@
 ] call GRAD_telephone_fnc_addActionGeneral;
 
 [
+  player,
   player,
   "x\grad_telephone\addons\main\data\ico_phone.paa",
   "grad_telephone_action_hookEnd",

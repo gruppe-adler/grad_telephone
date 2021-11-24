@@ -37,12 +37,12 @@ private _allMarkers = [];
         _marker setMarkerShapeLocal "ICON";
 
         if (_isPhoneBooth) then {
-            _marker setMarkerTypeLocal "ico_phonebooth";
+            _marker setMarkerTypeLocal "ico_booth";
         } else {
             _marker setMarkerTypeLocal "ico_phone";
         };
         _marker setMarkerDirLocal 0;
-        _marker setMarkerSizeLocal [4, 4];
+        _marker setMarkerSizeLocal [2, 2];
 
         _allMarkers pushBack _marker;
     };
