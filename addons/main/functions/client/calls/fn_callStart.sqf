@@ -53,6 +53,7 @@ player setVariable ['grad_telephone_isCalling', true];
               systemChat format ["callStart - saveInfo %1 %2", _callerPhoneObject, _receiverPhoneObject];
             };
 
+
             [
                 _callerPhoneObject, _receiverPhoneObject,
                 player, objNull

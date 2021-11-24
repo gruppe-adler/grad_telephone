@@ -24,7 +24,7 @@ if (_isVehicle) then {
           _unit,
           _object,
           "x\grad_telephone\addons\main\data\ico_phone.paa",
-          "grad_telephone_action_callAccept",
+          "grad_telephone_action_callAcceptVehicle",
           localize "STR_grad_telephone_callAccept", "'#11FF11'",
           grad_telephone_fnc_callAccept,
           grad_telephone_fnc_conditionAcceptDriver
@@ -34,7 +34,7 @@ if (_isVehicle) then {
           _unit,
           _object,
           "x\grad_telephone\addons\main\data\ico_phone.paa",
-          "grad_telephone_action_callEnd",
+          "grad_telephone_action_callEndVehicle",
           localize "STR_grad_telephone_callEnd", "'#FF1111'",
           grad_telephone_fnc_callEnd,
           grad_telephone_fnc_conditionEndDriver

@@ -10,13 +10,14 @@ params [
     ["_distance", 5, [5]]
 ];
 
+/*
 if (GRAD_TELEPHONE_DEBUG_MODE) then {
   diag_log format ["
     GRAD TELEPHONE: %1 %2 %3 %4 %5 %6 %7 %8 %9
   ", _unit, _object, _icon, _stringID, _displayName, _color, _functionToCall, _condition, _distance
   ];
 };
-
+*/
 
 if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
 
