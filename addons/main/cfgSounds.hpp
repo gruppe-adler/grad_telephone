@@ -233,14 +233,14 @@ class cfgSounds {
     class grad_telephone_sound_keypad_1
     {
         name = "grad_telephone_sound_keypad_1";
-        sound[] = {"x\grad_telephone\addons\main\sounds\keypad_1.ogg",5,1};
+        sound[] = {"x\grad_telephone\addons\main\sounds\keypad_1.ogg",10,1};
         titles[] = {};
     };
 
     class grad_telephone_sound_keypad_2
     {
         name = "grad_telephone_sound_keypad_2";
-        sound[] = {"x\grad_telephone\addons\main\sounds\keypad_2.ogg",5,1};
+        sound[] = {"x\grad_telephone\addons\main\sounds\keypad_2.ogg",10,1};
         titles[] = {};
     };
 
@@ -248,7 +248,7 @@ class cfgSounds {
     class grad_telephone_sound_keypad_3
     {
         name = "grad_telephone_sound_keypad_3";
-        sound[] = {"x\grad_telephone\addons\main\sounds\keypad_3.ogg",5,1};
+        sound[] = {"x\grad_telephone\addons\main\sounds\keypad_3.ogg",10,1};
         titles[] = {};
     };
 

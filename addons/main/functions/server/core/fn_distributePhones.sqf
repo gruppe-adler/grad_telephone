@@ -13,7 +13,7 @@ private _allPhoneBooths = [];
     private _classname = _x;
     private _phonesDetected = ([worldSize/2, worldSize/2] nearObjects [_classname, worldsize/2]);
     {
-        _allPhones pushBackUnique _x;
+        _allPhoneBooths pushBackUnique _x;
     } forEach _phonesDetected;
 } forEach GRAD_TELEPHONE_CLASSNAMES_PHONEBOOTHS;
 
