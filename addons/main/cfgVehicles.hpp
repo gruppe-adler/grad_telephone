@@ -19,8 +19,8 @@ class CfgVehicles
   class Rope;
   class GRAD_telephone_ropeCable : Rope
   {
-    maxRelLenght = 1.1;
-    maxExtraLenght = 0;
+    maxRelLenght = 1.1; // max relative length
+    maxExtraLenght = 0;  // max absolute length
     springFactor = 1;         // higher == less stretchy rope
     segmentType = "grad_telephone_ropeSegment";  // reference to CfgNonAIVehicles' class
     torqueFactor = 0.5;
@@ -35,6 +35,8 @@ class CfgVehicles
         model = "\A3\Weapons_f\empty";
         damageEffect = "";
         destrType = "";
+        class ACE_Actions {};
+        class ACE_SelfActions {};
         class HitPoints {};
         class Turrets {};
         class TransportItems {};
