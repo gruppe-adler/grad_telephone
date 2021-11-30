@@ -15,4 +15,41 @@ class CfgVehicles
     hiddenSelections[] = {"camo"};
     hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0.835294,0,0,0.0,ca)"};
   };
+
+  class Rope;
+  class GRAD_telephone_ropeCable : Rope
+  {
+    maxRelLenght = 1.1;
+    maxExtraLenght = 0;
+    springFactor = 1;         // higher == less stretchy rope
+    segmentType = "grad_telephone_ropeSegment";  // reference to CfgNonAIVehicles' class
+    torqueFactor = 0.5;
+    dampingFactor[] = {1.0,2.5,1.0};
+    model = "x\grad_telephone\addons\main\data\tfar_wire.p3d";
+  };
+
+  class Helicopter_Base_F;
+  class GRAD_telephone_cableHelper: Helicopter_Base_F {
+        scope = 1;
+        displayName = "GRAD Telephone Cable Helper";
+        model = "\A3\Weapons_f\empty";
+        damageEffect = "";
+        destrType = "";
+        class HitPoints {};
+        class Turrets {};
+        class TransportItems {};
+    };
+};
+
+class CfgNonAIVehicles
+{
+  class grad_telephone_ropeSegment
+  {
+    scope = 2;
+    displayName = "";
+    simulation = "ropesegment";
+    autocenter = 0;
+    animated = 0;
+    model = "x\grad_telephone\addons\main\data\tfar_wire.p3d";
+  };
 };
