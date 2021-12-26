@@ -11,7 +11,7 @@ private _cable = ropeCreate [
     [0,0,0], 
     player, 
     "lefthand", 
-    2, 
+    3, 
     ["", [0,0,-1]],  
     ["", [0,0,-1]], 
     "GRAD_telephone_ropeCable"
@@ -21,7 +21,7 @@ _cable addEventHandler ["RopeBreak", {
     params ["_cablehelper", "_rope", "_object2"];
 
     private _phone = _cablehelper getVariable ["GRAD_telephone_phone", objNull];
-    [_phone] call grad_telephone_fnc_callEnd;
+    [player, _phone] call grad_telephone_fnc_callEnd;
     systemChat "rope break";
     if (!isNull _cablehelper) then {
         deleteVehicle _cablehelper;
