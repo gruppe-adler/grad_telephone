@@ -10,11 +10,8 @@ if ( isClass(configFile >> "CfgPatches" >> "Radio_Animations") ) then {
 
     private _phoneModel = createSimpleObject ["Jet_Radio", position player];
 
-    private _phoneModel_dattach = [ [0,-0.04,-0.01], [-0.01,-0.04,0] ];
-    private _phoneModel_dvector = [
-        [[0.334,0.788,-0.516],[0.917,-0.398,-0.014]],
-        [[1.434,0.588,-1.916],[0.917,-0.298,-0.024]]
-    ];
+    private _phoneModel_dattach = [-0.01,-0.04,0];
+    private _phoneModel_dvector = [[1.434,0.588,-1.916],[0.917,-0.298,-0.024]];
 
     player playActionNow "radioAnims_Ear";
 
