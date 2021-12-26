@@ -92,6 +92,7 @@ _button ctrlAddEventHandler ["ButtonClick", {
         [_objCaller, _receiverObjects] call grad_telephone_fnc_callStart;
 
         // debug
+        /*
         private _selectionMarker = createMarkerLocal ['mrk_PhoneCaller', position _objCaller];
         _selectionMarker setMarkerShapeLocal "ICON";
         _selectionMarker setMarkerTypeLocal "mil_dot";
@@ -101,6 +102,7 @@ _button ctrlAddEventHandler ["ButtonClick", {
         _selectionMarker setMarkerShapeLocal "ICON";
         _selectionMarker setMarkerTypeLocal "mil_dot";
         _selectionMarker setMarkerColorLocal "ColorRed";
+        */
 
         player setVariable ["grad_telephone_objCaller", objNull];
 

@@ -4,7 +4,7 @@ private _offset = _phoneObject getVariable ["GRAD_Telephone_phoneCablePlugOffset
 
 private _cablehelper = "GRAD_telephone_cableHelper" createVehicle [0,0,0];  
 _cablehelper setPos (_phoneObject modelToWorld _offset);
-_cablehelper setVariable ["GRAD_telephone_phone", _phoneObject];
+
 
 private _cable = ropeCreate [
     _cablehelper, 
@@ -17,12 +17,17 @@ private _cable = ropeCreate [
     "GRAD_telephone_ropeCable"
 ];
 
-_cable addEventHandler ["RopeBreak", {
+_cablehelper setVariable ["GRAD_telephone_phone", _phoneObject];
+
+_cablehelper addEventHandler ["RopeBreak", {
     params ["_cablehelper", "_rope", "_object2"];
+
+    systemChat format ["rope break %1 %2 %3", _cablehelper, _rope, _object2];
 
     private _phone = _cablehelper getVariable ["GRAD_telephone_phone", objNull];
     [player, _phone] call grad_telephone_fnc_callEnd;
     systemChat "rope break";
+
     if (!isNull _cablehelper) then {
         deleteVehicle _cablehelper;
     };
