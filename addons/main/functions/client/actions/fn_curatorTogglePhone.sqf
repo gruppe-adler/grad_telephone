@@ -7,6 +7,5 @@ if ([player, player] call grad_telephone_fnc_conditionAccept) exitWith {
 };
 
 if ([player, player] call grad_telephone_fnc_conditionEnd) exitWith {
-    private _state = player getVariable ['grad_telephone_phoneStatus', 'idle'];
-    [player, _state] call grad_telephone_fnc_callEnd;
+    [player, objNull] call grad_telephone_fnc_callEnd; // todo replace objnull with phone
 };
