@@ -22,6 +22,8 @@ if (_callerPhoneObject getVariable ['grad_telephone_skipDialing', false]) then {
 };
 
 
+[_callerPhoneObject] call grad_telephone_fnc_tfarAnimation;
+
 player setVariable ['grad_telephone_isCalling', true];
 
 {
@@ -47,6 +49,11 @@ player setVariable ['grad_telephone_isCalling', true];
                 if (GRAD_TELEPHONE_DEBUG_MODE) then {
                   systemChat "callStart - busy";
                 };
+
+                [
+                    _callerPhoneObject, _receiverPhoneObject,
+                    player, objNull
+                ] call grad_telephone_fnc_callSaveInfo;
             };
 
             if (GRAD_TELEPHONE_DEBUG_MODE) then {

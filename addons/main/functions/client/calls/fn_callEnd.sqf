@@ -1,4 +1,4 @@
-params ["_object"];
+params ["_player", "_object"];
 
 // storedData
 private _storedData = [_object] call grad_telephone_fnc_callGetInfo;
@@ -123,6 +123,11 @@ switch (_state) do {
 		    systemChat "other side hung up";
     };
 		player setVariable ['grad_telephone_isCalling', false];
+
+		private _cable = _object getVariable ["GRAD_telephone_cable", objNull];
+		private _cableHelper = _object getVariable ["GRAD_telephone_cableHelper", objNull];
+		deleteVehicle _cable;
+		deleteVehicle _cableHelper;
 	};
 
 
@@ -138,6 +143,12 @@ switch (_state) do {
 		    systemChat "hanging up from ending";
     };
 		player setVariable ['grad_telephone_isCalling', false];
+
+		private _cable = _object getVariable ["GRAD_telephone_cable", objNull];
+		private _cableHelper = _object getVariable ["GRAD_telephone_cableHelper", objNull];
+		deleteVehicle _cable;
+		deleteVehicle _cableHelper;
+		_object setVariable ["GRAD_telephone_cable", objNull, true];
 	};
 
 

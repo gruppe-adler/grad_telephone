@@ -24,6 +24,14 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
       // ACE INTERACTION
       private _selfAction = _unit isEqualTo _object;
 
+      private _getOffset = _object getVariable ["GRAD_Telephone_phoneCablePlugOffset", []];
+      private _offset = [0,0,0];
+
+      if (count _getOffset > 0) then {
+          _offset = _getOffset;
+          systemChat ("offset " + (str _offset) + " detected");
+      };
+
       private _action = [
           _stringID,
           ("<t color=" + _color + ">" + (_displayName) + "</t>"),
@@ -38,11 +46,15 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
             _params params ["_functionToCall", "_condition"]; 
             ([_player, _target] call _condition)
           },
-          {}, [_functionToCall, _condition], nil, _distance
+          {}, [_functionToCall, _condition], {_offset}, _distance
       ] call ace_interact_menu_fnc_createAction;
 
       if (!_selfAction) then {
-          [_object, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
+
+          private _gradTelephoneMainAction = ["GRAD_telephoneAction", "Main Action", "", {}, {true}] call ace_interact_menu_fnc_createAction;
+          [_object, 0, [], _gradTelephoneMainAction] call ace_interact_menu_fnc_addActionToObject;
+
+          [_object, 0, ["GRAD_telephoneAction"], _action] call ace_interact_menu_fnc_addActionToObject;
       } else {
           [_unit, 1, ["ACE_SelfActions"], _action] call ace_interact_menu_fnc_addActionToObject;
       };

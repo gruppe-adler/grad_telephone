@@ -1,16 +1,35 @@
+params ["_phone"];
+
+private _cableArray = [_phone] call grad_telephone_fnc_cableCreate;
+_cableArray params ["_cable", "_cableHelper"];
+_phone setVariable ["GRAD_telephone_cable", _cable, true];
+_phone setVariable ["GRAD_telephone_cableHelper", _cableHelper, true];
+
 
 if ( isClass(configFile >> "CfgPatches" >> "Radio_Animations") ) then {
 
-        player playactionnow radioAnims_Hand;
-        radioAnims_radioModel = createSimpleObject ["Jet_Radio",position player];
-        radioAnims_radioModel attachto [player,radioAnims_dattach,"lefthand"];   
-        [[radioAnims_radioModel,radioAnims_dvector],"setVectorDirAndUp",true,false] call BIS_fnc_MP;
+    private _phoneModel = createSimpleObject ["Jet_Radio", position player];
 
-        [{
-                
-        }, {
-            if (!isNil "radioAnims_radioModel") then {deletevehicle radioAnims_radioModel;radioAnims_radioModel = nil};
-            player playActionNow "radioAnims_Stop";    
-        }, []]call CBA_fnc_waitUntilAndExecute;
+    private _phoneModel_dattach = [ [0,-0.04,-0.01], [-0.01,-0.04,0] ];
+    private _phoneModel_dvector = [
+        [[0.334,0.788,-0.516],[0.917,-0.398,-0.014]],
+        [[1.434,0.588,-1.916],[0.917,-0.298,-0.024]]
+    ];
 
+    player playActionNow "radioAnims_Ear";
+
+    _phoneModel attachto [player, _phoneModel_dattach, "lefthand", true];
+    [_phoneModel, _phoneModel_dvector] remoteExec ["setVectorDirAndUp", 0, _phoneModel];
+
+    [{
+        params ["_cable"];
+        isNull _cable
+    }, {
+
+        params ["_cable", "_phoneModel"];
+
+        player playActionNow "radioAnims_Stop";
+        deleteVehicle _phoneModel;
+          
+    }, [_cable, _phoneModel]] call CBA_fnc_waitUntilAndExecute;
 };

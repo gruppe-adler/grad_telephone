@@ -35,11 +35,17 @@ class CfgVehicles
         model = "\A3\Weapons_f\empty";
         damageEffect = "";
         destrType = "";
+        ACE_cargo_hasCargo = 0;
+        ACE_cargo_space = 0;
         class ACE_Actions {};
-        class ACE_SelfActions {};
+        class ACE_SelfActions {};        
         class HitPoints {};
         class Turrets {};
         class TransportItems {};
+
+        acre_hasInfantryPhone = 0;
+        class AcreRacks {};
+        class AcreIntercoms {};
     };
 };
 

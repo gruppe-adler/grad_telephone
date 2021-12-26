@@ -1,7 +1,7 @@
 params ["_player", "_object"];
 
 if (!canSuspend) exitWith {
-    [_object] spawn grad_telephone_fnc_createPhoneList;
+    [_player, _object] spawn grad_telephone_fnc_createPhoneList;
 };
 
 player setVariable ["grad_telephone_objCaller", _object];

@@ -1,4 +1,4 @@
-params ["_target"];
+params ["_player", "_target"];
 
 private _targetNumber = _target getVariable ['grad_telephone_directConnect', 'all'];
 private _allPhones = missionNamespace getVariable ['GRAD_TELEPHONE_ALLPHONES', []];

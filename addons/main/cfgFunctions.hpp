@@ -8,6 +8,7 @@ class cfgFunctions {
             class addAction;
             class addActionGeneral;
             class addSelfAction;
+            class cableCreate;
             class cleanPhoneBookMap;
             class conditionAccept;
             class conditionAcceptDriver;

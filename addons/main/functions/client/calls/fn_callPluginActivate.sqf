@@ -51,5 +51,3 @@ diag_log format [
     "GRAD TELEPHONE-debug: TF_lr_active_radio is nil: %1, TFAR_OverrideActiveLRRadio is nil: %2",
     isNil "TF_lr_active_radio", isNil "TFAR_OverrideActiveLRRadio"
 ];
-
-[] call grad_telephone_fnc_tfarAnimation;
