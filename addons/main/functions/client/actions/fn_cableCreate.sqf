@@ -24,13 +24,17 @@ _cablehelper addEventHandler ["RopeBreak", {
 
     systemChat format ["rope break %1 %2 %3", _cablehelper, _rope, _object2];
 
-    private _phone = _cablehelper getVariable ["GRAD_telephone_phone", objNull];
-    [player, _phone] call grad_telephone_fnc_callEnd;
-    systemChat "rope break";
+    private _owner = [_phone] call grad_telephone_fnc_callGetOwner;
 
-    if (!isNull _cablehelper) then {
-        deleteVehicle _cablehelper;
+    private _phone = _cablehelper getVariable ["GRAD_telephone_phone", objNull];
+    [_owner, _phone] call grad_telephone_fnc_callEnd;
+    
+    if (GRAD_TELEPHONE_DEBUG_MODE) then {
+        systemChat "rope break";
     };
+    
+    _owner playActionNow "radioAnims_Stop";
+    detach _phoneModel;
 }];
 
 [_cable, _cablehelper]

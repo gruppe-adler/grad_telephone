@@ -45,6 +45,7 @@ class cfgFunctions {
             class callCIC;
             class callDeleteInfo;
             class callEnd;
+            class callEndAnimation;
             class callGetInfo;
             class callGetOwner;
             class callGetStatus;

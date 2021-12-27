@@ -16,6 +16,17 @@ private _allPhones = [];
 
             default {  /*...code...*/ }; 
         };
+
+        private _phoneModel = createSimpleObject ["Jet_Radio", [0,0,0]];
+        private _offset = _x getVariable ["GRAD_Telephone_phoneCablePlugOffset", [0,0,0]];
+        _phoneModel attachTo [_x, _offset];
+
+        private _cableArray = [_x, _phoneModel] call grad_telephone_fnc_cableCreate;
+        _cableArray params ["_cable", "_cableHelper"];
+        _x setVariable ["GRAD_telephone_cable", _cable, true];
+        _x setVariable ["GRAD_telephone_cableHelper", _cableHelper, true];
+        _x setVariable ["GRAD_telephone_phoneModel", _phoneModel, true];
+        
     } forEach _phonesDetected;    
 } forEach GRAD_TELEPHONE_CLASSNAMES_PHONE;
 
@@ -37,6 +48,17 @@ private _allPhoneBooths = [];
 
             default {  /*...code...*/ }; 
         };
+
+        private _phoneModel = createSimpleObject ["Jet_Radio", [0,0,0]];
+        private _offset = _x getVariable ["GRAD_Telephone_phoneCablePlugOffset", [0,0,0]];
+        _phoneModel attachTo [_x, _offset];
+
+        private _cableArray = [_x, _phoneModel] call grad_telephone_fnc_cableCreate;
+        _cableArray params ["_cable", "_cableHelper"];
+        _x setVariable ["GRAD_telephone_cable", _cable, true];
+        _x setVariable ["GRAD_telephone_cableHelper", _cableHelper, true];
+        _x setVariable ["GRAD_telephone_phoneModel", _phoneModel, true];
+
     } forEach _phonesDetected;
 
 } forEach GRAD_TELEPHONE_CLASSNAMES_PHONEBOOTHS;

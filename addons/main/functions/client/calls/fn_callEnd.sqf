@@ -45,7 +45,7 @@ switch (_state) do {
     if (GRAD_TELEPHONE_DEBUG_MODE) then {
       systemChat "hanging up from waiting";
     };
-		player setVariable ['grad_telephone_isCalling', false];
+		
 	};
 
 
@@ -59,7 +59,6 @@ switch (_state) do {
     if (GRAD_TELEPHONE_DEBUG_MODE) then {
 		    systemChat "hanging up from busy";
     };
-		player setVariable ['grad_telephone_isCalling', false];
 	};
 
 
@@ -101,7 +100,6 @@ switch (_state) do {
     if (GRAD_TELEPHONE_DEBUG_MODE) then {
 		    systemChat "hanging up from calling";
     };
-		player setVariable ['grad_telephone_isCalling', false];
 	};
 
 
@@ -122,12 +120,7 @@ switch (_state) do {
     if (GRAD_TELEPHONE_DEBUG_MODE) then {
 		    systemChat "other side hung up";
     };
-		player setVariable ['grad_telephone_isCalling', false];
 
-		private _cable = _object getVariable ["GRAD_telephone_cable", objNull];
-		private _cableHelper = _object getVariable ["GRAD_telephone_cableHelper", objNull];
-		deleteVehicle _cable;
-		deleteVehicle _cableHelper;
 	};
 
 
@@ -142,15 +135,12 @@ switch (_state) do {
     if (GRAD_TELEPHONE_DEBUG_MODE) then {
 		    systemChat "hanging up from ending";
     };
-		player setVariable ['grad_telephone_isCalling', false];
 
-		private _cable = _object getVariable ["GRAD_telephone_cable", objNull];
-		private _cableHelper = _object getVariable ["GRAD_telephone_cableHelper", objNull];
-		deleteVehicle _cable;
-		deleteVehicle _cableHelper;
-		_object setVariable ["GRAD_telephone_cable", objNull, true];
 	};
-
 
 	default { diag_log "GRAD TELEPHONE: error code 1337"; };
 };
+
+// always end, no matter what happened
+player setVariable ['grad_telephone_isCalling', false];
+[player, _object] call grad_telephone_fnc_callEndAnimation;
