@@ -21,7 +21,7 @@ _maxHeight = abs ((_zMax) - (_zMin));
 
 private _posInFrontOfPhone = _phone getRelPos [-1,0];
 
-if (_animationPhase == 0 && (_player inArea [_centerpos, _maxLength/2, _maxWidth/2, getDir _phone, true, _maxHeight]) then {
+if (_animationPhase == 0 && (_player inArea [_centerpos, _maxLength/2, _maxWidth/2, getDir _phone, true, _maxHeight])) then {
     _return = true;
 
     if (GRAD_TELEPHONE_DEBUG_MODE) then {
@@ -29,7 +29,7 @@ if (_animationPhase == 0 && (_player inArea [_centerpos, _maxLength/2, _maxWidth
     };
 };
 
-if (_animationPhase == 1 && (_player inArea [_posInFrontOfPhone, _maxLength, _maxWidth/2, getDir _phone, true, _maxHeight]) then {
+if (_animationPhase == 1 && (_player inArea [_posInFrontOfPhone, _maxLength, _maxWidth/2, getDir _phone, true, _maxHeight])) then {
     _return = true;
 
     if (GRAD_TELEPHONE_DEBUG_MODE) then {
