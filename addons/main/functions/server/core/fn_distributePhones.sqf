@@ -26,7 +26,7 @@ private _allPhones = [];
         _x setVariable ["GRAD_telephone_cable", _cable, true];
         _x setVariable ["GRAD_telephone_cableHelper", _cableHelper, true];
         _x setVariable ["GRAD_telephone_phoneModel", _phoneModel, true];
-        
+
     } forEach _phonesDetected;    
 } forEach GRAD_TELEPHONE_CLASSNAMES_PHONE;
 
@@ -77,6 +77,7 @@ private _allPhoneBooths = [];
     private _phone = _x;
     private _type = typeOf _phone;
     diag_log format ["GRAD TELEPHONE: type detected is %1", _type];
+    _x setVariable ["GRAD_telephone_isBooth", true, true];
     private _isRotary = if (GRAD_telephone_setting_classnames_rotary_phonebooths find _type > -1) then { true } else { false };
 
 	[_x, _isRotary, "none", "all", true, [0,0,0], true] call grad_telephone_fnc_addPhone;

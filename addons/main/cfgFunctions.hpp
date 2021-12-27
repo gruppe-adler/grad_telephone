@@ -15,6 +15,7 @@ class cfgFunctions {
             class conditionCall;
             class conditionDirectCall;
             class conditionEnd;
+            class conditionEndDoor;
             class conditionEndDriver;
             class createPhoneList;
             class curatorTogglePhone;
