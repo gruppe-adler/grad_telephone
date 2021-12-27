@@ -1,11 +1,5 @@
 params ["_phone"];
 
-private _cableArray = [_phone] call grad_telephone_fnc_cableCreate;
-_cableArray params ["_cable", "_cableHelper"];
-_phone setVariable ["GRAD_telephone_cable", _cable, true];
-_phone setVariable ["GRAD_telephone_cableHelper", _cableHelper, true];
-
-
 if ( isClass(configFile >> "CfgPatches" >> "Radio_Animations") ) then {
 
     private _phoneModel = createSimpleObject ["Jet_Radio", position player];
@@ -18,6 +12,12 @@ if ( isClass(configFile >> "CfgPatches" >> "Radio_Animations") ) then {
     _phoneModel attachto [player, _phoneModel_dattach, "lefthand", true];
     // [_phoneModel, _phoneModel_dvector] remoteExec ["setVectorDirAndUp", 0, _phoneModel];
 
+    private _cableArray = [_phone, _phoneModel] call grad_telephone_fnc_cableCreate;
+    _cableArray params ["_cable", "_cableHelper"];
+    _phone setVariable ["GRAD_telephone_cable", _cable, true];
+    _phone setVariable ["GRAD_telephone_cableHelper", _cableHelper, true];
+    _phone setVariable ["GRAD_telephone_phoneModel", _phoneModel, true];
+
     [{
         params ["_cable"];
         isNull _cable
@@ -26,7 +26,7 @@ if ( isClass(configFile >> "CfgPatches" >> "Radio_Animations") ) then {
         params ["_cable", "_phoneModel"];
 
         player playActionNow "radioAnims_Stop";
-        deleteVehicle _phoneModel;
+        detach _phoneModel;
           
     }, [_cable, _phoneModel]] call CBA_fnc_waitUntilAndExecute;
 };

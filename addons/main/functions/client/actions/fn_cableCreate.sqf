@@ -1,4 +1,4 @@
-params ["_phoneObject", "_player"];
+params ["_phoneObject", "_phoneModel"];
 
 private _offset = _phoneObject getVariable ["GRAD_Telephone_phoneCablePlugOffset", [0,0,0]];
 
@@ -9,8 +9,8 @@ _cablehelper setPos (_phoneObject modelToWorld _offset);
 private _cable = ropeCreate [
     _cablehelper, 
     [0,0,0], 
-    player, 
-    "lefthand", 
+    _phoneModel, 
+    [0,0,0], 
     3, 
     ["", [0,0,-1]],  
     ["", [0,0,-1]], 

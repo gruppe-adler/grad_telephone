@@ -29,7 +29,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
 
       if (count _getOffset > 0) then {
           _offset = _getOffset;
-          systemChat ("offset " + (str _offset) + " detected");
+          // systemChat ("offset " + (str _offset) + " detected");
       };
 
       private _action = [
@@ -62,15 +62,18 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
 } else {
     
       // VANILLA ACTION
-      _object addAction [
+      private _actionID = _object addAction [
           ("<t color=" + _color + ">" + _displayName + "</t>"),
-          { params ["_target", "_caller", "_actionId", "_arguments"];
+          { 
+            params ["_target", "_caller", "_actionId", "_arguments"];
             _arguments params ["_functionToCall"];
             [_caller, _target] call _functionToCall;
           },
           [_functionToCall],99,true,true,"",
-          ("_this call " + str (_condition))
+          ("[_this, _originalTarget] call " + str (_condition))
       ];
+
+      // systemChat str _actionID;
 };
 
 
