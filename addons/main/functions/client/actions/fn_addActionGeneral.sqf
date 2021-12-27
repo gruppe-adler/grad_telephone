@@ -63,7 +63,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
     
       // VANILLA ACTION
       _object addAction [
-          ("<t color=" + _color + ">" + (_displayName) + "</t>"),
+          ("<t color=" + _color + ">" + _displayName + "</t>"),
           { params ["_target", "_caller", "_actionId", "_arguments"];
             _arguments params ["_functionToCall"];
             [_caller, _target] call _functionToCall;
@@ -72,3 +72,22 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
           ("_this call " + str (_condition))
       ];
 };
+
+
+/*
+
+// this works
+
+private _functionToCall = grad_telephone_fnc_conditionCall; 
+private _color = "'#FF00FF'"; 
+
+cursorObject addAction [ 
+          ("<t color=" + _color + ">" + "dfsfd" + "</t>"), 
+          { params ["_target", "_caller", "_actionId", "_arguments"]; 
+            _arguments params ["_functionToCall"]; 
+            [_caller, _target] call _functionToCall; 
+          }, 
+          [_functionToCall],99,true,true,"", 
+          ("_this call " + str (_condition)) 
+      ];
+*/
