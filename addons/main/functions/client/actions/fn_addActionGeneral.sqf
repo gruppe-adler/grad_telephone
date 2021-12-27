@@ -60,10 +60,10 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
       };
 
 } else {
-
+    
       // VANILLA ACTION
       _object addAction [
-          ("<t color='" + _color + "'>" + (_displayName) + "</t>"),
+          ("<t color=" + _color + ">" + (_displayName) + "</t>"),
           { params ["_target", "_caller", "_actionId", "_arguments"];
             _arguments params ["_functionToCall"];
             [_caller, _target] call _functionToCall;
