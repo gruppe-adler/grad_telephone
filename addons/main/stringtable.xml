@@ -9,6 +9,10 @@
             <English>End Call</English>
             <German>Anruf beenden</German>
         </Key>
+        <Key ID="STR_grad_telephone_callEnded">
+            <English>Call ended</English>
+            <German>Anruf beendet</German>
+        </Key>
         <Key ID="STR_grad_telephone_callDial">
             <English>Dial Number</English>
             <German>Nummer wählen</German>

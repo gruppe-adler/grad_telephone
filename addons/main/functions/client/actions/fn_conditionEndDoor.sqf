@@ -25,7 +25,7 @@ if (_animationPhase == 0 && (_player inArea [_centerpos, _maxLength/2, _maxWidth
     _result = true;
 
     if (GRAD_TELEPHONE_DEBUG_MODE) then {
-        systemChat "inside booth";
+    //    systemChat "inside booth";
     };
 };
 
@@ -33,10 +33,10 @@ if (_animationPhase == 1 && (_player inArea [_posInFrontOfPhone, _maxLength, _ma
     _result = true;
 
     if (GRAD_TELEPHONE_DEBUG_MODE) then {
-        systemChat "outside booth in front";
+    //    systemChat "outside booth in front";
     };
 };
 
-systemChat "cut off";
+// systemChat "cut off";
 
 _result
