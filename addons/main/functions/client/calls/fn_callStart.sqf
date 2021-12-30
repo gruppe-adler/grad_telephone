@@ -35,6 +35,11 @@ player setVariable ['grad_telephone_isCalling', true];
     }, {
         params ["_dialing", "_callerPhoneObject", "_receiverPhoneObject", "_callerNumber", "_receiverNumber"];
 
+            private _aborted = missionNamespace getVariable ["GRAD_telephone_dialingAborted", false];
+            if (_aborted) exitWith {
+                hint "dialing aborted";
+            };
+
             [player, _callerPhoneObject] call grad_telephone_fnc_callSetOwner; // set self to owner of current phone
 
             // prevent calling yourself
