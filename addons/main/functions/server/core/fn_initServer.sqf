@@ -32,7 +32,8 @@ if (!isServer) exitWith {};
                   "Land_SatellitePhone_F",
                   "CUP_phonebox",
                   "Item_SatPhone",
-                  "SatPhone"
+                  "SatPhone",
+                  "land_gm_euro_furniture_telephone_01"
             ] +
             _classnamePhones),
       true];
