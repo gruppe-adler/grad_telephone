@@ -57,6 +57,7 @@ class cfgFunctions {
             class callSetOwner;
             class callSetStatus;
             class callStart;
+            class callStartAnimation;
             class callWaiting;
 
         };

@@ -22,7 +22,7 @@ if (_callerPhoneObject getVariable ['grad_telephone_skipDialing', false]) then {
 };
 
 
-[_callerPhoneObject] call grad_telephone_fnc_tfarAnimation;
+[_callerPhoneObject] call grad_telephone_fnc_callStartAnimation;
 
 player setVariable ['grad_telephone_isCalling', true];
 
@@ -38,6 +38,7 @@ player setVariable ['grad_telephone_isCalling', true];
             private _aborted = missionNamespace getVariable ["GRAD_telephone_dialingAborted", false];
             if (_aborted) exitWith {
                 hint "dialing aborted";
+                [player, _callerPhoneObject] call grad_telephone_fnc_callEndAnimation;
             };
 
             [player, _callerPhoneObject] call grad_telephone_fnc_callSetOwner; // set self to owner of current phone
