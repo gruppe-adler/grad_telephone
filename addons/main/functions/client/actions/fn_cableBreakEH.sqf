@@ -21,6 +21,6 @@ _cableHelper addEventHandler ["RopeBreak", {
     };
 
     systemChat "rope break";
-    diag_log format ["rope break cablehelper %1 - rope %2 - phonemodel %3 - owner %4 - phone %5", _object1, _rope, _phoneModel, _owner, _phone];
+    diag_log format ["rope break cablehelper %1 - rope %2 - phonemodel %3 - owner %4 - phone %5", _object1, _rope, _phoneModel, _object2, _phone];
     
 }];
