@@ -21,30 +21,12 @@ private _allPhones = [];
         private _offset = _x getVariable ["GRAD_Telephone_phoneCablePlugOffset", [0,0,0]];
         _phoneModel attachTo [_x, _offset];
 
-        private _cableArray = [_x, _phoneModel] call grad_telephone_fnc_cableCreate;
+        private _cableArray = [_x, player] call grad_telephone_fnc_cableCreate;
         _cableArray params ["_cable", "_cableHelper"];
         _x setVariable ["GRAD_telephone_cable", _cable, true];
         _x setVariable ["GRAD_telephone_cableHelper", _cableHelper, true];
         _x setVariable ["GRAD_telephone_phoneModel", _phoneModel, true];
-
-        _cablehelper addEventHandler ["RopeBreak", {
-            params ["_object1", "_rope", "_object2"];
-
-            private _phone = _object1 getVariable ["GRAD_telephone_phone", objNull];
-            private _owner = [_phone] call grad_telephone_fnc_callGetOwner;
-            private _phoneModel = _phone getVariable ["GRAD_telephone_phoneModel", objNull];
-
-            detach _phoneModel;
-            [_rope, [0,0,-1], [0,0,-1]] ropeAttachTo _phoneModel;
-
-            [_owner, "radioAnims_Stop"] remoteExec ["playActionNow", _owner];
-            [_owner, _phone] remoteExec ["grad_telephone_fnc_callEnd", _owner];
-
-            if (GRAD_TELEPHONE_DEBUG_MODE) then {
-                systemChat format ["rope break"];
-                diag_log format ["rope break cablehelper %1 - rope %2 - phonemodel %3 - owner %4 - phone %5", _object1, _rope, _phoneModel, _owner, _phone];
-            };
-        }];
+        [_cableHelper] call grad_telephone_fnc_cableBreakEH;
 
     } forEach _phonesDetected;    
 } forEach GRAD_TELEPHONE_CLASSNAMES_PHONE;
@@ -77,25 +59,7 @@ private _allPhoneBooths = [];
         _x setVariable ["GRAD_telephone_cable", _cable, true];
         _x setVariable ["GRAD_telephone_cableHelper", _cableHelper, true];
         _x setVariable ["GRAD_telephone_phoneModel", _phoneModel, true];
-
-        _cablehelper addEventHandler ["RopeBreak", {
-            params ["_object1", "_rope", "_object2"];
-
-            private _phone = _object1 getVariable ["GRAD_telephone_phone", objNull];
-            private _owner = [_phone] call grad_telephone_fnc_callGetOwner;
-            private _phoneModel = _phone getVariable ["GRAD_telephone_phoneModel", objNull];
-
-            detach _phoneModel;
-            [_rope, [0,0,-1], [0,0,-1]] ropeAttachTo _phoneModel;
-
-            [_owner, "radioAnims_Stop"] remoteExec ["playActionNow", _owner];
-            [_owner, _phone] remoteExec ["grad_telephone_fnc_callEnd", _owner];
-
-            if (GRAD_TELEPHONE_DEBUG_MODE) then {
-                systemChat "rope break";
-                diag_log format ["rope break cablehelper %1 - rope %2 - phonemodel %3 - owner %4 - phone %5", _object1, _rope, _phoneModel, _owner, _phone];
-            };
-        }];
+        [_cableHelper] call grad_telephone_fnc_cableBreakEH;
 
     } forEach _phonesDetected;
 
@@ -120,3 +84,5 @@ private _allPhoneBooths = [];
 
 	[_x, _isRotary, "none", "all", true, [0,0,0], true] call grad_telephone_fnc_addPhone;
 } forEach _allPhoneBooths;
+
+diag_log "GRAD Telephone : initializing phones DONE.";

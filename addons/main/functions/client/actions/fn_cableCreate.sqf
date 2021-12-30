@@ -18,8 +18,4 @@ private _cable = ropeCreate [
 
 _cablehelper setVariable ["GRAD_telephone_phone", _phoneObject, true];
 
-if (GRAD_TELEPHONE_DEBUG_MODE) then {
-    diag_log format ["ropebreak added: id %1", _handlerID];
-};
-
 [_cable, _cablehelper]

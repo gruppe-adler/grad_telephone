@@ -41,3 +41,6 @@ diag_log format [
 	"GRAD TELEPHONE-debug: TF_lr_active_radio is nil: %1, TFAR_OverrideActiveLRRadio is nil: %2",
 	isNil "TF_lr_active_radio", isNil "TFAR_OverrideActiveLRRadio"
 ];
+
+
+player setVariable ["tf_unable_to_use_radio", false];

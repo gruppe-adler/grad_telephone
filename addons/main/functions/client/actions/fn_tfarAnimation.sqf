@@ -9,6 +9,10 @@ if ( isClass(configFile >> "CfgPatches" >> "Radio_Animations") ) then {
 
     player playActionNow "radioAnims_Ear";
 
+    // attach rope to player instead of phone
+    private _rope = _phone getVariable ["GRAD_telephone_cable", objNull];
+    [player, "lefthand", [0,0,-1]] ropeAttachTo _rope;
+
     _phoneModel attachto [player, _phoneModel_dattach, "lefthand", true];
     // [_phoneModel, _phoneModel_dvector] remoteExec ["setVectorDirAndUp", 0, _phoneModel];
 
