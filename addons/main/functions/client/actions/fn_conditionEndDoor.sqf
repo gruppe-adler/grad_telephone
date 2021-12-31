@@ -19,7 +19,7 @@ _maxWidth = abs ((_xMax) - (_xMin));
 _maxLength = abs ((_yMax) - (_yMin));
 _maxHeight = abs ((_zMax) - (_zMin));
 
-private _posInFrontOfPhone = _phone getRelPos [-1,0];
+private _posInFrontOfPhone = _phone getRelPos [-0.5,0];
 
 if (_animationPhase == 0 && (_player inArea [_centerpos, _maxLength/2, _maxWidth/2, getDir _phone, true, _maxHeight])) then {
     _result = true;

@@ -82,6 +82,8 @@ if (_isVehicle) then {
           grad_telephone_fnc_conditionEnd
         ] call GRAD_telephone_fnc_addActionGeneral;
 
+
+        /*
         [
           _unit,
           _object,
@@ -91,5 +93,6 @@ if (_isVehicle) then {
           { params ["_unit", "_object"]; hint format ['%1', _object getVariable ['GRAD_TELEPHONE_NUMBER_ASSIGNED', 'no Number']]; },
           { params ["_unit", "_object"]; _unit distance _object < 2 && !(_object getVariable ['grad_telephone_skipDialing', false]) && [_unit, _object] call grad_telephone_fnc_conditionEndDoor }
         ] call GRAD_telephone_fnc_addActionGeneral;
+        */
 
 };

@@ -13,7 +13,7 @@ if ( isClass(configFile >> "CfgPatches" >> "Radio_Animations") ) then {
     private _rope = _phone getVariable ["GRAD_telephone_cable", objNull];
     [player, "lefthand", [0,0,-1]] ropeAttachTo _rope;
 
-    _phoneModel attachto [player, _phoneModel_dattach, "lefthand", true];
-    // [_phoneModel, _phoneModel_dvector] remoteExec ["setVectorDirAndUp", 0, _phoneModel];
+    _phoneModel attachto [player, [0,0,0], "lefthand", true];
+    [_phoneModel, [[0,0.66,-0.33], [0,0.33,0.66]]] remoteExec ["setVectorDirAndUp", _phoneModel];
 
 };

@@ -17,7 +17,7 @@ private _allPhones = [];
             default {  /*...code...*/ }; 
         };
 
-        private _phoneModel = createSimpleObject ["Jet_Radio", [0,0,0]];
+        private _phoneModel = createSimpleObject ["x\grad_telephone\addons\main\data\receiver_gdr.p3d", [0,0,0]];
         private _offset = _x getVariable ["GRAD_Telephone_phoneCablePlugOffset", [0,0,0]];
         _phoneModel attachTo [_x, _offset];
 
@@ -50,7 +50,7 @@ private _allPhoneBooths = [];
             default {  /*...code...*/ }; 
         };
 
-        private _phoneModel = createSimpleObject ["Jet_Radio", [0,0,0]];
+        private _phoneModel = createSimpleObject ["x\grad_telephone\addons\main\data\receiver_gdr.p3d", [0,0,0]];
         private _offset = _x getVariable ["GRAD_Telephone_phoneCablePlugOffset", [0,0,0]];
         _phoneModel attachTo [_x, _offset];
 
@@ -69,7 +69,14 @@ private _allPhoneBooths = [];
     private _phone = _x;
     private _type = typeOf _phone;
     diag_log format ["GRAD TELEPHONE: type detected is %1", _type];
-    private _isRotary = if (GRAD_telephone_setting_classnames_rotary_phones find _type > -1) then { true } else { false };
+
+    private _isRotary = if (GRAD_telephone_setting_classnames_rotary_phones find _type > -1) then { true } else {
+        if (["land_gm_euro_furniture_telephone_01"] find _type > -1) then {
+            true
+        } else {
+            false
+        };
+    };
 
 	[_x, _isRotary, "none", "all", true, [0,0,0], false] call grad_telephone_fnc_addPhone;
 } forEach _allPhones;
@@ -80,7 +87,14 @@ private _allPhoneBooths = [];
     private _type = typeOf _phone;
     diag_log format ["GRAD TELEPHONE: type detected is %1", _type];
     _x setVariable ["GRAD_telephone_isBooth", true, true];
-    private _isRotary = if (GRAD_telephone_setting_classnames_rotary_phonebooths find _type > -1) then { true } else { false };
+    
+    private _isRotary = if (GRAD_telephone_setting_classnames_rotary_phonebooths find _type > -1) then { true } else {
+        if (["land_gm_euro_misc_feh_62_e"] find _type > -1) then {
+            true
+        } else {
+            false
+        };
+    };
 
 	[_x, _isRotary, "none", "all", true, [0,0,0], true] call grad_telephone_fnc_addPhone;
 } forEach _allPhoneBooths;

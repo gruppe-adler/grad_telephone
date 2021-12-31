@@ -71,8 +71,7 @@
     "GRAD_telephone_setting_classnames_digits_phonebooths",
     "EDITBOX",
     ["Digit Phonebooths","comma separated classnames without quotation marks."],
-    ["GRAD Telephone", "Phonebooths"],
-    "", 1, {}, true
+    ["GRAD Telephone", "Phonebooths"],"", 1, {}, true
 ] call CBA_fnc_addSetting;
 
 [
