@@ -89,7 +89,11 @@ _button ctrlAddEventHandler ["ButtonClick", {
 
         private _objCaller = player getVariable ['grad_telephone_objCaller', objNull];
 
-        [_objCaller, _receiverObjects] call grad_telephone_fnc_callStart;
+        if (_receiverPhoneObject getVariable ["grad_telephone_fakeCallDevice", false]) then {
+            [_objCaller, _receiverObjects] call grad_telephone_fnc_fakeCallStart;
+        } else {
+            [_objCaller, _receiverObjects] call grad_telephone_fnc_callStart;
+        };
 
         // debug
         /*

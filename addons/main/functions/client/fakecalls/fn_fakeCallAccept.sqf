@@ -4,7 +4,7 @@
     [cursorObject] call grad_telephone_fnc_fakeCallAccept;
 */
 
-params ["_object"];
+params ["_object", "_sound"];
 
 private _storedData = [_object] call grad_telephone_fnc_callGetInfo;
 
@@ -36,9 +36,4 @@ if (GRAD_TELEPHONE_DEBUG_MODE) then {
 [_phone1, _phone2] remoteExec ["grad_telephone_fnc_callRegister", 2];
 
 
-[_player1, _phone1] remoteExec ["grad_telephone_fnc_fakeCallsPlaysound", _player1, "alarm", true];
-
-[{
-    params ["_phone2"];
-    [_phone2] call grad_telephone_fnc_fakeCallEnd;
-}, [_phone2], 5] call CBA_fnc_waitAndExecute;
+[_player1, _phone1, _phone2, _sound] remoteExec ["grad_telephone_fnc_fakeCallsPlaysound", _player1];

@@ -252,4 +252,12 @@ class cfgSounds {
         titles[] = {};
     };
 
+
+    class grad_telephone_sound_fakecallanswerdefault
+    {
+        name = "grad_telephone_sound_fakecallanswerdefault";
+        sound[] = {"x\grad_telephone\addons\main\sounds\fakecallanswerdefault.ogg",10,1};
+        titles[] = {};
+    };
+
 };
