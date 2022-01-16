@@ -9,6 +9,7 @@ Telephone Functionality in Arma (heavy WIP)
 * phones trying to connect to an existing connection will receive occupied signal
 * easily add phone functionality to any object
 * phone numbers are auto generated
+* hooking into lines for agents is on the roadmap
 
 
 * note current TFAR_wire model is by Saborknight
@@ -32,6 +33,10 @@ Default true
 `grad_telephone_skipDialing` - **BOOL**  
 _Skips dialing, no wait before connection is build up. Usable for e.g. Grenzmeldenetz or other direct connections._  
 Default false  
+
+`GRAD_Telephone_phoneCablePlugOffset` - **ARRAY XYZ**
+_Sets position of cable plug on phone object_
+Default [0,0,0]
 
 
 `grad_telephone_fakeanswersound` - **ARRAY** of Sounds  
