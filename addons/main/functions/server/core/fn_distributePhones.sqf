@@ -78,7 +78,7 @@ private _allPhoneBooths = [];
         };
     };
 
-	[_x, _isRotary, "none", "all", true, [0,0,0], false] call grad_telephone_fnc_addPhone;
+	[_x, _isRotary, "none", "none", "all", true, [0,0,0], false] call grad_telephone_fnc_addPhone;
 } forEach _allPhones;
 
 
@@ -96,7 +96,7 @@ private _allPhoneBooths = [];
         };
     };
 
-	[_x, _isRotary, "none", "all", true, [0,0,0], true] call grad_telephone_fnc_addPhone;
+	[_x, _isRotary, "none", "none", "all", true, [0,0,0], true] call grad_telephone_fnc_addPhone;
 } forEach _allPhoneBooths;
 
 diag_log "GRAD Telephone : initializing phones DONE.";
