@@ -26,8 +26,9 @@ params [
 ];
 
 if (!isServer) exitWith {};
+if (isNull _object) exitWith { diag_log format ["grad-telephone: addPhone error: no object"]; };
+if (_object getVariable ["grad_telephone_phoneID", -1] > 0) exitWith { diag_log format ["grad-telephone %1: addPhone info: skipping phone, already registered", _object]; };
 
-if (isNull _object) exitWith { diag_log format ["addPhone error: no object"]; };
 
 if (_position isEqualTo [0,0,0]) then {
    _position = position _object;
