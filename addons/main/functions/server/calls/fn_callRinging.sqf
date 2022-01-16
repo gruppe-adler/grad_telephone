@@ -10,7 +10,7 @@ if (!canSuspend) exitWith {
     [_receiverPhoneObject] spawn grad_telephone_fnc_callRinging;
 };
 
-private _isFakePhone = _receiverPhoneObject getVariable ["grad_telephone_fakephone", false];
+private _isFakePhone = _receiverPhoneObject getVariable ["grad_telephone_isFakePhone", false];
 
 [_receiverPhoneObject, "ringing"] call grad_telephone_fnc_callSetStatus;
 

@@ -51,7 +51,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
 
       if (!_selfAction) then {
 
-          private _gradTelephoneMainAction = ["GRAD_telephoneAction", "Main Action", "", {}, {true}] call ace_interact_menu_fnc_createAction;
+          private _gradTelephoneMainAction = ["GRAD_telephoneAction", "Main Action", "", {}, {true}, {}, nil, _getOffset] call ace_interact_menu_fnc_createAction;
           [_object, 0, [], _gradTelephoneMainAction] call ace_interact_menu_fnc_addActionToObject;
 
           [_object, 0, ["GRAD_telephoneAction"], _action] call ace_interact_menu_fnc_addActionToObject;

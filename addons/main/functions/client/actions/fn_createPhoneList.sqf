@@ -23,11 +23,14 @@ private _allMarkers = [];
 {
     _x params ["_number", "_objectsArray"];
 
+    private _hasDisplayName = (_objectsArray select 0) getVariable ['grad_telephone_displayName', ""];
     private _hasPublicPhoneBookEntry = (_objectsArray select 0) getVariable ['grad_telephone_hasPublicPhoneBookEntry', false];
     private _position = (_objectsArray select 0) getVariable ['grad_telephone_phonePosition', [0,0,0]];
     private _isPhoneBooth = (_objectsArray select 0) getVariable ['grad_telephone_isPhonebooth', false];
     if (_hasPublicPhoneBookEntry) then {
 
+        if (_hasDisplayName != "") then { _number = _number + " - " + _hasDisplayName; };
+            
         private _identifier = _phoneList lbAdd _number;
         _phoneList setVariable [str _identifier, _objectsArray];
         // lbSetTooltip [1000, _identifier, str _objectsArray]; // more debug than anything else currently
@@ -89,11 +92,8 @@ _button ctrlAddEventHandler ["ButtonClick", {
 
         private _objCaller = player getVariable ['grad_telephone_objCaller', objNull];
 
-        if (_receiverPhoneObject getVariable ["grad_telephone_fakeCallDevice", false]) then {
-            [_objCaller, _receiverObjects] call grad_telephone_fnc_fakeCallStart;
-        } else {
-            [_objCaller, _receiverObjects] call grad_telephone_fnc_callStart;
-        };
+        [_objCaller, _receiverObjects] call grad_telephone_fnc_callStart;
+        
 
         // debug
         /*

@@ -2,7 +2,7 @@
 
 	can be called out of 3DEN init of object:
 
-	[this] call grad_telephone_fnc_addPhone;
+	[this, false, "123456", "bla", "all", true, [0,0,0], true, true] call grad_telephone_fnc_addPhone;
 
 	* Arguments:
 	* Object which will get the phone functionality <object>
@@ -22,7 +22,8 @@ params [
   ["_canOnlyCallNumber", "all"],
   ["_hasPublicPhoneBookEntry", false],
   ["_position", [0,0,0]],
-  ["_isPhoneBooth", false]
+  ["_isPhoneBooth", false],
+  ["_isFakePhone", false]
 ];
 
 if (!isServer) exitWith {};
@@ -46,6 +47,7 @@ _object setVariable ["grad_telephone_hasPublicPhoneBookEntry", _hasPublicPhoneBo
 _object setVariable ["grad_telephone_phonePosition", _position, true]; // used in phone book map
 _object setVariable ["grad_telephone_isPhonebooth", _isPhoneBooth, true]; // used for phone booth mechanics, used for icon on phone book map
 _object setVariable ["grad_telephone_displayName", _displayName, true]; // used for name in phone book (WIP)
+_object setVariable ["grad_telephone_isFakePhone", _isFakePhone, true]; // used for name in phone book (WIP)
 
 
 // zeus & direct call
