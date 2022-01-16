@@ -10,6 +10,8 @@ if (!canSuspend) exitWith {
     [_receiverPhoneObject] spawn grad_telephone_fnc_callRinging;
 };
 
+private _isFakePhone = _receiverPhoneObject getVariable ["grad_telephone_fakephone", false];
+
 [_receiverPhoneObject, "ringing"] call grad_telephone_fnc_callSetStatus;
 
 private _position = getPos _receiverPhoneObject;
@@ -25,9 +27,26 @@ hideObjectGlobal _dummy;
 _dummy setPos _position;
 
 // dont ring if needed
-if (!(_receiverPhoneObject getVariable ["grad_telephone_dontRing", false])) then {
+if (!(_receiverPhoneObject getVariable ["grad_telephone_dontRing", false]) || _isFakePhone) then {
     // todo hide dummy visually
     [_dummy] remoteExec ["grad_telephone_fnc_soundRing", [0,-2] select isDedicated];
+};
+
+
+if (_isFakePhone) then {
+    [{
+        params ["_receiverPhoneObject"];
+
+        private _possibleSounds = _receiverPhoneObject getVariable ["grad_telephone_fakeanswersound", []];
+
+        private _soundSelected = "grad_telephone_sound_fakecallanswerdefault";
+        if (count _possibleSounds > 0) then { _soundSelected = selectRandom _possibleSounds; };
+
+        // if there is a sound prepared && still ringing, accept call after waiting time
+        if ([_receiverPhoneObject, "ringing"] call grad_telephone_fnc_callGetStatus) then {
+            [_receiverPhoneObject, _soundSelected] call grad_telephone_fnc_fakeCallAccept;
+        };
+    }, [_receiverPhoneObject], (random 10 max 1)] call CBA_fnc_waitAndExecute;
 };
 
 waitUntil { !([_receiverPhoneObject, "ringing"] call grad_telephone_fnc_callGetStatus) };

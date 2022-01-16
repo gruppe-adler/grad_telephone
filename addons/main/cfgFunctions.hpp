@@ -64,10 +64,7 @@ class cfgFunctions {
             file = "x\grad_telephone\addons\main\functions\client\fakecalls";
 
             class fakeCallAccept;
-            class fakeCallEnd;
-            class fakeCallPlaysound;
-            class fakeCallRinging;
-            class fakeCallStart;     
+            class fakeCallPlaysound; 
         };
 
         class client_hooking {

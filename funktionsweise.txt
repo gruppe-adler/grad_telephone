@@ -1,0 +1,11 @@
+
+GM West: http://www.oeffentlichetelefone.de/Muenzfernsprecher_DB.html
+
+Der gelbe Leuchtpfeil leuchtet zu Beginn einer Verbindung / nach abnehmen des Hörers so lange, bis die Mindestgebühr eingeworfen ist. Bei münzfreien Verbindungen bleibt diese Anzeige eingeschaltet, da die Mindestgebühr nicht eingeworfen wurde. Der gelbe Leuchtpfeil wird auch als Nachzahlungsaufforderung benutzt. In diesem Fall wird sie blinkend betrieben.
+
+Der rote Leuchtpfeil leuchtet wenn der Benutzer wählt ohne die Mindestgebühr eingeworfen zu haben, oder wenn bei Nullguthaben die Verbindung durch einen Abbruchimpuls getrennt wird.
+
+
+GM Ost: http://www.oeffentlichetelefone.de/bezirks_muenzfernsprecher_m60.html
+
+Nach Aufforderung der Mitarbeiterin im Fernamt hat der Sprechgast die Gebühr für ein Dreiminutengespräch einzuwerfen. Dabei schlagen die Münzen ihrer Wertigkeit entsprechend an verschiedene Klangstäbe, deren unterschiedliche Töne über ein Klangmikrofon zur Fernamtskraft übertragen werden. Erkennt diese die Richtigkeit des eingezahlten Betrages an, fordert sie den Sprechgast auf, den Zahlknopf zu drücken, wodurch die Kassierfallen mechanisch geöffnet werden und die Münzen in die Münzkassette fallen. Ein Gongzeichen überträgt den Kassiervorgang zum Fernamt. Das bereits vorher hergestellte Gespräch wird nun zum Münzfernsprecher durchgeschaltet.
