@@ -6,15 +6,15 @@ private _allPhones = [];
     {
         _allPhones pushBackUnique _x;
 
-        switch (_classname) do { 
-            case "land_gm_euro_furniture_telephone_01" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.0473633,0.069458,0], true];  _x setVariable ['grad_telephone_isRotary', true, true]; }; 
-            case "Land_SatellitePhone_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.0786133,0.0467529,-0.148544], true]; }; 
-            case "Item_SatPhone" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [0.0830078,-0.0379333,-0.227635], true]; }; 
-            case "Land_IPPhone_01_black_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.115723,0.0844727,-0.0364208], true]; }; 
-            case "Land_IPPhone_01_olive_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.115723,0.0844727,-0.0364208], true]; }; 
-            case "Land_IPPhone_01_sand_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.115723,0.0844727,-0.0364208], true]; }; 
+        switch (_classname) do {
+            case "land_gm_euro_furniture_telephone_01" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.0473633,0.069458,0], true];  _x setVariable ['grad_telephone_isRotary', true, true]; };
+            case "Land_SatellitePhone_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.0786133,0.0467529,-0.148544], true]; };
+            case "Item_SatPhone" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [0.0830078,-0.0379333,-0.227635], true]; };
+            case "Land_IPPhone_01_black_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.115723,0.0844727,-0.0364208], true]; };
+            case "Land_IPPhone_01_olive_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.115723,0.0844727,-0.0364208], true]; };
+            case "Land_IPPhone_01_sand_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.115723,0.0844727,-0.0364208], true]; };
 
-            default {  /*...code...*/ }; 
+            default {  /*...code...*/ };
         };
 
         private _phoneModel = createSimpleObject ["x\grad_telephone\addons\main\data\receiver_gdr.p3d", [0,0,0]];
@@ -28,7 +28,7 @@ private _allPhones = [];
         _x setVariable ["GRAD_telephone_phoneModel", _phoneModel, true];
         [_cableHelper] call grad_telephone_fnc_cableBreakEH;
 
-    } forEach _phonesDetected;    
+    } forEach _phonesDetected;
 } forEach GRAD_TELEPHONE_CLASSNAMES_PHONE;
 
 private _allPhoneBooths = [];
@@ -38,16 +38,16 @@ private _allPhoneBooths = [];
     {
         _allPhoneBooths pushBackUnique _x;
 
-        switch (_classname) do { 
-            case "land_gm_euro_misc_feh_62_e" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.342285,0.395142,1.24925], true]; _x setVariable ['grad_telephone_isRotary', true, true]; }; 
-            case "land_gm_euro_misc_telh_78_w" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.263672,0.437988,1.45601], true]; }; 
+        switch (_classname) do {
+            case "land_gm_euro_misc_feh_62_e" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.342285,0.395142,1.24925], true]; _x setVariable ['grad_telephone_isRotary', true, true]; };
+            case "land_gm_euro_misc_telh_78_w" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.263672,0.437988,1.45601], true]; };
 
-            case "Land_PhoneBooth_01_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.159668,0.092041,0.409931], true]; }; 
-            case "Land_PhoneBooth_02_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.159668,0.092041,0.409931], true]; }; 
-            case "Land_PhoneBooth_02_malden_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.159668,0.092041,0.409931], true]; }; 
-            case "Land_PhoneBooth_01_malden_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.159668,0.092041,0.409931], true]; }; 
+            case "Land_PhoneBooth_01_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.159668,0.092041,0.409931], true]; };
+            case "Land_PhoneBooth_02_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.159668,0.092041,0.409931], true]; };
+            case "Land_PhoneBooth_02_malden_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.159668,0.092041,0.409931], true]; };
+            case "Land_PhoneBooth_01_malden_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.159668,0.092041,0.409931], true]; };
 
-            default {  /*...code...*/ }; 
+            default {  /*...code...*/ };
         };
 
         private _phoneModel = createSimpleObject ["x\grad_telephone\addons\main\data\receiver_gdr.p3d", [0,0,0]];
@@ -78,7 +78,7 @@ private _allPhoneBooths = [];
         };
     };
 
-	[_x, _isRotary, "none", "all", true, [0,0,0], false] call grad_telephone_fnc_addPhone;
+	[_x, _isRotary, "none", "none", "all", true, [0,0,0], false] call grad_telephone_fnc_addPhone;
 } forEach _allPhones;
 
 
@@ -87,7 +87,7 @@ private _allPhoneBooths = [];
     private _type = typeOf _phone;
     diag_log format ["GRAD TELEPHONE: type detected is %1", _type];
     _x setVariable ["GRAD_telephone_isBooth", true, true];
-    
+
     private _isRotary = if (GRAD_telephone_setting_classnames_rotary_phonebooths find _type > -1) then { true } else {
         if (["land_gm_euro_misc_feh_62_e"] find _type > -1) then {
             true
@@ -96,7 +96,7 @@ private _allPhoneBooths = [];
         };
     };
 
-	[_x, _isRotary, "none", "all", true, [0,0,0], true] call grad_telephone_fnc_addPhone;
+	[_x, _isRotary, "none", "none", "all", true, [0,0,0], true] call grad_telephone_fnc_addPhone;
 } forEach _allPhoneBooths;
 
 diag_log "GRAD Telephone : initializing phones DONE.";

@@ -18,7 +18,7 @@ params [
   ["_object", objNull],
   ["_isRotary", false],
   ["_number", "none"],
-  ["_name", "none"],
+  ["_displayName", "none"],
   ["_canOnlyCallNumber", "all"],
   ["_hasPublicPhoneBookEntry", false],
   ["_position", [0,0,0]],
@@ -44,7 +44,7 @@ _object setVariable ["grad_telephone_skipDialing", _canOnlyCallNumber != "all", 
 _object setVariable ["grad_telephone_hasPublicPhoneBookEntry", _hasPublicPhoneBookEntry, true]; // toggles phone book entry
 _object setVariable ["grad_telephone_phonePosition", _position, true]; // used in phone book map
 _object setVariable ["grad_telephone_isPhonebooth", _isPhoneBooth, true]; // used for phone booth mechanics, used for icon on phone book map
-_object setVariable ["grad_telephone_name", _name, true]; // used for name in phone book (WIP)
+_object setVariable ["grad_telephone_displayName", _displayName, true]; // used for name in phone book (WIP)
 
 
 // zeus & direct call
@@ -57,6 +57,6 @@ if (_canOnlyCallNumber != "all") then {
 
 
 // zeus phone will receive extra action, not here
-if (_canOnlyCallNumber != "none" || _hasPublicPhoneBookEntry) then {
+if (_canOnlyCallNumber != "none") then {
     [_object] remoteExec ["grad_telephone_fnc_addAction", [0,-2] select isDedicated, true];
 };

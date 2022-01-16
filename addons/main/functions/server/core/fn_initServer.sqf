@@ -21,8 +21,8 @@ if (!isServer) exitWith {};
         };
       missionNamespace setVariable ["GRAD_TELEPHONE_NUMBER_LENGTH", _numberLength, true];
 
-      private _classnamePhones = 
-      [("GRAD_telephone_setting_classnames_digits_phones" call CBA_settings_fnc_get) + 
+      private _classnamePhones =
+      [("GRAD_telephone_setting_classnames_digits_phones" call CBA_settings_fnc_get) +
       ("GRAD_telephone_setting_classnames_rotary_phones" call CBA_settings_fnc_get)];
       missionNamespace setVariable ["GRAD_TELEPHONE_CLASSNAMES_PHONE",
             ([
@@ -38,8 +38,8 @@ if (!isServer) exitWith {};
             _classnamePhones),
       true];
 
-      private _classnamePhoneBooths = 
-      [("GRAD_telephone_setting_classnames_digits_phonebooths" call CBA_settings_fnc_get) + 
+      private _classnamePhoneBooths =
+      [("GRAD_telephone_setting_classnames_digits_phonebooths" call CBA_settings_fnc_get) +
       ("GRAD_telephone_setting_classnames_rotary_phonebooths" call CBA_settings_fnc_get)];
       missionNamespace setVariable ["GRAD_TELEPHONE_CLASSNAMES_PHONEBOOTHS",
             ([
@@ -71,11 +71,9 @@ if (!isServer) exitWith {};
 
       // special treatment for curator
       [{
-
-
-      {
-            if (_x getVariable ["GRAD_nvacommand_isCommander", false]) then {
-                  [_x, false, "1337", "none"] call grad_telephone_fnc_addPhone;
+        {
+            if (!isNull getAssignedCuratorLogic _x) then {
+                  [_x, false, "1337", "Zeus", "none"] call grad_telephone_fnc_addPhone;
             };
           } forEach allPlayers;
       }, [], 10] call CBA_fnc_waitAndExecute;
