@@ -13,7 +13,7 @@ private _soundObject = playSound _sound;
         params ["_unit", "_phone1", "_phone2", "_soundObject"];
 
         // if call is still running
-        if ([_receiverPhoneObject, "calling"] call grad_telephone_fnc_callGetStatus) then {
+        if ([_phone1, "calling"] call grad_telephone_fnc_callGetStatus) then {
             [_phone2] remoteExec ["grad_telephone_fnc_callEnd", 2];
         };
     }, [_unit, _phone1, _phone2, _soundObject], (random 5 max 1)] call CBA_fnc_waitAndExecute;
