@@ -16,6 +16,33 @@ if ( isClass(configFile >> "CfgPatches" >> "Radio_Animations") ) then {
     _phoneModel attachto [player, [0,0,0], "lefthand", true];
     [_phoneModel, [[0,0.66,-0.33], [0,0.33,0.66]]] remoteExec ["setVectorDirAndUp", _phoneModel];
 
+    // to prevent issues in MP EH must be added to player connected to rope
+    private _cableHelper = _phone getVariable ["GRAD_telephone_cableHelper", objNull];
+    _cableHelper addEventHandler ["RopeBreak", {
+        params ["_object1", "_rope", "_object2"];
+
+        private _phone = _object1 getVariable ["GRAD_telephone_phone", objNull];
+        private _offset = _phone getVariable ["GRAD_Telephone_phoneCablePlugOffset", [0,0,0]];
+        private _phoneModel = _phone getVariable ["GRAD_telephone_phoneModel", objNull];
+
+        detach _phoneModel;
+        _phoneModel attachTo [_phone, _offset];
+
+        if (!isNull _phoneModel) then {
+            _object1 ropeDetach _phoneModel;
+            [_phoneModel, [0,0,0], [0,0,-1]] ropeAttachTo _rope;
+        };
+
+        if (isPlayer _object2) then {
+            [_object2, "radioAnims_Stop"] remoteExec ["playActionNow", _object2];
+            [_object2, _phone] remoteExec ["grad_telephone_fnc_callEnd", _object2];
+        };
+
+        systemChat "rope break";
+        diag_log format ["rope break cablehelper %1 - rope %2 - phonemodel %3 - owner %4 - phone %5", _object1, _rope, _phoneModel, _object2, _phone];
+        
+    }];
+
 };
 
 
