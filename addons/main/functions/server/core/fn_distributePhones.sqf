@@ -21,7 +21,7 @@ private _allPhones = [];
         private _offset = _x getVariable ["GRAD_Telephone_phoneCablePlugOffset", [0,0,0]];
         _phoneModel attachTo [_x, _offset];
 
-        private _cableArray = [_x, player] call grad_telephone_fnc_cableCreate;
+        private _cableArray = [_x, _phoneModel] call grad_telephone_fnc_cableCreate;
         _cableArray params ["_cable", "_cableHelper"];
         _x setVariable ["GRAD_telephone_cable", _cable, true];
         _x setVariable ["GRAD_telephone_cableHelper", _cableHelper, true];

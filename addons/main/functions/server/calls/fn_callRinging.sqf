@@ -15,7 +15,7 @@ private _isFakePhone = _receiverPhoneObject getVariable ["grad_telephone_isFakeP
 [_receiverPhoneObject, "ringing"] call grad_telephone_fnc_callSetStatus;
 
 private _position = getPos _receiverPhoneObject;
-private _boundingBox = boundingBoxReal vehicle player;
+private _boundingBox = boundingBoxReal _receiverPhoneObject;
 _boundingBox params ["_p1", "_p2"];
 private _maxHeight = abs ((_p2 select 2) - (_p1 select 2));
 
