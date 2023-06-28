@@ -19,7 +19,6 @@ if (isNull _dialog) exitWith { hint (localize "STR_grad_telephone_error"); };
 private _phoneList = _dialog displayCtrl 1000;
 private _allNumbers = missionNamespace getVariable ['GRAD_TELEPHONE_ALLNUMBERS', []];
 
-private _currentPhoneNumber = _object getVariable ["GRAD_TELEPHONE_NUMBER_ASSIGNED", "all"];
 private _allMarkers = [];
 {
     _x params ["_number", "_objectsArray"];
@@ -31,7 +30,7 @@ private _allMarkers = [];
     private _isSame = false;
     if (_hasPublicPhoneBookEntry) then {
 
-        if (_number == _currentPhoneNumber) then {
+        if (_player distance _object < 3) then {
             _isSame = true;
         };
 
