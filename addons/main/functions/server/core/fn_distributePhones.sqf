@@ -17,7 +17,7 @@ private _allPhones = [];
             default {  /*...code...*/ };
         };
 
-        private _phoneModel = createSimpleObject ["x\grad_telephone\addons\main\data\receiver_gdr.p3d", [0,0,0]];
+        private _phoneModel = createSimpleObject ["z\tfar\addons\external_intercom\data\TFAR_handset.p3d", [0,0,0]];
         private _offset = _x getVariable ["GRAD_Telephone_phoneCablePlugOffset", [0,0,0]];
         _phoneModel attachTo [_x, _offset];
 
@@ -50,7 +50,7 @@ private _allPhoneBooths = [];
             default {  /*...code...*/ };
         };
 
-        private _phoneModel = createSimpleObject ["x\grad_telephone\addons\main\data\receiver_gdr.p3d", [0,0,0]];
+        private _phoneModel = createSimpleObject ["z\tfar\addons\external_intercom\data\TFAR_handset.p3d", [0,0,0]];
         private _offset = _x getVariable ["GRAD_Telephone_phoneCablePlugOffset", [0,0,0]];
         _phoneModel attachTo [_x, _offset];
 
