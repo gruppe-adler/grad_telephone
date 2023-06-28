@@ -39,6 +39,7 @@ player setVariable ['grad_telephone_isCalling', true];
             if (_aborted) exitWith {
                 hint "dialing aborted";
                 [player, _callerPhoneObject] call grad_telephone_fnc_callEndAnimation;
+                player setVariable ['grad_telephone_isCalling', false];
             };
 
             [player, _callerPhoneObject] call grad_telephone_fnc_callSetOwner; // set self to owner of current phone
