@@ -38,10 +38,22 @@
     "CHECKBOX",
     ["Debug Mode", "Debug Mode (Systemchat) enabled"],
     ["GRAD Telephone", "Debug Mode"],
-    true, 0, {
-        GRAD_TELEPHONE_DEBUG_MODE = true; publicVariable "GRAD_TELEPHONE_DEBUG_MODE";
-    }, true
+    true, 0, {}, true
 ] call CBA_fnc_addSetting;
+
+
+["CBA_SettingChanged", {
+    params ["_setting", "_value"];
+    if (_setting == "GRAD_telephone_setting_debugMode") then {
+        if (_value == 1) then {
+            GRAD_TELEPHONE_DEBUG_MODE = true; 
+        } else {
+             GRAD_TELEPHONE_DEBUG_MODE = false; 
+        };
+        publicVariable "GRAD_TELEPHONE_DEBUG_MODE";
+    };
+}] call CBA_fnc_addEventHandler;
+
 
 [
     "GRAD_telephone_setting_classnames_rotary_phones",

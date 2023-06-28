@@ -12,7 +12,11 @@ if ([_receiverPhoneObject, "idle"] call grad_telephone_fnc_callGetStatus) then {
 		}, {
 
 				params ["_callerPhoneObject", "_receiverPhoneObject", "_callerNumber", "_receiverNumber"];
-				systemChat format ["callStart - waiting %1 from %2", _receiverNumber, _callerNumber];
+				
+				if (GRAD_TELEPHONE_DEBUG_MODE) then {
+					systemChat format ["callStart - waiting %1 from %2", _receiverNumber, _callerNumber];
+				};
+				
 				private _storedData = [_callerPhoneObject] call grad_telephone_fnc_callGetInfo;
 
 				_storedData params [

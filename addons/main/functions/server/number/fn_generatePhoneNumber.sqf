@@ -29,7 +29,9 @@ while {true} do {
 
 	if (_phoneList find _result == -1) exitWith {};
 
-  systemChat format ["exiting with %1 ", _result];
+	if (GRAD_TELEPHONE_DEBUG_MODE) then {
+  		systemChat format ["exiting with %1 ", _result];
+	};
 };
 
 private _endResult = "";

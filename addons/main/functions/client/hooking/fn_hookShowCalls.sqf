@@ -99,7 +99,9 @@ _button ctrlAddEventHandler ["ButtonClick", {
         private _listBox = _dialog displayCtrl 1000;
 
         private _objIndex = lbCurSel _listBox;
-        systemChat format ["%1", _objIndex];
+        if (GRAD_TELEPHONE_DEBUG_MODE) then {
+            systemChat format ["%1", _objIndex];
+        };
 
         private _allPhones = missionNamespace getVariable ['GRAD_TELEPHONE_ALLPHONES', []];
         private _objReceiver = _allPhones select _objIndex;

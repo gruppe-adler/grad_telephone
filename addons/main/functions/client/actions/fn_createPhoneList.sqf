@@ -27,12 +27,9 @@ private _allMarkers = [];
     private _hasPublicPhoneBookEntry = (_objectsArray select 0) getVariable ['grad_telephone_hasPublicPhoneBookEntry', false];
     private _position = (_objectsArray select 0) getVariable ['grad_telephone_phonePosition', [0,0,0]];
     private _isPhoneBooth = (_objectsArray select 0) getVariable ['grad_telephone_isPhonebooth', false];
-    private _isSame = false;
+    
     if (_hasPublicPhoneBookEntry) then {
-
-        if (_player distance _object < 3) then {
-            _isSame = true;
-        };
+       
 
         if (_hasDisplayName != "") then { _number = _number + " - " + _hasDisplayName; };
             
@@ -52,7 +49,8 @@ private _allMarkers = [];
         _marker setMarkerDirLocal 0;
         _marker setMarkerSizeLocal [2, 2];
 
-        if (_isSame) then {
+        // mark own phone in another color
+        if (_player distance [_xPos,_yPos] < 3) then {
             _marker setMarkerColorLocal "ColorRed";
         };
 
