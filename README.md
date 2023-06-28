@@ -12,10 +12,7 @@ Telephone Functionality in Arma (heavy WIP)
 * hooking into lines for agents is on the roadmap
 
 
-* note current TFAR_wire model is by Saborknight
-https://github.com/michail-nikolaev/task-force-arma-3-radio/pull/1530
-and will be referenced correctly when his PR is merged
-
+* uses TFAR_wire/TFAR_handset by Saborknight
 
 
 ## Magic Variables on Phone Objects you can use
