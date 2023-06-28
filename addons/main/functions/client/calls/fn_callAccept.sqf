@@ -4,7 +4,7 @@
     [cursorObject] call grad_telephone_fnc_callAccept;
 */
 
-params ["_object"];
+params ["_object", ["_fakeCall", false]];
 
 private _storedData = [_object] call grad_telephone_fnc_callGetInfo;
 
@@ -29,8 +29,10 @@ if (GRAD_TELEPHONE_DEBUG_MODE) then {
   systemChat format ["Debug: callAccept - %1 received call from %2", _number2, _number1];
 };
 
-// activate tfar with own phone
-[_phone2, _number1 + _number2] call grad_telephone_fnc_callPluginActivate;
+if (!_fakeCall) then {
+  // activate tfar with own phone
+  [_phone2, _number1 + _number2] call grad_telephone_fnc_callPluginActivate;
+};
 
 [_phone2, "calling"] call grad_telephone_fnc_callSetStatus;
 [_phone1, "calling"] call grad_telephone_fnc_callSetStatus;

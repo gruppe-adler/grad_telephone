@@ -4,7 +4,7 @@
 
 */
 
-params ["_receiverPhoneObject"];
+params ["_receiverPhoneObject", ["_fakeCall", false]];
 
 if (!canSuspend) exitWith {
     [_receiverPhoneObject] spawn grad_telephone_fnc_callRinging;
@@ -12,7 +12,8 @@ if (!canSuspend) exitWith {
 
 private _isFakePhone = _receiverPhoneObject getVariable ["grad_telephone_isFakePhone", false];
 
-[_receiverPhoneObject, "ringing"] call grad_telephone_fnc_callSetStatus;
+private _status = if (ringingFake) then { "ringingFake" } else { "ringing" };
+[_receiverPhoneObject, _status] call grad_telephone_fnc_callSetStatus;
 
 private _position = getPos _receiverPhoneObject;
 private _boundingBox = boundingBoxReal _receiverPhoneObject;
@@ -40,7 +41,9 @@ if (_isFakePhone) then {
         private _possibleSounds = _receiverPhoneObject getVariable ["grad_telephone_fakeanswersound", []];
 
         private _soundSelected = "grad_telephone_sound_fakecallanswerdefault";
-        if (count _possibleSounds > 0) then { _soundSelected = selectRandom _possibleSounds; };
+
+        if (typeNAme _possibleSounds == "ARRAY" && count _possibleSounds > 0) then { _soundSelected = selectRandom _possibleSounds; };
+        if (typeNAme _possibleSounds == "STRING") then { _soundSelected = _possibleSounds; };
 
         // if there is a sound prepared && still ringing, accept call after waiting time
         if ([_receiverPhoneObject, "ringing"] call grad_telephone_fnc_callGetStatus) then {
@@ -49,6 +52,6 @@ if (_isFakePhone) then {
     }, [_receiverPhoneObject], (random 10 max 1)] call CBA_fnc_waitAndExecute;
 };
 
-waitUntil { !([_receiverPhoneObject, "ringing"] call grad_telephone_fnc_callGetStatus) };
+waitUntil { !([_receiverPhoneObject, _status] call grad_telephone_fnc_callGetStatus) };
 
 deleteVehicle _dummy;
