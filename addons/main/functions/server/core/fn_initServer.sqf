@@ -33,7 +33,12 @@ missionNamespace setVariable ["GRAD_TELEPHONE_CLASSNAMES_PHONE",
             "CUP_phonebox",
             "Item_SatPhone",
             "SatPhone",
-            "land_gm_euro_furniture_telephone_01"
+            "land_gm_euro_furniture_telephone_01",
+            "Land_PhoneBooth_02_malden_F",
+            "Land_PhoneBooth_01_malden_F",
+            "Land_PhoneBooth_02_F",
+            "Land_PhoneBooth_01_F",
+            "Land_PhoneBooth_01_lxWS"
       ] +
       _classnamePhones),
 true];
@@ -44,12 +49,7 @@ private _classnamePhoneBooths =
 missionNamespace setVariable ["GRAD_TELEPHONE_CLASSNAMES_PHONEBOOTHS",
       ([
             "land_gm_euro_misc_feh_62_e",
-            "land_gm_euro_misc_telh_78_w",
-            "Land_PhoneBooth_01_lxWS",
-            "Land_PhoneBooth_02_malden_F",
-            "Land_PhoneBooth_01_malden_F",
-            "Land_PhoneBooth_02_F",
-            "Land_PhoneBooth_01_F"
+            "land_gm_euro_misc_telh_78_w"
       ] +
       _classnamePhoneBooths),
 true];

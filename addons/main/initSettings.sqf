@@ -36,14 +36,14 @@
 [
     "GRAD_telephone_setting_debugMode",
     "CHECKBOX",
-    ["Debug Mode", "Debug Mode (Systemchat) enabled"],
+    ["Debug Mode", "Debug Mode (Systemchat)"],
     ["GRAD Telephone", "Debug Mode"],
     false, nil, {
          params ["_value"];
 
-         GRAD_TELEPHONE_DEBUG_MODE = _value;
+         GRAD_TELEPHONE_DEBUG_MODE = !_value;
          publicVariable "GRAD_TELEPHONE_DEBUG_MODE";
-    }, true
+    }
 ] call CBA_fnc_addSetting;
 
 

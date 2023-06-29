@@ -4,7 +4,7 @@
 
 */
 
-params ["_receiverPhoneObject", ["_fakeCall", false]];
+params ["_receiverPhoneObject"];
 
 if (!canSuspend) exitWith {
     [_receiverPhoneObject] spawn grad_telephone_fnc_callRinging;
@@ -12,7 +12,7 @@ if (!canSuspend) exitWith {
 
 private _isFakePhone = _receiverPhoneObject getVariable ["grad_telephone_isFakePhone", false];
 
-private _status = if (_fakeCall) then { "ringingFake" } else { "ringing" };
+private _status = "ringing"; // enables accept action for clients
 [_receiverPhoneObject, _status] call grad_telephone_fnc_callSetStatus;
 
 private _position = getPos _receiverPhoneObject;

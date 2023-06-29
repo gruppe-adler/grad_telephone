@@ -40,6 +40,12 @@ private _allMarkers = [];
         _position params ["_xPos", "_yPos"];
         private _marker = createMarkerLocal [format ["mrk_Phone_%1", [_xPos,_yPos]],[_xPos,_yPos]];
         _marker setMarkerShapeLocal "ICON";
+        // mark own phone in another color
+        if (player distance2d [_xPos,_yPos] < 4) then {
+            _marker setMarkerColorLocal "ColorBlue";
+        } else {
+            _marker setMarkerColorLocal "ColorRed";
+        };
 
         if (_isPhoneBooth) then {
             _marker setMarkerTypeLocal "ico_booth";
@@ -48,11 +54,6 @@ private _allMarkers = [];
         };
         _marker setMarkerDirLocal 0;
         _marker setMarkerSizeLocal [2, 2];
-
-        // mark own phone in another color
-        if (_player distance [_xPos,_yPos] < 3) then {
-            _marker setMarkerColorLocal "ColorRed";
-        };
 
         _allMarkers pushBack _marker;
     };

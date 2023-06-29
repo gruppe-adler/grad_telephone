@@ -1,7 +1,14 @@
 params [["_phone1", objNull], ["_phone2", objNull], ["_player1", objNull], ["_player2", objNull]];
 
-private _number1 = _phone1 getVariable ['GRAD_TELEPHONE_NUMBER_ASSIGNED', "no number"];
-private _number2 = _phone2 getVariable ['GRAD_TELEPHONE_NUMBER_ASSIGNED', "no number"];
+private _number1 = "no number";
+if (!isNull _phone1) then {
+    _number1 = _phone1 getVariable ['GRAD_TELEPHONE_NUMBER_ASSIGNED', "no number"];
+};
+
+private _number2 = "no number";
+if (!isNull _phone2) then {
+    _number2 = _phone2 getVariable ['GRAD_TELEPHONE_NUMBER_ASSIGNED', "no number"];
+};
 
 private _identifier = "grad_telephone_runningCall";
 

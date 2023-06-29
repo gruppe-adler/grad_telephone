@@ -3,6 +3,21 @@ private _allPhones = [];
 {
     private _classname = _x;
     private _phonesDetected = ([worldSize/2, worldSize/2] nearObjects [_classname, worldsize/2]);
+    private _possiblePhonesMap = nearestTerrainObjects [[worldSize/2, worldSize/2], ["Hide"], worldsize/2];
+    {
+        if ((getModelInfo _x select 0) in
+             [
+                "phonebooth_01_f.p3d",
+                "phonebooth_02_f.p3d",
+                "gm_euro_misc_feh_62_e.p3d",
+                "gm_euro_misc_telh_78_w.p3d",
+                "phonebooth_01_malden_f.p3d",
+                "phonebooth_02_malden_f.p3d"
+             ]
+        ) then {
+            _phonesDetected pushBack _x;
+        };
+    } forEach _possiblePhonesMap;
     {
         _allPhones pushBackUnique _x;
 
@@ -13,6 +28,11 @@ private _allPhones = [];
             case "Land_IPPhone_01_black_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.115723,0.0844727,-0.0364208], true]; };
             case "Land_IPPhone_01_olive_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.115723,0.0844727,-0.0364208], true]; };
             case "Land_IPPhone_01_sand_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.115723,0.0844727,-0.0364208], true]; };
+
+            case "Land_PhoneBooth_01_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.159668,0.092041,0.409931], true]; };
+            case "Land_PhoneBooth_02_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.159668,0.092041,0.409931], true]; };
+            case "Land_PhoneBooth_02_malden_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.159668,0.092041,0.409931], true]; };
+            case "Land_PhoneBooth_01_malden_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.159668,0.092041,0.409931], true]; };
 
             default {  /*...code...*/ };
         };
@@ -41,12 +61,6 @@ private _allPhoneBooths = [];
         switch (_classname) do {
             case "land_gm_euro_misc_feh_62_e" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.342285,0.395142,1.24925], true]; _x setVariable ['grad_telephone_isRotary', true, true]; };
             case "land_gm_euro_misc_telh_78_w" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.263672,0.437988,1.45601], true]; };
-
-            case "Land_PhoneBooth_01_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.159668,0.092041,0.409931], true]; };
-            case "Land_PhoneBooth_02_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.159668,0.092041,0.409931], true]; };
-            case "Land_PhoneBooth_02_malden_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.159668,0.092041,0.409931], true]; };
-            case "Land_PhoneBooth_01_malden_F" : { _x setVariable ["GRAD_Telephone_phoneCablePlugOffset", [-0.159668,0.092041,0.409931], true]; };
-
             default {  /*...code...*/ };
         };
 
