@@ -1,9 +1,9 @@
 // todo: prefilter for static objects
-private _allPhones = [];
-{
-    private _classname = _x;
-    private _phonesDetected = ([worldSize/2, worldSize/2] nearObjects [_classname, worldsize/2]);
-    private _possiblePhonesMap = nearestTerrainObjects [[worldSize/2, worldSize/2], ["Hide"], worldsize/2];
+
+/* todo */
+
+/*
+ private _possiblePhonesMap = nearestTerrainObjects [[worldSize/2, worldSize/2], ["Hide"], worldsize/2];
     {
         if ((getModelInfo _x select 0) in
              [
@@ -18,6 +18,13 @@ private _allPhones = [];
             _phonesDetected pushBack _x;
         };
     } forEach _possiblePhonesMap;
+*/
+
+private _allPhones = [];
+{
+    private _classname = _x;
+    private _phonesDetected = ([worldSize/2, worldSize/2] nearObjects [_classname, worldsize/2]);
+   
     {
         _allPhones pushBackUnique _x;
 

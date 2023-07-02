@@ -21,3 +21,4 @@ class CfgPatches {
 #include "rscPhoneBook.hpp"
 #include "cfgVehicles.hpp"
 #include "cfgMarkers.hpp"
+#include "cfgSupportedPhones.hpp"

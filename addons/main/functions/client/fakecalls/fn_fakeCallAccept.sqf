@@ -29,11 +29,14 @@ _player2 = player;
 [player, _phone2] call grad_telephone_fnc_callSetOwner;
 
 if (GRAD_TELEPHONE_DEBUG_MODE) then {
-  systemChat format ["Debug: callAccept - %1 received call from %2", _number2, _number1];
+  systemChat format ["Debug: fakeCallAccept - %1 received call from %2", _number2, _number1];
+  systemChat format ["Debug: fakeCallAccept - sound %1", _sound];
 };
 
 [_phone2, "calling"] call grad_telephone_fnc_callSetStatus;
 [_phone1, "calling"] call grad_telephone_fnc_callSetStatus;
+
+
 
 // register call only when phone is picked up by player / 2nd GTA use case
 if (_sound != "") then {
