@@ -54,3 +54,5 @@ if (!isNull _player1) then {
   // enable SP testing with one person
   [player, _phone1, _phone2, _sound] remoteExec ["grad_telephone_fnc_fakeCallPlaysound", player];
 };
+
+[_phone2] call grad_telephone_fnc_callStartAnimation;
