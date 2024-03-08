@@ -35,12 +35,14 @@ player call TFAR_fnc_releaseAllTangents; // "task_force_radio_pipe" callExtensio
 // set tfar fake radio stuff AFTER tangent release?
 [_phoneObject, _lineNumber, _encryptionKey, false] call grad_telephone_fnc_setTFARfakeRadio;
 
-systemChat format ["GRAD TELEPHONE-debug: linenumber: %1, encryption: %2", _lineNumber, _encryptionKey];
-diag_log format ["GRAD TELEPHONE-debug: linenumber: %1, encryption: %2", _lineNumber, _encryptionKey];
-diag_log format [
-	"GRAD TELEPHONE-debug: TF_lr_active_radio is nil: %1, TFAR_OverrideActiveLRRadio is nil: %2",
-	isNil "TF_lr_active_radio", isNil "TFAR_OverrideActiveLRRadio"
-];
+if (GRAD_TELEPHONE_DEBUG_MODE) then {
+	systemChat format ["GRAD TELEPHONE-debug: linenumber: %1, encryption: %2", _lineNumber, _encryptionKey];
+	diag_log format ["GRAD TELEPHONE-debug: linenumber: %1, encryption: %2", _lineNumber, _encryptionKey];
+	diag_log format [
+		"GRAD TELEPHONE-debug: TF_lr_active_radio is nil: %1, TFAR_OverrideActiveLRRadio is nil: %2",
+		isNil "TF_lr_active_radio", isNil "TFAR_OverrideActiveLRRadio"
+	];
+};
 
 
 player setVariable ["tf_unable_to_use_radio", false];

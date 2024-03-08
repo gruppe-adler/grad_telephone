@@ -37,9 +37,10 @@ if ( isClass(configFile >> "CfgPatches" >> "Radio_Animations") ) then {
             [_object2, "radioAnims_Stop"] remoteExec ["playActionNow", _object2];
             [_object2, _phone] remoteExec ["grad_telephone_fnc_callEnd", _object2];
         };
-
-        systemChat "rope break";
-        diag_log format ["rope break cablehelper %1 - rope %2 - phonemodel %3 - owner %4 - phone %5", _object1, _rope, _phoneModel, _object2, _phone];
+        if (GRAD_TELEPHONE_DEBUG_MODE) then {
+            systemChat "rope break";
+            diag_log format ["rope break cablehelper %1 - rope %2 - phonemodel %3 - owner %4 - phone %5", _object1, _rope, _phoneModel, _object2, _phone];
+        };
         
     }];
 

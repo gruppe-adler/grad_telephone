@@ -38,10 +38,14 @@ if (GRAD_TELEPHONE_DEBUG_MODE) then {
 
 
 
+
 // register call only when phone is picked up by player / 2nd GTA use case
 if (_sound != "") then {
   [_player1, _player2] remoteExec ["grad_telephone_fnc_callRegister", 2]; // already done in accept?
 };
+
+// raises local event to e.g. add some more functionality, like displaying subtitles or whatever
+["GRAD_telephone_fakeCallAccept", [_phone2]] call CBA_fnc_localEvent; 
 
 // should be always true if zeus/game is second party
 if (!isNull _player1) then {

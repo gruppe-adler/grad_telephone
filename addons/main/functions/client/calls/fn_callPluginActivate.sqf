@@ -43,13 +43,14 @@ private _pluginCommand = format[
 [_hintText, _pluginCommand, [0,-1] select TFAR_showTransmittingHint] call TFAR_fnc_processTangent;
 
 TF_tangent_lr_pressed = true; // necessary?
+if (GRAD_TELEPHONE_DEBUG_MODE) then {
+	systemChat format ["GRAD TELEPHONE-debug: linenumber: %1, encryption: %2, classname: %3", _lineNumber, _encryptionKey, _classname];
+	diag_log format ["GRAD TELEPHONE-debug: linenumber: %1, encryption: %2, classname: %3", _lineNumber, _encryptionKey, _classname];
 
-systemChat format ["GRAD TELEPHONE-debug: linenumber: %1, encryption: %2, classname: %3", _lineNumber, _encryptionKey, _classname];
-diag_log format ["GRAD TELEPHONE-debug: linenumber: %1, encryption: %2, classname: %3", _lineNumber, _encryptionKey, _classname];
-
-diag_log format [
-    "GRAD TELEPHONE-debug: TF_lr_active_radio is nil: %1, TFAR_OverrideActiveLRRadio is nil: %2",
-    isNil "TF_lr_active_radio", isNil "TFAR_OverrideActiveLRRadio"
-];
+	diag_log format [
+    	"GRAD TELEPHONE-debug: TF_lr_active_radio is nil: %1, TFAR_OverrideActiveLRRadio is nil: %2",
+    	isNil "TF_lr_active_radio", isNil "TFAR_OverrideActiveLRRadio"
+	];
+};
 
 player setVariable ["tf_unable_to_use_radio", true];
