@@ -7,7 +7,7 @@
     also called by engine when phone gets called and receiver can receive "fake" audio clip, think GTA phone briefing
 */
 
-params ["_object", ["_sound", ""]];
+params ["_object", ["_sound", ""], ["_text", ""]];
 
 private _storedData = [_object] call grad_telephone_fnc_callGetInfo;
 
@@ -45,7 +45,7 @@ if (_sound != "") then {
 };
 
 // raises local event to e.g. add some more functionality, like displaying subtitles or whatever
-["GRAD_telephone_fakeCallAccept", [_phone2]] call CBA_fnc_localEvent; 
+["GRAD_telephone_fakeCallAccept", [_phone2, _sound, _text]] call CBA_fnc_localEvent; 
 
 // should be always true if zeus/game is second party
 if (!isNull _player1) then {
