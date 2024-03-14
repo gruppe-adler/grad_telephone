@@ -1,4 +1,4 @@
- params ["_receiverPhoneObject", "_sound"];
+params ["_receiverPhoneObject",  ["_sound", ""], ["_text", ""]];
  
  // go to calling, if receiver can receive
 if ([_receiverPhoneObject, "idle"] call grad_telephone_fnc_callGetStatus) then {
@@ -15,10 +15,10 @@ if ([_receiverPhoneObject, "idle"] call grad_telephone_fnc_callGetStatus) then {
 				([_receiverPhoneObject, "calling"] call grad_telephone_fnc_callGetStatus)
 		}, {
 
-				params ["_receiverPhoneObject", "_sound"];
+				params ["_receiverPhoneObject", "_sound", "_text"];
 
-				[_receiverPhoneObject, _sound] call grad_telephone_fnc_fakeCallAccept;
-		}, [_receiverPhoneObject, _sound]] call CBA_fnc_waitUntilAndExecute;
+				[_receiverPhoneObject, _sound, _text] call grad_telephone_fnc_fakeCallAccept;
+		}, [_receiverPhoneObject, _sound, _text]] call CBA_fnc_waitUntilAndExecute;
 
 	} else {
 	hint "telephone already in use";
