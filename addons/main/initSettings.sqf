@@ -33,6 +33,9 @@
     ] call CBA_fnc_addSetting;
 */
 
+GRAD_TELEPHONE_DEBUG_MODE = false;
+
+/*
 [
     "GRAD_telephone_setting_debugMode",
     "CHECKBOX",
@@ -45,6 +48,7 @@
          publicVariable "GRAD_TELEPHONE_DEBUG_MODE";
     }
 ] call CBA_fnc_addSetting;
+*/
 
 
 [
