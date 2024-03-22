@@ -99,13 +99,13 @@ private _allPhoneBooths = [];
         };
     };
 
-    private _number = _object getVariable ["grad_telephone_number", "none"];
-    private _displayName = _object getVariable ["grad_telephone_displayName", ""];
-    private _canOnlyCallNumber = _object getVariable ["grad_telephone_canOnlyCallNumber", "all"];
-    private _hasPublicPhoneBookEntry = _object getVariable ["grad_telephone_hasPublicPhoneBookEntryr", true];
-    private _canOnlyCallNumber = _object getVariable ["grad_telephone_canOnlyCallNumber", "all"];
-    private _phonePosition = _object getVariable ["grad_telephone_phonePosition", [0,0,0]];
-    private _isFakePhone = _object getVariable ["grad_telephone_isFakePhone", false];
+    private _number = _phone getVariable ["grad_telephone_number", "none"];
+    private _displayName = _phone getVariable ["grad_telephone_displayName", ""];
+    private _canOnlyCallNumber = _phone getVariable ["grad_telephone_canOnlyCallNumber", "all"];
+    private _hasPublicPhoneBookEntry = _phone getVariable ["grad_telephone_hasPublicPhoneBookEntryr", true];
+    private _canOnlyCallNumber = _phone getVariable ["grad_telephone_canOnlyCallNumber", "all"];
+    private _phonePosition = _phone getVariable ["grad_telephone_phonePosition", getPos _phone];
+    private _isFakePhone = _phone getVariable ["grad_telephone_isFakePhone", false];
 
 	[_x, _isRotary, _number, _displayName, _canOnlyCallNumber, _hasPublicPhoneBookEntry, _phonePosition, false, _isFakePhone] call grad_telephone_fnc_addPhone;
 } forEach _allPhones;
@@ -125,13 +125,13 @@ private _allPhoneBooths = [];
         };
     };
 
-    private _number = _object getVariable ["grad_telephone_number", "none"];
-    private _displayName = _object getVariable ["grad_telephone_displayName", ""];
-    private _canOnlyCallNumber = _object getVariable ["grad_telephone_canOnlyCallNumber", "all"];
-    private _hasPublicPhoneBookEntry = _object getVariable ["grad_telephone_hasPublicPhoneBookEntryr", true];
-    private _canOnlyCallNumber = _object getVariable ["grad_telephone_canOnlyCallNumber", "all"];
-    private _phonePosition = _object getVariable ["grad_telephone_phonePosition", [0,0,0]];
-    private _isFakePhone = _object getVariable ["grad_telephone_isFakePhone", false];
+    private _number = _phone getVariable ["grad_telephone_number", "none"];
+    private _displayName = _phone getVariable ["grad_telephone_displayName", ""];
+    private _canOnlyCallNumber = _phone getVariable ["grad_telephone_canOnlyCallNumber", "all"];
+    private _hasPublicPhoneBookEntry = _phone getVariable ["grad_telephone_hasPublicPhoneBookEntryr", true];
+    private _canOnlyCallNumber = _phone getVariable ["grad_telephone_canOnlyCallNumber", "all"];
+    private _phonePosition = _phone getVariable ["grad_telephone_phonePosition", getPos _phone];
+    private _isFakePhone = _phone getVariable ["grad_telephone_isFakePhone", false];
 
 	[_x, _isRotary, _number, _displayName, _canOnlyCallNumber, _hasPublicPhoneBookEntry, _phonePosition, true, _isFakePhone] call grad_telephone_fnc_addPhone;
 } forEach _allPhoneBooths;
