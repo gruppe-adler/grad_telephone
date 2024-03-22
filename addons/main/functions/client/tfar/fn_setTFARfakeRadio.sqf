@@ -36,7 +36,7 @@ TFAR_OverrideActiveLRRadio = if (_status) then {
     _phoneObject setVariable [_settingsID, _settings, true];
 
         // log all the shit
-    systemChat format ["GRAD TELEPHONE DEBUG: TFAR_OverrideActiveLRRadio: %1, settings are %2", _phoneObject, _settings];
+    // systemChat format ["GRAD TELEPHONE DEBUG: TFAR_OverrideActiveLRRadio: %1, settings are %2", _phoneObject, _settings];
     diag_log format ["GRAD TELEPHONE DEBUG: TFAR_OverrideActiveLRRadio: %1, settings are %2", _phoneObject, _settings];
 
 

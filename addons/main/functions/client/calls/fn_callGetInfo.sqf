@@ -1,5 +1,9 @@
 params ["_phone"];
 
+if (typeName _phone == "STRING") exitWith {
+    diag_log format ["GRAD TELEPHONE: callGetInfo - PANIC EXIT, _phone is string %1", _phone];
+};
+
 private _identifier = "grad_telephone_runningCall";
 
 private _storedData = _phone getVariable [
