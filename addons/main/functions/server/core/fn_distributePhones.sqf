@@ -99,7 +99,15 @@ private _allPhoneBooths = [];
         };
     };
 
-	[_x, _isRotary, "none", "none", "all", true, [0,0,0], false] call grad_telephone_fnc_addPhone;
+    private _number = _object getVariable ["grad_telephone_number", "none"];
+    private _displayName = _object getVariable ["grad_telephone_displayName", ""];
+    private _canOnlyCallNumber = _object getVariable ["grad_telephone_canOnlyCallNumber", "all"];
+    private _hasPublicPhoneBookEntry = _object getVariable ["grad_telephone_hasPublicPhoneBookEntryr", true];
+    private _canOnlyCallNumber = _object getVariable ["grad_telephone_canOnlyCallNumber", "all"];
+    private _position = _object getVariable ["grad_telephone_mapPosition", [0,0,0]];
+    private _isFakePhone = _object getVariable ["grad_telephone_mapPosition", false];
+
+	[_x, _isRotary, _number, _displayName, _canOnlyCallNumber, _hasPublicPhoneBookEntry, _mapPosition, false, _isFakePhone] call grad_telephone_fnc_addPhone;
 } forEach _allPhones;
 
 
@@ -117,7 +125,15 @@ private _allPhoneBooths = [];
         };
     };
 
-	[_x, _isRotary, "none", "none", "all", true, [0,0,0], true] call grad_telephone_fnc_addPhone;
+    private _number = _object getVariable ["grad_telephone_number", "none"];
+    private _displayName = _object getVariable ["grad_telephone_displayName", ""];
+    private _canOnlyCallNumber = _object getVariable ["grad_telephone_canOnlyCallNumber", "all"];
+    private _hasPublicPhoneBookEntry = _object getVariable ["grad_telephone_hasPublicPhoneBookEntryr", true];
+    private _canOnlyCallNumber = _object getVariable ["grad_telephone_canOnlyCallNumber", "all"];
+    private _position = _object getVariable ["grad_telephone_mapPosition", [0,0,0]];
+    private _isFakePhone = _object getVariable ["grad_telephone_mapPosition", false];
+
+	[_x, _isRotary, _number, _displayName, _canOnlyCallNumber, _hasPublicPhoneBookEntry, _mapPosition, true, _isFakePhone] call grad_telephone_fnc_addPhone;
 } forEach _allPhoneBooths;
 
 diag_log "GRAD Telephone : initializing phones DONE.";
