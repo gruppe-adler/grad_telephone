@@ -21,7 +21,7 @@ params [
   ["_displayName", "none"],
   ["_canOnlyCallNumber", "all"],
   ["_hasPublicPhoneBookEntry", false],
-  ["_position", [0,0,0]],
+  ["_phonePosition", [0,0,0]],
   ["_isPhoneBooth", false],
   ["_isFakePhone", false]
 ];
@@ -31,8 +31,8 @@ if (isNull _object) exitWith { diag_log format ["grad-telephone: addPhone error:
 if (_object getVariable ["grad_telephone_phoneID", -1] > 0) exitWith { diag_log format ["grad-telephone %1: addPhone info: skipping phone, already registered", _object]; };
 
 
-if (_position isEqualTo [0,0,0]) then {
-   _position = position _object;
+if (_phonePosition isEqualTo [0,0,0]) then {
+   _phonePosition = position _object;
 };
 
 private _id = missionNamespace getVariable ['grad_telephone_phoneCount', 0];
@@ -44,7 +44,7 @@ _object setVariable ["grad_telephone_phoneID", _id, true]; // unique ID of this 
 _object setVariable ["grad_telephone_isRotary", _isRotary, true]; // toggles rotary dialing
 _object setVariable ["grad_telephone_skipDialing", (_canOnlyCallNumber != "all"), true]; // can only call one number without dialing (e.g. Grenzmeldenetz)
 _object setVariable ["grad_telephone_hasPublicPhoneBookEntry", _hasPublicPhoneBookEntry, true]; // toggles phone book entry
-_object setVariable ["grad_telephone_phonePosition", _position, true]; // used in phone book map
+_object setVariable ["grad_telephone_phonePosition", _phonePosition, true]; // used in phone book map
 _object setVariable ["grad_telephone_isPhonebooth", _isPhoneBooth, true]; // used for phone booth mechanics, used for icon on phone book map
 _object setVariable ["grad_telephone_displayName", _displayName, true]; // used for name in phone book (WIP)
 _object setVariable ["grad_telephone_isFakePhone", _isFakePhone, true]; // used for name in phone book (WIP)

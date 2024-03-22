@@ -104,10 +104,10 @@ private _allPhoneBooths = [];
     private _canOnlyCallNumber = _object getVariable ["grad_telephone_canOnlyCallNumber", "all"];
     private _hasPublicPhoneBookEntry = _object getVariable ["grad_telephone_hasPublicPhoneBookEntryr", true];
     private _canOnlyCallNumber = _object getVariable ["grad_telephone_canOnlyCallNumber", "all"];
-    private _position = _object getVariable ["grad_telephone_mapPosition", [0,0,0]];
-    private _isFakePhone = _object getVariable ["grad_telephone_mapPosition", false];
+    private _phonePosition = _object getVariable ["grad_telephone_phonePosition", [0,0,0]];
+    private _isFakePhone = _object getVariable ["grad_telephone_isFakePhone", false];
 
-	[_x, _isRotary, _number, _displayName, _canOnlyCallNumber, _hasPublicPhoneBookEntry, _mapPosition, false, _isFakePhone] call grad_telephone_fnc_addPhone;
+	[_x, _isRotary, _number, _displayName, _canOnlyCallNumber, _hasPublicPhoneBookEntry, _phonePosition, false, _isFakePhone] call grad_telephone_fnc_addPhone;
 } forEach _allPhones;
 
 
@@ -130,10 +130,10 @@ private _allPhoneBooths = [];
     private _canOnlyCallNumber = _object getVariable ["grad_telephone_canOnlyCallNumber", "all"];
     private _hasPublicPhoneBookEntry = _object getVariable ["grad_telephone_hasPublicPhoneBookEntryr", true];
     private _canOnlyCallNumber = _object getVariable ["grad_telephone_canOnlyCallNumber", "all"];
-    private _position = _object getVariable ["grad_telephone_mapPosition", [0,0,0]];
-    private _isFakePhone = _object getVariable ["grad_telephone_mapPosition", false];
+    private _phonePosition = _object getVariable ["grad_telephone_phonePosition", [0,0,0]];
+    private _isFakePhone = _object getVariable ["grad_telephone_isFakePhone", false];
 
-	[_x, _isRotary, _number, _displayName, _canOnlyCallNumber, _hasPublicPhoneBookEntry, _mapPosition, true, _isFakePhone] call grad_telephone_fnc_addPhone;
+	[_x, _isRotary, _number, _displayName, _canOnlyCallNumber, _hasPublicPhoneBookEntry, _phonePosition, true, _isFakePhone] call grad_telephone_fnc_addPhone;
 } forEach _allPhoneBooths;
 
 diag_log "GRAD Telephone : initializing phones DONE.";
