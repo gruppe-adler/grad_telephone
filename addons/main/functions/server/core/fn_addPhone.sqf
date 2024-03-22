@@ -48,11 +48,27 @@ _object setVariable ["grad_telephone_phonePosition", _phonePosition, true]; // u
 _object setVariable ["grad_telephone_isPhonebooth", _isPhoneBooth, true]; // used for phone booth mechanics, used for icon on phone book map
 _object setVariable ["grad_telephone_displayName", _displayName, true]; // used for name in phone book (WIP)
 _object setVariable ["grad_telephone_isFakePhone", _isFakePhone, true]; // used for name in phone book (WIP)
-
+private _hasOffset = _object getVariable ["GRAD_Telephone_phoneCablePlugOffset", [-1,-1,-1]];
+if (_hasOffset isEqualTo [-1,-1,-1] ) then {
+  _object setVariable ["GRAD_Telephone_phoneCablePlugOffset", [0,0,0], true];
+};
 
 // zeus & direct call
 if (_canOnlyCallNumber != "all") then {
     _object setVariable ["grad_telephone_directConnect", _canOnlyCallNumber, true];
+};
+
+if (isNull (_object getVariable ["GRAD_telephone_phoneModel", objNull])) then {
+    private _phoneModel = createSimpleObject ["z\tfar\addons\external_intercom\data\TFAR_handset.p3d", [0,0,0]];
+    private _offset = _x getVariable ["GRAD_Telephone_phoneCablePlugOffset", [0,0,0]];
+    _phoneModel attachTo [_x, _offset];
+
+    private _cableArray = [_x, _phoneModel] call grad_telephone_fnc_cableCreate;
+    _cableArray params ["_cable", "_cableHelper"];
+    _x setVariable ["GRAD_telephone_cable", _cable, true];
+    _x setVariable ["GRAD_telephone_cableHelper", _cableHelper, true];
+    _x setVariable ["GRAD_telephone_phoneModel", _phoneModel, true];
+    [_cableHelper] call grad_telephone_fnc_cableBreakEH;
 };
 
 [_object, _number] call grad_telephone_fnc_assignNumber;

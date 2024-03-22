@@ -106,6 +106,7 @@ private _allPhoneBooths = [];
     private _canOnlyCallNumber = _phone getVariable ["grad_telephone_canOnlyCallNumber", "all"];
     private _phonePosition = _phone getVariable ["grad_telephone_phonePosition", getPos _phone];
     private _isFakePhone = _phone getVariable ["grad_telephone_isFakePhone", false];
+    
 
 	[_x, _isRotary, _number, _displayName, _canOnlyCallNumber, _hasPublicPhoneBookEntry, _phonePosition, false, _isFakePhone] call grad_telephone_fnc_addPhone;
 } forEach _allPhones;
@@ -137,3 +138,4 @@ private _allPhoneBooths = [];
 } forEach _allPhoneBooths;
 
 diag_log "GRAD Telephone : initializing phones DONE.";
+missionNamespace setVariable ["grad_telephone_init", true, true];
