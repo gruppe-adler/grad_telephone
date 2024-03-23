@@ -8,11 +8,13 @@ class cfgFunctions {
             class addAction;
             class addActionGeneral;
             class addSelfAction;
+            class addToPhonebook;
             class cableBreakEH;
             class cableCreate;
             class cleanPhoneBookMap;
             class conditionAccept;
             class conditionAcceptDriver;
+            class conditionAddToPhonebook;
             class conditionCall;
             class conditionDirectCall;
             class conditionEnd;
@@ -22,6 +24,8 @@ class cfgFunctions {
             class curatorTogglePhone;
             class onPhoneBookEntrySelect;
             class onPhoneBookMapClick;
+            class sharePhonebook;
+            class sharePhonebookAction;
         };
 
          class client_keypad {

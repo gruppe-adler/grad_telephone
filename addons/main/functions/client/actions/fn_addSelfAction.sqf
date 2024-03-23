@@ -17,3 +17,17 @@
   grad_telephone_fnc_hookEnd,
   { player getVariable ['grad_telephone_hooking', false] }
 ] call GRAD_telephone_fnc_addActionGeneral;
+
+
+// special case here, not addactiongeneral
+{
+  if (_x != player) then {
+    [
+      _x,
+      "x\grad_telephone\addons\main\data\ico_notepad.paa",
+      "grad_telephone_action_sharePhonebook",
+      localize "STR_grad_telephone_sharePhonebook", "'#FF1111'",
+      grad_telephone_fnc_sharePhonebook
+    ] call GRAD_telephone_fnc_sharePhonebookAction;
+  };
+} forEach (playableUnits + switchableUnits);

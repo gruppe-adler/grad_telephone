@@ -17,7 +17,10 @@ if (isNull _dialog) exitWith { hint (localize "STR_grad_telephone_error"); };
 
 // fill phonelist
 private _phoneList = _dialog displayCtrl 1000;
-private _allNumbers = missionNamespace getVariable ['GRAD_TELEPHONE_ALLNUMBERS', []];
+
+// numbers are aggregated by personally known and publicly known
+// every player can share phone book entries
+private _allNumbers = missionNamespace getVariable ['GRAD_TELEPHONE_ALLNUMBERS', []] + _player getVariable ["GRAD_TELEPHONE_ALLNUMBERS", []];
 
 private _allMarkers = [];
 {

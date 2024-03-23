@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="GRAD">
     <Package name="telephone">
+        <Key ID="STR_grad_telephone_addToPhonebook">
+            <English>Add to own phonebook</English>
+            <German>Zum eigenen Telefonbuch hinzufügen</German>
+        </Key>
+        <Key ID="STR_grad_telephone_sharePhonebook">
+            <English>Share all own phonebook entries</English>
+            <German>Eigenes Telefonbuch teilen</German>
+        </Key>
         <Key ID="STR_grad_telephone_callAccept">
             <English>Accept Call</English>
             <German>Anruf annehmen</German>
