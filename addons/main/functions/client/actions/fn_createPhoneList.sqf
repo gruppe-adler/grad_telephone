@@ -34,7 +34,7 @@ private _allMarkers = [];
     if (_hasPublicPhoneBookEntry) then {
        
 
-        if (_hasDisplayName != "") then { _number = _number + " - " + _hasDisplayName; };
+        if (_hasDisplayName != "") then { _number = _number + " - " + _hasDisplayName + " (public)"; };
             
         private _identifier = _phoneList lbAdd _number;
         _phoneList setVariable [str _identifier, _objectsArray];
@@ -73,7 +73,7 @@ private _allPrivateNumbers = _player getVariable ["GRAD_TELEPHONE_ALLNUMBERS", [
     private _position = (_objectsArray select 0) getVariable ['grad_telephone_phonePosition', [0,0,0]];
     private _isPhoneBooth = (_objectsArray select 0) getVariable ['grad_telephone_isPhonebooth', false];
 
-    if (_hasDisplayName != "") then { _number = _number + " - " + _hasDisplayName; };
+    if (_hasDisplayName != "") then { _number = _number + " - " + _hasDisplayName + " (private)"; };
         
     private _identifier = _phoneList lbAdd _number;
     _phoneList setVariable [str _identifier, _objectsArray];
