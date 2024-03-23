@@ -100,7 +100,7 @@ class grad_telephone_RscListBox
 { 
   idc = -1;
   type = CT_LISTBOX;
-  style = ST_CENTER;
+  style = ST_LEFT;
   w = 0.4;
   h = 0.4;
   rowHeight = 0.2;
