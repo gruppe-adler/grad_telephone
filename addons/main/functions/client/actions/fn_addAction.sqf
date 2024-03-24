@@ -48,9 +48,8 @@ if (_isVehicle) then {
           "x\grad_telephone\addons\main\data\ico_notepad.paa",
           "grad_telephone_action_addToPhoneBook",
           localize "STR_grad_telephone_addToPhonebook", "'#FF1111'",
-          grad_telephone_fnc_sharePhonebook,
-          grad_telephone_fnc_conditionSharePhonebook
-        ] call GRAD_telephone_fnc_addActionShare;
+          grad_telephone_fnc_sharePhonebook
+        ] call grad_telephone_fnc_sharePhonebookAction;
 
         [
           _unit,
