@@ -24,7 +24,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
             _params params ["_functionToCall", "_conditionAction"]; 
             ([_player, _target] call _conditionAction)
           },
-          {}, [_functionToCall, _conditionAction], nil, _distance
+          {}, [_functionToCall, _conditionAction], nil, 4
       ] call ace_interact_menu_fnc_createAction;
 
     [_unit, 1, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
