@@ -1,8 +1,10 @@
 params ["_unit", "_icon", "_stringID", "_displayName", "_color", "_functionToCall"];
 
 private _conditionAction = {
-  private _playerPhonebook = player getVariable ["GRAD_TELEPHONE_ALLNUMBERS", []] + (missionNamespace getVariable ["GRAD_TELEPHONE_ALLNUMBERS", []]);
-  private _otherUnitPhonebook = _target getVariable ["GRAD_TELEPHONE_ALLNUMBERS", []] + (missionNamespace getVariable ["GRAD_TELEPHONE_ALLNUMBERS", []]);
+  params ["_player", "_target"];
+
+  private _playerPhonebook = (_player getVariable ["GRAD_TELEPHONE_ALLNUMBERS", []]) + (missionNamespace getVariable ["GRAD_TELEPHONE_ALLNUMBERS", []]);
+  private _otherUnitPhonebook = (_target getVariable ["GRAD_TELEPHONE_ALLNUMBERS", []]) + (missionNamespace getVariable ["GRAD_TELEPHONE_ALLNUMBERS", []]);
   private _sortedNamesPlayer = _playerPhonebook call BIS_fnc_sortAlphabetically; 
   private _sortedNamesUnit = _otherUnitPhonebook call BIS_fnc_sortAlphabetically;
 
