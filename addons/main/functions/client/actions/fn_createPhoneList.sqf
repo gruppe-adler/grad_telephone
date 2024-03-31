@@ -13,6 +13,7 @@ private _dialog = uiNamespace getVariable ['grad_telephone_rscPhoneBook',control
 
 if (isNull _dialog) exitWith { hint (localize "STR_grad_telephone_error"); };
 
+private _allMarkers = [];
 
 // fill phonelist
 private _phoneList = _dialog displayCtrl 1000;
@@ -58,7 +59,7 @@ private _allPrivateNumbers = _player getVariable ["GRAD_TELEPHONE_ALLNUMBERS", [
 // every player can share phone book entries
 private _allPublicNumbers = missionNamespace getVariable ['GRAD_TELEPHONE_ALLNUMBERS', []];
 
-private _allMarkers = [];
+
 {
     _x params ["_number", "_objectsArray"];
 
