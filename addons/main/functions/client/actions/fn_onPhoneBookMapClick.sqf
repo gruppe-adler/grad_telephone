@@ -4,7 +4,7 @@ private _position = _control ctrlMapScreenToWorld [_xPos, _yPos];
 
 private _nearestPhone = objNull;
 private _nearestPhoneIndex = 0;
-private _allNumbers = (missionNamespace getVariable ['GRAD_TELEPHONE_ALLNUMBERS', []]) + player getVariable ["GRAD_TELEPHONE_ALLNUMBERS", []];
+private _allNumbers = player getVariable ["GRAD_TELEPHONE_ALLNUMBERS", []] + (missionNamespace getVariable ['GRAD_TELEPHONE_ALLNUMBERS', []]);
 {
     private _phoneObjects = _x select 1;
     private _numberIndex = _forEachIndex;

@@ -14,11 +14,47 @@ private _dialog = uiNamespace getVariable ['grad_telephone_rscPhoneBook',control
 if (isNull _dialog) exitWith { hint (localize "STR_grad_telephone_error"); };
 
 
-
 // fill phonelist
 private _phoneList = _dialog displayCtrl 1000;
 
 // numbers are aggregated by personally known and publicly known
+private _allPrivateNumbers = _player getVariable ["GRAD_TELEPHONE_ALLNUMBERS", []];
+{
+    _x params ["_number", "_objectsArray"];
+
+    private _hasDisplayName = (_objectsArray select 0) getVariable ['grad_telephone_displayName', ""];
+    private _hasPublicPhoneBookEntry = (_objectsArray select 0) getVariable ['grad_telephone_hasPublicPhoneBookEntry', false];
+    private _position = (_objectsArray select 0) getVariable ['grad_telephone_phonePosition', [0,0,0]];
+    private _isPhoneBooth = (_objectsArray select 0) getVariable ['grad_telephone_isPhonebooth', false];
+
+    if (_hasDisplayName != "") then { _number = _number + " - " + _hasDisplayName + " (private)"; };
+        
+    private _identifier = _phoneList lbAdd _number;
+    _phoneList setVariable [str _identifier, _objectsArray];
+    // lbSetTooltip [1000, _identifier, str _objectsArray]; // more debug than anything else currently
+
+    _position params ["_xPos", "_yPos"];
+    private _marker = createMarkerLocal [format ["mrk_Phone_%1", [_xPos,_yPos]],[_xPos,_yPos]];
+    _marker setMarkerShapeLocal "ICON";
+    // mark own phone in another color
+    if (player distance2d [_xPos,_yPos] < 4) then {
+        _marker setMarkerColorLocal "ColorBlue";
+    } else {
+        _marker setMarkerColorLocal "ColorRed";
+    };
+
+    if (_isPhoneBooth) then {
+        _marker setMarkerTypeLocal "ico_booth";
+    } else {
+        _marker setMarkerTypeLocal "ico_phone";
+    };
+    _marker setMarkerDirLocal 0;
+    _marker setMarkerSizeLocal [2, 2];
+
+    _allMarkers pushBack _marker;
+
+} forEach _allPrivateNumbers;
+
 // every player can share phone book entries
 private _allPublicNumbers = missionNamespace getVariable ['GRAD_TELEPHONE_ALLNUMBERS', []];
 
@@ -62,44 +98,6 @@ private _allMarkers = [];
     };
 
 } forEach _allPublicNumbers;
-
-
-private _allPrivateNumbers = _player getVariable ["GRAD_TELEPHONE_ALLNUMBERS", []];
-{
-    _x params ["_number", "_objectsArray"];
-
-    private _hasDisplayName = (_objectsArray select 0) getVariable ['grad_telephone_displayName', ""];
-    private _hasPublicPhoneBookEntry = (_objectsArray select 0) getVariable ['grad_telephone_hasPublicPhoneBookEntry', false];
-    private _position = (_objectsArray select 0) getVariable ['grad_telephone_phonePosition', [0,0,0]];
-    private _isPhoneBooth = (_objectsArray select 0) getVariable ['grad_telephone_isPhonebooth', false];
-
-    if (_hasDisplayName != "") then { _number = _number + " - " + _hasDisplayName + " (private)"; };
-        
-    private _identifier = _phoneList lbAdd _number;
-    _phoneList setVariable [str _identifier, _objectsArray];
-    // lbSetTooltip [1000, _identifier, str _objectsArray]; // more debug than anything else currently
-
-    _position params ["_xPos", "_yPos"];
-    private _marker = createMarkerLocal [format ["mrk_Phone_%1", [_xPos,_yPos]],[_xPos,_yPos]];
-    _marker setMarkerShapeLocal "ICON";
-    // mark own phone in another color
-    if (player distance2d [_xPos,_yPos] < 4) then {
-        _marker setMarkerColorLocal "ColorBlue";
-    } else {
-        _marker setMarkerColorLocal "ColorRed";
-    };
-
-    if (_isPhoneBooth) then {
-        _marker setMarkerTypeLocal "ico_booth";
-    } else {
-        _marker setMarkerTypeLocal "ico_phone";
-    };
-    _marker setMarkerDirLocal 0;
-    _marker setMarkerSizeLocal [2, 2];
-
-    _allMarkers pushBack _marker;
-
-} forEach _allPrivateNumbers;
 
 
 lbSetCurSel [_phoneList, 0];
