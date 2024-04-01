@@ -28,7 +28,7 @@ if (_isVehicle) then {
           localize "STR_grad_telephone_callAccept", "'#11FF11'",
           grad_telephone_fnc_callAccept,
           grad_telephone_fnc_conditionAcceptDriver
-        ] call GRAD_telephone_fnc_addActionGeneral;
+        ] call GRAD_telephone_fnc_addActionToVehicle;
 
         [
           _unit,
@@ -38,7 +38,7 @@ if (_isVehicle) then {
           localize "STR_grad_telephone_callEnd", "'#FF1111'",
           grad_telephone_fnc_callEnd,
           grad_telephone_fnc_conditionEndDriver
-        ] call GRAD_telephone_fnc_addActionGeneral;
+        ] call GRAD_telephone_fnc_addActionToVehicle;
 
 } else {
 

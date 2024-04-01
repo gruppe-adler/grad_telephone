@@ -11,6 +11,11 @@ if (!canSuspend) exitWith {
 };
 
 private _isFakePhone = _receiverPhoneObject getVariable ["grad_telephone_isFakePhone", false];
+private _isVehicle = 
+    _receiverPhoneObject isKindOf "Air" || 
+    _receiverPhoneObject isKindOf "LandVehicle" || 
+    _receiverPhoneObject isKindOf "Ship" || 
+    _receiverPhoneObject isKindOf "Tank";
 
 private _status = "ringing"; // enables accept action for clients
 [_receiverPhoneObject, _status] call grad_telephone_fnc_callSetStatus;
@@ -30,7 +35,11 @@ _dummy setPos _position;
 // dont ring if needed
 if (!(_receiverPhoneObject getVariable ["grad_telephone_dontRing", false]) || _isFakePhone) then {
     // todo hide dummy visually
-    [_dummy] remoteExec ["grad_telephone_fnc_soundRing", [0,-2] select isDedicated];
+    if (!_isVehicle) then {
+        [_dummy] remoteExec ["grad_telephone_fnc_soundRing", [0,-2] select isDedicated];
+    } else {
+        [_dummy, _receiverPhoneObject] remoteExec ["grad_telephone_fnc_soundRingVehicle", [0,-2] select isDedicated];
+    };
 };
 
 

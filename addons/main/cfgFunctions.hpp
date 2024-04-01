@@ -90,6 +90,7 @@ class cfgFunctions {
             class soundHookStart;
             class soundInterrupted;
             class soundRing;
+            class soundRingVehicle;
             class soundWaiting;
 
         };
