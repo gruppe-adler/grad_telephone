@@ -4,7 +4,7 @@ params ["_receiverPhoneObject",  ["_sound", ""], ["_text", ""]];
 if ([_receiverPhoneObject, "idle"] call grad_telephone_fnc_callGetStatus) then {
 		
 		// let server handle receiver status
-		[_receiverPhoneObject, true] remoteExec ["grad_telephone_fnc_callRinging", 2];
+		[_receiverPhoneObject] remoteExec ["grad_telephone_fnc_callRinging", 2];
 		[
 			objNull, _receiverPhoneObject,
 			objNull, player

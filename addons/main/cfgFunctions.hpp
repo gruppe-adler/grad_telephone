@@ -7,6 +7,7 @@ class cfgFunctions {
 
             class addAction;
             class addActionGeneral;
+            class addActionToVehicle;
             class addSelfAction;
             class addToPhonebook;
             class cableBreakEH;

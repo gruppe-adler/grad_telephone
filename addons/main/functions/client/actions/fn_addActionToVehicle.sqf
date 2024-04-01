@@ -21,14 +21,6 @@ if (GRAD_TELEPHONE_DEBUG_MODE) then {
 
 if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
 
-      private _getOffset = _object getVariable ["GRAD_Telephone_phoneCablePlugOffset", []];
-      private _offset = [0,0,0];
-
-      if (count _getOffset > 0) then {
-          _offset = _getOffset;
-          // systemChat ("offset " + (str _offset) + " detected");
-      };
-
       private _action = [
           _stringID,
           ("<t color=" + _color + ">" + (_displayName) + "</t>"),
@@ -47,7 +39,7 @@ if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {
 		  [true, true, false, false, true] 
       ] call ace_interact_menu_fnc_createAction;
 
-        [_object, 0, ["ACE_SelfActions"], _action] call ace_interact_menu_fnc_addActionToObject;
+      [_object, 1, ["ACE_SelfActions"], _action] call ace_interact_menu_fnc_addActionToObject;
     
 
 } else {

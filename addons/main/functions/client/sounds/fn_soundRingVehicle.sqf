@@ -6,11 +6,13 @@ private _pfhID = [{
 
     if (isNull _dummyObject) exitWith {};
 
-	// function runs local only anyway
-    playSound (selectRandom ["grad_telephone_sound_phoneRing1", "grad_telephone_sound_phoneRing2"]);
-
-    // systemChat "ring";
-    diag_log format ["_vehicle %1 is ringing", _vehicle];
+    if (player in crew _vehicle) then {
+	    // function runs local only anyway
+        playSound (selectRandom ["grad_telephone_sound_phoneRing1", "grad_telephone_sound_phoneRing2"]);
+    
+        // systemChat "ring";
+        diag_log format ["_vehicle %1 is ringing", _vehicle];
+    };
 
 }, 3, [_dummyObject, _vehicle]] call CBA_fnc_addPerFrameHandler;
 
