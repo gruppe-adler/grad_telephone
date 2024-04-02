@@ -1,8 +1,12 @@
-params ["_player", "_object"];
+params ["_player", "_object", ["_remoteEnd", false]];
 
 // storedData
 private _storedData = [_object] call grad_telephone_fnc_callGetInfo;
 private _state = _object getVariable ['grad_telephone_phoneStatus', "idle"];
+
+if (_remoteEnd) then {
+	_state = "remoteEnd";
+};
 
 _storedData params [
     ["_phone1", objNull],
@@ -80,11 +84,11 @@ switch (_state) do {
 
 		// if other side was called and other still exists
 		if (!isNull _player2 && _isCaller) then {
-			[_phone2, "remoteEnd"] remoteExec ["grad_telephone_fnc_callEnd", _player2];
+			[_player2, _phone2, true] remoteExec ["grad_telephone_fnc_callEnd", _player2];
 		};
 		// if this side was called and other still exists
 		if (!isNull _player1 && !_isCaller) then {
-			[_phone1, "remoteEnd"] remoteExec ["grad_telephone_fnc_callEnd", _player1];
+			[_player1, _phone1, true] remoteExec ["grad_telephone_fnc_callEnd", _player1];
 		};
 
 		// play sound

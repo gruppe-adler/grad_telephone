@@ -30,3 +30,5 @@ if (isNull _dialog) exitWith { hint (localize "STR_grad_telephone_error"); };
 
 private _phoneList = _dialog displayCtrl 1000;
 _phoneList lbSetCurSel _nearestPhoneIndex;
+
+uiNamespace setVariable ["GRAD_clickedOnMap", true];
