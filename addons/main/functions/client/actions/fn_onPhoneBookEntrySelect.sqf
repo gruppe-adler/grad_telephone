@@ -17,7 +17,7 @@ private _dialog = uiNamespace getVariable ['grad_telephone_rscPhoneBook',control
 // dont zoom 
 if (!_clickedOnMap) then {
     private _map = _dialog displayCtrl 2000;
-    _map ctrlMapAnimAdd [0.1, 0.001, _position];
+    _map ctrlMapAnimAdd [0.1, ctrlMapScale _map, _position];
     ctrlMapAnimCommit _map;
 };
 

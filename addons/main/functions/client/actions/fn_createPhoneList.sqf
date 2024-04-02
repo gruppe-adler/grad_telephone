@@ -112,7 +112,7 @@ _firstObject getVariable ['grad_telephone_phonePosition', [0,0,0]] params ["_xPo
 private _selectionMarker = createMarkerLocal ["mrk_PhoneSelect",[_xPos,_yPos]];
 _selectionMarker setMarkerShapeLocal "ICON";
 _selectionMarker setMarkerTypeLocal "Select";
-_selectionMarker setMarkerSizeLocal [3,3];
+_selectionMarker setMarkerSizeLocal [2,2];
 
 
 private _button = _dialog displayCtrl 3000;
