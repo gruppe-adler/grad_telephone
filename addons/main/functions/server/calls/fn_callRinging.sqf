@@ -67,7 +67,7 @@ if (_isFakePhone) then {
                 ["_player2", objNull]
             ];
 
-            [_player1, _receiverPhoneObject, _soundSelected] remoteExec ["grad_telephone_fnc_voiceMailStart", _player1];
+            [_player1, _phone1, _soundSelected] remoteExec ["grad_telephone_fnc_voiceMailStart", _player1];
         };
     }, [_receiverPhoneObject], (random 10 max 1)] call CBA_fnc_waitAndExecute;
 };
