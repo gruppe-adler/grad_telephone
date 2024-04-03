@@ -8,7 +8,7 @@ private _soundObject = playSound [_sound, true, 0];
 
 [{
     params ["_unit", "_phone1", "_phone2", "_soundObject"];
-    isNull _soundObject || !([_unit, _phone2] call grad_telephone_fnc_conditionEnd)
+    isNull _soundObject || ([_unit, _phone2] call grad_telephone_fnc_conditionEnd)
 }, {
     params ["_unit", "_phone1", "_phone2", "_soundObject"];
 

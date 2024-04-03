@@ -24,9 +24,17 @@ if ( isClass(configFile >> "CfgPatches" >> "Radio_Animations") ) then {
     },{
         params ["_phone", "_player"];
         
+        if (GRAD_TELEPHONE_DEBUG_MODE) then {
+            systemChat "callStartAnimation: distance too far or not awake or not calling";
+        };
+
         if (_player getVariable ['grad_telephone_isCalling', false]) then {
             [_player, "radioAnims_Stop"] remoteExec ["playActionNow", _phone];
             [_player, _phone] call grad_telephone_fnc_callEnd;
+
+            if (GRAD_TELEPHONE_DEBUG_MODE) then {
+                systemChat "callStartAnimation: ending call";
+            };
         };
         
     }, [_phone, _player]] call CBA_fnc_waitUntilAndExecute;
