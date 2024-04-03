@@ -22,7 +22,8 @@ private _pfhID = [{
 [{
     params ["_callerPhoneObject", "_pfhID"];
     
-    ([_callerPhoneObject, "idle"] call grad_telephone_fnc_callGetStatus)
+    ([_callerPhoneObject, "idle"] call grad_telephone_fnc_callGetStatus) ||
+    !(player getVariable ['grad_telephone_isCalling', false])
     
 },{
     params ["_callerPhoneObject", "_pfhID"];

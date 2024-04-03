@@ -1,5 +1,9 @@
 params ["_phone", "_player"];
 
+if (isNull _player) exitWith {
+    diag_log format ["fake call detected by callStartAnimation"];
+};
+
 if ( isClass(configFile >> "CfgPatches" >> "Radio_Animations") ) then {
 
     private _phoneModel = _phone getVariable ["GRAD_telephone_phoneModel", objNull];    

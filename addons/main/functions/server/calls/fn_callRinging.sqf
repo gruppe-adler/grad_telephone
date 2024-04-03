@@ -56,7 +56,18 @@ if (_isFakePhone) then {
 
         // if there is a sound prepared && still ringing, accept call after waiting time
         if ([_receiverPhoneObject, "ringing"] call grad_telephone_fnc_callGetStatus) then {
-            [_receiverPhoneObject, _soundSelected] call grad_telephone_fnc_fakeCallAccept;
+
+             private _storedData = [_receiverPhoneObject] call grad_telephone_fnc_callGetInfo;
+            _storedData params [
+                ["_phone1", objNull],
+                ["_phone2", objNull],
+                ["_number1", "undefined"],
+                ["_number2", "undefined"],
+                ["_player1", objNull],
+                ["_player2", objNull]
+            ];
+
+            [_player1, _receiverPhoneObject, _soundSelected] remoteExec ["grad_telephone_fnc_voiceMailStart", _player1];
         };
     }, [_receiverPhoneObject], (random 10 max 1)] call CBA_fnc_waitAndExecute;
 };
