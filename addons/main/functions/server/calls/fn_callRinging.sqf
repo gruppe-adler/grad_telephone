@@ -54,18 +54,18 @@ if (_isFakePhone) then {
         if (typeNAme _possibleSounds == "ARRAY" && count _possibleSounds > 0) then { _soundSelected = selectRandom _possibleSounds; };
         if (typeNAme _possibleSounds == "STRING") then { _soundSelected = _possibleSounds; };
 
-        // if there is a sound prepared && still ringing, accept call after waiting time
-        if ([_receiverPhoneObject, "ringing"] call grad_telephone_fnc_callGetStatus) then {
+         private _storedData = [_receiverPhoneObject] call grad_telephone_fnc_callGetInfo;
+        _storedData params [
+            ["_phone1", objNull],
+            ["_phone2", objNull],
+            ["_number1", "undefined"],
+            ["_number2", "undefined"],
+            ["_player1", objNull],
+            ["_player2", objNull]
+        ];
 
-             private _storedData = [_receiverPhoneObject] call grad_telephone_fnc_callGetInfo;
-            _storedData params [
-                ["_phone1", objNull],
-                ["_phone2", objNull],
-                ["_number1", "undefined"],
-                ["_number2", "undefined"],
-                ["_player1", objNull],
-                ["_player2", objNull]
-            ];
+        // if there is a sound prepared && still ringing, accept call after waiting time
+        if ([_phone2, "ringing"] call grad_telephone_fnc_callGetStatus) then {
 
             [_player1, _phone1, _soundSelected] remoteExec ["grad_telephone_fnc_voiceMailStart", _player1];
         };

@@ -21,6 +21,7 @@ class cfgFunctions {
             class conditionEnd;
             class conditionEndDoor;
             class conditionEndDriver;
+            class conditionEndVoiceMail;
             class createPhoneList;
             class curatorTogglePhone;
             class onPhoneBookEntrySelect;
