@@ -1,0 +1,1 @@
+[player, objNull] call grad_telephone_fnc_createPhoneList;

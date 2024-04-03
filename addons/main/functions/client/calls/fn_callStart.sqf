@@ -21,10 +21,10 @@ if (_callerPhoneObject getVariable ['grad_telephone_skipDialing', false]) then {
     };
 };
 
+player setVariable ['grad_telephone_isCalling', true];
 
 [_callerPhoneObject] call grad_telephone_fnc_callStartAnimation;
 
-player setVariable ['grad_telephone_isCalling', true];
 
 {
     private _receiverPhoneObject = _x;

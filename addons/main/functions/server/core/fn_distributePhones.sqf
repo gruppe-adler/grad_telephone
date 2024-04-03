@@ -49,14 +49,15 @@ private _allPhones = [];
             private _phoneModel = createSimpleObject ["z\tfar\addons\external_intercom\data\TFAR_handset.p3d", [0,0,0]];
             private _offset = _x getVariable ["GRAD_Telephone_phoneCablePlugOffset", [0,0,0]];
             _phoneModel attachTo [_x, _offset];
+            _x setVariable ["GRAD_telephone_phoneModel", _phoneModel, true];
 
+            /*
             private _cableArray = [_x, _phoneModel] call grad_telephone_fnc_cableCreate;
             _cableArray params ["_cable", "_cableHelper"];
             _x setVariable ["GRAD_telephone_cable", _cable, true];
             _x setVariable ["GRAD_telephone_cableHelper", _cableHelper, true];
-            _x setVariable ["GRAD_telephone_phoneModel", _phoneModel, true];
             [_cableHelper] call grad_telephone_fnc_cableBreakEH;
-
+            */
         };
 
     } forEach _phonesDetected;
@@ -79,14 +80,16 @@ private _allPhoneBooths = [];
 
             private _phoneModel = createSimpleObject ["z\tfar\addons\external_intercom\data\TFAR_handset.p3d", [0,0,0]];
             private _offset = _x getVariable ["GRAD_Telephone_phoneCablePlugOffset", [0,0,0]];
-            _phoneModel attachTo [_x, _offset];
+            _phoneModel attachTo [_x, _offset];    
+            _x setVariable ["GRAD_telephone_phoneModel", _phoneModel, true];
 
+            /*
             private _cableArray = [_x, _phoneModel] call grad_telephone_fnc_cableCreate;
             _cableArray params ["_cable", "_cableHelper"];
             _x setVariable ["GRAD_telephone_cable", _cable, true];
             _x setVariable ["GRAD_telephone_cableHelper", _cableHelper, true];
-            _x setVariable ["GRAD_telephone_phoneModel", _phoneModel, true];
             [_cableHelper] call grad_telephone_fnc_cableBreakEH;
+            */
         };
 
     } forEach _phonesDetected;

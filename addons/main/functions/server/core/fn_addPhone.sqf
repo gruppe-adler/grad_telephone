@@ -63,12 +63,15 @@ if (isNull (_object getVariable ["GRAD_telephone_phoneModel", objNull])) then {
     private _offset = _object getVariable ["GRAD_Telephone_phoneCablePlugOffset", [0,0,0]];
     _phoneModel attachTo [_object, _offset];
 
+    /*
     private _cableArray = [_object, _phoneModel] call grad_telephone_fnc_cableCreate;
     _cableArray params ["_cable", "_cableHelper"];
     _object setVariable ["GRAD_telephone_cable", _cable, true];
     _object setVariable ["GRAD_telephone_cableHelper", _cableHelper, true];
-    _object setVariable ["GRAD_telephone_phoneModel", _phoneModel, true];
     [_cableHelper] call grad_telephone_fnc_cableBreakEH;
+    */
+    _object setVariable ["GRAD_telephone_phoneModel", _phoneModel, true];
+    
 };
 
 [_object, _number] call grad_telephone_fnc_assignNumber;

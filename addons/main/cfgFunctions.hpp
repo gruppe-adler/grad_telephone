@@ -25,6 +25,7 @@ class cfgFunctions {
             class curatorTogglePhone;
             class onPhoneBookEntrySelect;
             class onPhoneBookMapClick;
+            class openPhoneBook;
             class sharePhonebook;
             class sharePhonebookAction;
         };

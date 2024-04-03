@@ -4,7 +4,11 @@ if (!canSuspend) exitWith {
     [_player, _object] spawn grad_telephone_fnc_createPhoneList;
 };
 
-player setVariable ["grad_telephone_objCaller", _object];
+private _justShowNoCalls = isNull _object;
+
+if (!_justShowNoCalls) then {
+    player setVariable ["grad_telephone_objCaller", _object];
+};
 
 createDialog "grad_telephone_rscPhoneBook";
 waitUntil {dialog};
@@ -17,6 +21,7 @@ private _allMarkers = [];
 
 // fill phonelist
 private _phoneList = _dialog displayCtrl 1000;
+
 
 // numbers are aggregated by personally known and publicly known
 private _allPrivateNumbers = _player getVariable ["GRAD_TELEPHONE_ALLNUMBERS", []];
@@ -114,12 +119,16 @@ _selectionMarker setMarkerShapeLocal "ICON";
 _selectionMarker setMarkerTypeLocal "Select";
 _selectionMarker setMarkerSizeLocal [2,2];
 
-
 private _button = _dialog displayCtrl 3000;
+// do not show call button if user just takes a look into his phone book
+if (_justShowNoCalls) exitWith {
+    _button ctrlShow false;
+};
 
 // store elements to delete them later on
 player setVariable ["grad_telephone_phoneList", [_phoneList, _button]];
 player setVariable ["grad_telephone_markerList", _allMarkers];
+
 
 
 // _selectionMarker setMarkerPosLocal (getMarkerPos (_allMarkers select (lbCurSel 2000)));

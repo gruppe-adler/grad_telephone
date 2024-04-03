@@ -2,7 +2,10 @@ params ["_phoneObject", "_phoneModel"];
 
 private _offset = _phoneObject getVariable ["GRAD_Telephone_phoneCablePlugOffset", [0,0,0]];
 
-private _cablehelper = "GRAD_telephone_cableHelper" createVehicle (_phoneObject modelToWorld _offset);
+private _cablehelper = "GRAD_telephone_cableHelper" createVehicle [0,0,0];
+_cablehelper setPos (_phoneObject modelToWorld _offset);
+
+_cablehelper attachTo [_phoneObject, _offset];
 
 private _cable = ropeCreate [
     _cablehelper, 
