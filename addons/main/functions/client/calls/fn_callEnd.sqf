@@ -4,12 +4,6 @@ params ["_player", "_object"];
 private _storedData = [_object] call grad_telephone_fnc_callGetInfo;
 private _state = _object getVariable ['grad_telephone_phoneStatus', "idle"];
 
-/*
-if (_remoteEnd) then {
-	_state = "remoteEnd";
-};
-*/
-
 _storedData params [
     ["_phone1", objNull],
     ["_phone2", objNull],
@@ -19,7 +13,7 @@ _storedData params [
     ["_player2", objNull]
 ];
 
-private _isCaller = player isEqualTo _player1;
+private _isCaller = _player isEqualTo _player1;
 
 
 // execute state stuff
@@ -84,15 +78,15 @@ switch (_state) do {
 			[_phone1, _phone2] call grad_telephone_fnc_callDeleteInfo;
 		};
 
+		// todo: what the hell did i do here? args does not match. probably never called?!
+		// but grad_telephone_fnc_soundInterrupted was called, so .. HOW
 		// if other side was called and other still exists
 		if (!isNull _player2 && _isCaller) then {
-			[_phone2, "remoteEnd"] call grad_telephone_fnc_callSetStatus;
-			[_player2, _phone2] remoteExec ["grad_telephone_fnc_callEnd", _player2];
+			[_phone2, "remoteEnd"] remoteExec ["grad_telephone_fnc_callEnd", _player2];
 		};
 		// if this side was called and other still exists
 		if (!isNull _player1 && !_isCaller) then {
-			[_phone1, "remoteEnd"] call grad_telephone_fnc_callSetStatus;
-			[_player1, _phone1] remoteExec ["grad_telephone_fnc_callEnd", _player1];
+			[_phone1, "remoteEnd"] remoteExec ["grad_telephone_fnc_callEnd", _player1];
 		};
 
 		// play sound
@@ -150,5 +144,7 @@ switch (_state) do {
 };
 
 // always end, no matter what happened
-player setVariable ['grad_telephone_isCalling', false];
-[player, _object] call grad_telephone_fnc_callEndAnimation;
+if (!isNull _player) then {
+	_player setVariable ['grad_telephone_isCalling', false];
+	[_player, _object] call grad_telephone_fnc_callEndAnimation;
+};

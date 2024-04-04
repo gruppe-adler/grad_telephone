@@ -17,7 +17,6 @@ _cableHelper addEventHandler ["RopeBreak", {
 
     if (isPlayer _object2) then {
         [_object2, "radioAnims_Stop"] remoteExec ["playActionNow", _object2];
-        [_object2, "remoteEnd"] call grad_telephone_fnc_callSetStatus;
         [_object2, _phone] remoteExec ["grad_telephone_fnc_callEnd", _object2];
     };
 

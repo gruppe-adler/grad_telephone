@@ -4,7 +4,7 @@
 
 */
 
-params ["_unit", "_phone1", "_phone2", "_sound"];
+params ["_player1", "_phone1", "_phone2", "_sound"];
 
 if (GRAD_TELEPHONE_DEBUG_MODE) then {
     systemChat str _sound;
@@ -16,15 +16,32 @@ private _soundObject = playSound [_sound, true, 0];
 [_phone1, "calling"] call grad_telephone_fnc_callSetStatus;
 [_phone2, "calling"] call grad_telephone_fnc_callSetStatus;
 
+// _player1, _phone1, _phone2, _soundSelected
+private _storedData = [_phone1] call grad_telephone_fnc_callGetInfo;
+
+_storedData params [
+    ["_phone1", objNull],
+    ["_phone2", objNull],
+    ["_number1", "undefined"],
+    ["_number2", "undefined"],
+    ["_player1", objNull],
+    ["_player2", objNull]
+];
+
+[_phone1, _phone2, _player1, _player2] call grad_telephone_fnc_callSaveInfo;
+
+
 [{
-    params ["_unit", "_phone1", "_phone2", "_soundObject"];
-    isNull _soundObject || ([_unit, _phone1] call grad_telephone_fnc_conditionEndVoiceMail)
+    params ["_player1", "_phone1", "_phone2", "_soundObject"];
+    isNull _soundObject || ([_player1, _phone1] call grad_telephone_fnc_conditionEndVoiceMail)
 }, {
-    params ["_unit", "_phone1", "_phone2", "_soundObject"];
+    params ["_player1", "_phone1", "_phone2", "_soundObject"];
 
     // abort sound playback
     if (!isNull _soundObject) then {
         deleteVehicle _soundObject;
+
+        [_player1, _phone1] remoteExec ["grad_telephone_fnc_callEnd", _player1];
 
 		if (GRAD_TELEPHONE_DEBUG_MODE) then {
 			systemChat format ["Debug: voiceMailStart - aborted sound on %1", _phone2];
@@ -35,7 +52,7 @@ private _soundObject = playSound [_sound, true, 0];
     // let server manage fake call end after some random delay
 	// sound should have ended already
     [{
-        params ["_unit", "_phone1", "_phone2", "_soundObject"];
+        params ["_player1", "_phone1", "_phone2", "_soundObject"];
 
         // if own call still running
         /*
@@ -46,8 +63,8 @@ private _soundObject = playSound [_sound, true, 0];
 
         // if call is still running
         if ([_phone1, "calling"] call grad_telephone_fnc_callGetStatus) then {
-            [_phone1, "remoteEnd"] call grad_telephone_fnc_callSetStatus;
-            [_unit, _phone1] remoteExec ["grad_telephone_fnc_callEnd", 2];			
+            // [_phone1, "remoteEnd"] call grad_telephone_fnc_callSetStatus;
+            [_player1, _phone1] remoteExec ["grad_telephone_fnc_callEnd", _player1];
 
 			if (GRAD_TELEPHONE_DEBUG_MODE) then {
 				systemChat format ["Debug: voiceMailStart - ended call after random delay"];
@@ -56,8 +73,8 @@ private _soundObject = playSound [_sound, true, 0];
         };
 
         if ([_phone2, "calling"] call grad_telephone_fnc_callGetStatus) then {
-            [_phone2, "remoteEnd"] call grad_telephone_fnc_callSetStatus;
-            [_unit, _phone2] remoteExec ["grad_telephone_fnc_callEnd", 2];			
+            // [_phone2, "remoteEnd"] call grad_telephone_fnc_callSetStatus;
+            [_player1, _phone2] remoteExec ["grad_telephone_fnc_callEnd", _player1];			
 
 			if (GRAD_TELEPHONE_DEBUG_MODE) then {
 				systemChat format ["Debug: voiceMailStart - ended call after random delay"];
@@ -65,7 +82,7 @@ private _soundObject = playSound [_sound, true, 0];
 			};
         };
 
-    }, [_unit, _phone1, _phone2, _soundObject], (random 5 max 1)] call CBA_fnc_waitAndExecute;
+    }, [_player1, _phone1, _phone2, _soundObject], (random 5 max 1)] call CBA_fnc_waitAndExecute;
 	
     
-}, [_unit, _phone1, _phone2, _soundObject]] call CBA_fnc_waitUntilAndExecute;
+}, [_player1, _phone1, _phone2, _soundObject]] call CBA_fnc_waitUntilAndExecute;

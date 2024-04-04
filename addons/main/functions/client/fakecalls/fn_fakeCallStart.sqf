@@ -20,6 +20,9 @@ _storedData params [
     ["_player2", objNull]
 ];
 
+_phone2 = _object;
+
+[_phone1, _phone2, _player1, _player2] call grad_telephone_fnc_callSaveInfo;
 
 [_player1, _phone2] call grad_telephone_fnc_callSetOwner;
 
