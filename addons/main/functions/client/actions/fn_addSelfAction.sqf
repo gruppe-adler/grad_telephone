@@ -43,3 +43,5 @@
     ] call GRAD_telephone_fnc_sharePhonebookAction;
   };
 } forEach (playableUnits + switchableUnits);
+//
+// params ["_unit", "_icon", "_stringID", "_displayName", "_color", "_functionToCall"];

@@ -46,10 +46,22 @@ if (_isVehicle) then {
           _unit,
           _object,
           "x\grad_telephone\addons\main\data\ico_notepad.paa",
-          "grad_telephone_action_addToPhoneBook",
-          localize "STR_grad_telephone_addToPhonebook", "'#FF1111'",
+          "grad_telephone_action_sharePhoneBook",
+          localize "STR_grad_telephone_sharePhonebook", "'#FF1111'",
           grad_telephone_fnc_sharePhonebook
         ] call grad_telephone_fnc_sharePhonebookAction;
+
+        [
+          _unit,
+          _object,
+          "x\grad_telephone\addons\main\data\ico_notepad.paa",
+          "grad_telephone_action_addToPhoneBook",
+          localize "STR_grad_telephone_addToPhonebook", "'#FF1111'",
+          grad_telephone_fnc_addToPhoneBook,
+          {_target distance _player < 3}
+        ] call grad_telephone_fnc_addActionGeneral;
+
+
 
         [
           _unit,

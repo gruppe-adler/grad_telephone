@@ -3,12 +3,7 @@ params ["_unit", "_icon", "_stringID", "_displayName", "_color", "_functionToCal
 private _conditionAction = {
   params ["_player", "_target"];
 
-  private _playerPhonebook = (_player getVariable ["GRAD_TELEPHONE_ALLNUMBERS", []]) + (missionNamespace getVariable ["GRAD_TELEPHONE_ALLNUMBERS", []]);
-  private _otherUnitPhonebook = (_target getVariable ["GRAD_TELEPHONE_ALLNUMBERS", []]) + (missionNamespace getVariable ["GRAD_TELEPHONE_ALLNUMBERS", []]);
-  private _sortedNamesPlayer = _playerPhonebook call BIS_fnc_sortAlphabetically; 
-  private _sortedNamesUnit = _otherUnitPhonebook call BIS_fnc_sortAlphabetically;
-
-  !(_sortedNamesPlayer isEqualTo _sortedNamesUnit)
+  _player distance _target < 3
 };
 
 if ( isClass(configFile >> "CfgPatches" >> "ace_interact_menu") ) then {

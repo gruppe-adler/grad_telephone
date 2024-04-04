@@ -10,6 +10,6 @@ private _unitPhonebook = _target getVariable ["GRAD_TELEPHONE_ALLNUMBERS", []];
 _target setVariable ["GRAD_TELEPHONE_ALLNUMBERS", _unitPhonebook, true];
 
 
-("Phonebook shared with " + _target getVariable ["ACE_Name", name _target]) call CBA_fnc_notify;
+("Phonebook shared with " + (_target getVariable ["ACE_Name", name _target])) call CBA_fnc_notify;
 
-[_player getVariable ["ACE_Name", name _player] + " shared his phonebook with you."] remoteExec ["CBA_fnc_notify", _target];
+[(_player getVariable ["ACE_Name", name _player]) + " shared his phonebook with you."] remoteExec ["CBA_fnc_notify", _target];
