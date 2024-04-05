@@ -73,6 +73,7 @@ class cfgFunctions {
             class fakeCallStart;
             class fakeCallPhone;
             class fakeCallPlaysound;
+            class fakeCallPlaysoundLocal;
             class voiceMailStart;
         };
 

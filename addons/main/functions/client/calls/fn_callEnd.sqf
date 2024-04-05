@@ -82,11 +82,13 @@ switch (_state) do {
 		// but grad_telephone_fnc_soundInterrupted was called, so .. HOW
 		// if other side was called and other still exists
 		if (!isNull _player2 && _isCaller) then {
-			[_phone2, "remoteEnd"] remoteExec ["grad_telephone_fnc_callEnd", _player2];
+			[_phone2, "remoteEnd"] call grad_telephone_fnc_callSetStatus; // set other side to end itself with beeps
+			[_player2, _phone2] remoteExec ["grad_telephone_fnc_callEnd", _player2];
 		};
 		// if this side was called and other still exists
 		if (!isNull _player1 && !_isCaller) then {
-			[_phone1, "remoteEnd"] remoteExec ["grad_telephone_fnc_callEnd", _player1];
+			[_phone1, "remoteEnd"] call grad_telephone_fnc_callSetStatus; // set other side to end itself with beeps
+			[_player1, _phone1] remoteExec ["grad_telephone_fnc_callEnd", _player1];
 		};
 
 		// play sound

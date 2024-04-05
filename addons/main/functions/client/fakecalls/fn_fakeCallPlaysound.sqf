@@ -5,6 +5,9 @@ if (GRAD_TELEPHONE_DEBUG_MODE) then {
 };
 
 private _soundObject = playSound [_sound, true, 0];
+[_phone1, _sound] remoteExec ["grad_telephone_fnc_fakeCallPlaySoundLocal", allPlayers select { _x != player}];
+
+diag_log format ["Debug: fakeCallPlaySound - playing fake sound locally"];
 
 [{
     params ["_unit", "_phone1", "_phone2", "_soundObject"];
@@ -15,6 +18,7 @@ private _soundObject = playSound [_sound, true, 0];
     // abort sound playback
     if (!isNull _soundObject) then {
         deleteVehicle _soundObject;
+        diag_log format ["Debug: fakeCallPlaySound - aborted playback as soundobject null"];
     };
 
     // let server manage fake call end after some random delay

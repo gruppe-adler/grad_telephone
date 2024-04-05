@@ -46,3 +46,5 @@ if (GRAD_TELEPHONE_DEBUG_MODE) then {
 
 
 player setVariable ["tf_unable_to_use_radio", false];
+player setVariable ["TFAR_SRSpeakersEnabled", false, true];
+player setVariable ["TF_speakerDistance", 20, true];

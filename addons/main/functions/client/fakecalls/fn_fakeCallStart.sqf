@@ -40,7 +40,7 @@ if (_sound != "") then {
 };
 
 // raises local event to e.g. add some more functionality, like displaying subtitles or whatever
-["GRAD_telephone_fakeCallStart", [_phone2, _sound, _text], _player2] call CBA_fnc_targetEvent; 
+["GRAD_telephone_fakeCallStart", [_phone2, _sound, _text], _player2] call CBA_fnc_targetEvent;
 
 // should be always true if zeus/game is second party
 if (!isNull _player2) then {
