@@ -33,7 +33,7 @@ private _allPrivateNumbers = _player getVariable ["GRAD_TELEPHONE_ALLNUMBERS", [
     private _position = (_objectsArray select 0) getVariable ['grad_telephone_phonePosition', [0,0,0]];
     private _isPhoneBooth = (_objectsArray select 0) getVariable ['grad_telephone_isPhonebooth', false];
 
-    if (_hasDisplayName != "") then { _number = _number + " - " + _hasDisplayName + " (private)"; };
+    if (_hasDisplayName != "") then { _number =  _hasDisplayName + " (private)" + "(" + _number + ")"; };
         
     private _identifier = _phoneList lbAdd _number;
     _phoneList setVariable [str _identifier, _objectsArray];
@@ -76,7 +76,7 @@ private _allPublicNumbers = missionNamespace getVariable ['GRAD_TELEPHONE_ALLNUM
     if (_hasPublicPhoneBookEntry) then {
        
 
-        if (_hasDisplayName != "") then { _number = _number + " - " + _hasDisplayName + " (public)"; };
+        if (_hasDisplayName != "") then { _number =  _hasDisplayName + " (public)" + "(" + _number + ")"; };
             
         private _identifier = _phoneList lbAdd _number;
         _phoneList setVariable [str _identifier, _objectsArray];
