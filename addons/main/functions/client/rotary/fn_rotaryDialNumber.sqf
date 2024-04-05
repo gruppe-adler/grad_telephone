@@ -13,7 +13,7 @@ sleep 1;
 {
     private _processing = [_x] spawn grad_telephone_fnc_rotaryProcessInput;
     waitUntil { scriptDone _processing };
-    sleep 1;
+    sleep (random 0.5);
     if (!dialog) exitWith {
         missionNamespace setVariable ["GRAD_telephone_dialingAborted", true];
     };
