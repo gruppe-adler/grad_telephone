@@ -11,7 +11,7 @@ diag_log format ["Debug: fakeCallPlaySound - playing fake sound locally"];
 
 [{
     params ["_unit", "_phone1", "_phone2", "_soundID"];
-    isNull _soundID || !([_unit, _phone2] call grad_telephone_fnc_conditionEnd)
+    soundParams _soundID isEqualTo [] || !([_unit, _phone2] call grad_telephone_fnc_conditionEnd)
 }, {
     params ["_unit", "_phone1", "_phone2", "_soundID"];
 

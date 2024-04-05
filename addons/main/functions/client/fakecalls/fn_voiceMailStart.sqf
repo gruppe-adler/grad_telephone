@@ -34,7 +34,7 @@ _storedData params [
 
 [{
     params ["_player1", "_phone1", "_phone2", "_soundID"];
-    isNull _soundID || ([_player1, _phone1] call grad_telephone_fnc_conditionEndVoiceMail)
+    soundParams _soundID isEqualTo [] || ([_player1, _phone1] call grad_telephone_fnc_conditionEndVoiceMail)
 }, {
     params ["_player1", "_phone1", "_phone2", "_soundID"];
 
