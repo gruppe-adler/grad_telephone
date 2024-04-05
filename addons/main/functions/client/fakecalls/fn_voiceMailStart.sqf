@@ -11,7 +11,8 @@ if (GRAD_TELEPHONE_DEBUG_MODE) then {
     diag_log format ["Debug: voiceMailStart - starting playback on %1, called by %2", _phone2, _phone1];
 };
 
-private _soundObject = playSound [_sound, true, 0];
+private _soundID = playSoundUI [_sound, 0.5];
+[_phone1, _sound] remoteExec ["grad_telephone_fnc_fakeCallPlaySoundLocal", allPlayers select { _x != player}];
 
 [_phone1, "calling"] call grad_telephone_fnc_callSetStatus;
 [_phone2, "calling"] call grad_telephone_fnc_callSetStatus;
@@ -32,14 +33,14 @@ _storedData params [
 
 
 [{
-    params ["_player1", "_phone1", "_phone2", "_soundObject"];
-    isNull _soundObject || ([_player1, _phone1] call grad_telephone_fnc_conditionEndVoiceMail)
+    params ["_player1", "_phone1", "_phone2", "_soundID"];
+    isNull _soundID || ([_player1, _phone1] call grad_telephone_fnc_conditionEndVoiceMail)
 }, {
-    params ["_player1", "_phone1", "_phone2", "_soundObject"];
+    params ["_player1", "_phone1", "_phone2", "_soundID"];
 
-    // abort sound playback
-    if (!isNull _soundObject) then {
-        deleteVehicle _soundObject;
+    // abort sound playback if sound is still existing
+    if (soundParams _soundID isNotEqualTo []) then {
+        stopSound _soundID;
 
         [_player1, _phone1] remoteExec ["grad_telephone_fnc_callEnd", _player1];
 
@@ -52,7 +53,7 @@ _storedData params [
     // let server manage fake call end after some random delay
 	// sound should have ended already
     [{
-        params ["_player1", "_phone1", "_phone2", "_soundObject"];
+        params ["_player1", "_phone1", "_phone2", "_soundID"];
 
         // if own call still running
         /*
@@ -82,7 +83,7 @@ _storedData params [
 			};
         };
 
-    }, [_player1, _phone1, _phone2, _soundObject], (random 5 max 1)] call CBA_fnc_waitAndExecute;
+    }, [_player1, _phone1, _phone2, _soundID], (random 5 max 1)] call CBA_fnc_waitAndExecute;
 	
     
-}, [_player1, _phone1, _phone2, _soundObject]] call CBA_fnc_waitUntilAndExecute;
+}, [_player1, _phone1, _phone2, _soundID]] call CBA_fnc_waitUntilAndExecute;
