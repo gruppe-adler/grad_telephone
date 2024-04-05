@@ -6,8 +6,9 @@ private _worked = _phonebookplayer pushBackUnique [(_object getVariable ["GRAD_T
 _player setVariable ["GRAD_TELEPHONE_ALLNUMBERS", _phonebookplayer, true];
 
 if (_worked == -1) then {
-	("Already added to phonebook.") call CBA_fnc_notify;
+	["Already added to phonebook.", true] call CBA_fnc_notify;
+	
 } else {
 	private _displayName = _object getVariable ['grad_telephone_displayName', "new entry"];
-	(_displayName + " added to phonebook.") call CBA_fnc_notify;
+	[_displayName + " added to phonebook.", true] call CBA_fnc_notify;
 };
