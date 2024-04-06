@@ -42,9 +42,7 @@ switch (_state) do {
 		[_phone1, _phone2] call grad_telephone_fnc_callDeleteInfo;
 
 		// debug whats happening
-    if (GRAD_TELEPHONE_DEBUG_MODE) then {
-      systemChat "hanging up from waiting";
-    };
+    	diag_log ("callEnd: " + str _player + " + waiting");
 		
 	};
 
@@ -56,9 +54,7 @@ switch (_state) do {
 		[_object, "grad_telephone_sound_phoneHangUp"] remoteExec ["say3D", [0,-2] select isDedicated];
 
 		// debug whats happening
-    if (GRAD_TELEPHONE_DEBUG_MODE) then {
-		    systemChat "hanging up from busy";
-    };
+    	diag_log ("callEnd: " + str _player + " + busy");
 	};
 
 
@@ -78,17 +74,20 @@ switch (_state) do {
 			[_phone1, _phone2] call grad_telephone_fnc_callDeleteInfo;
 		};
 
-		// todo: what the hell did i do here? args does not match. probably never called?!
-		// but grad_telephone_fnc_soundInterrupted was called, so .. HOW
+		// its a fake call baby
+		if (isNull _phone1) then {
+			[_phone1, _phone2] call grad_telephone_fnc_callDeleteInfo;
+		};
+
 		// if other side was called and other still exists
 		if (!isNull _player2 && _isCaller) then {
 			[_phone2, "remoteEnd"] call grad_telephone_fnc_callSetStatus; // set other side to end itself with beeps
-			[_player2, _phone2] remoteExec ["grad_telephone_fnc_callEnd", _player2];
+			[_player2, _phone2] call grad_telephone_fnc_callEnd; // self reference callEnd is already executed on server
 		};
 		// if this side was called and other still exists
 		if (!isNull _player1 && !_isCaller) then {
 			[_phone1, "remoteEnd"] call grad_telephone_fnc_callSetStatus; // set other side to end itself with beeps
-			[_player1, _phone1] remoteExec ["grad_telephone_fnc_callEnd", _player1];
+			[_player1, _phone1] call grad_telephone_fnc_callEnd; // self reference callEnd is already executed on server
 		};
 
 		// play sound
@@ -100,10 +99,8 @@ switch (_state) do {
 		// tfar
 		[_object, _number1 + _number2] call grad_telephone_fnc_callPluginDeactivate;
 
-		// debug whats happening
-    if (GRAD_TELEPHONE_DEBUG_MODE) then {
-		    systemChat "hanging up from calling";
-    };
+		
+		diag_log ("callEnd: " + str _player + " + hung up");
 	};
 
 
@@ -112,7 +109,7 @@ switch (_state) do {
 		[_object, "ending"] call grad_telephone_fnc_callSetStatus;
 
 		// initiate beep beep..
-		[_object] call grad_telephone_fnc_soundInterrupted;
+		[_object] remoteExec ["grad_telephone_fnc_soundInterrupted", _player];
 
 		// tfar
 		[_object, _number1 + _number2] call grad_telephone_fnc_callPluginDeactivate;
@@ -121,9 +118,7 @@ switch (_state) do {
 		[_phone1, _phone2] call grad_telephone_fnc_callDeleteInfo;
 
 		// debug whats happening
-    if (GRAD_TELEPHONE_DEBUG_MODE) then {
-		    systemChat "other side hung up";
-    };
+		diag_log ("callEnd: " + str _player + " + other side hung up");
 
 	};
 
@@ -136,9 +131,7 @@ switch (_state) do {
 		[_object, "grad_telephone_sound_phoneHangUp"] remoteExec ["say3D", [0,-2] select isDedicated];
 
 		// debug whats happening
-    if (GRAD_TELEPHONE_DEBUG_MODE) then {
-		    systemChat "hanging up from ending";
-    };
+    	diag_log ("callEnd: " + str _player + " + ending");
 
 	};
 

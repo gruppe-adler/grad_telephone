@@ -33,8 +33,8 @@ if ( isClass(configFile >> "CfgPatches" >> "Radio_Animations") ) then {
         };
 
         if (_player getVariable ['grad_telephone_isCalling', false]) then {
-            [_player, "radioAnims_Stop"] remoteExec ["playActionNow", _phone];
-            [_player, _phone] call grad_telephone_fnc_callEnd;
+            [_player, "radioAnims_Stop"] remoteExec ["playActionNow", _player];
+            [_player, _phone] remoteExec ["grad_telephone_fnc_callEnd", 2];
 
             if (GRAD_TELEPHONE_DEBUG_MODE) then {
                 systemChat "callStartAnimation: ending call";

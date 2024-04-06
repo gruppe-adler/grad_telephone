@@ -18,7 +18,8 @@ class cfgFunctions {
             class conditionAddToPhonebook;
             class conditionCall;
             class conditionDirectCall;
-            class conditionEnd;
+            class conditionEndCall;
+            class conditionEndInteraction;
             class conditionEndDoor;
             class conditionEndDriver;
             class conditionEndVoiceMail;
@@ -70,10 +71,10 @@ class cfgFunctions {
         class client_fakecall {
             file = "x\grad_telephone\addons\main\functions\client\fakecalls";
 
-            class fakeCallStart;
             class fakeCallPhone;
             class fakeCallPlaysound;
             class fakeCallPlaysoundLocal;
+            class fakeCallStart;
             class voiceMailStart;
         };
 

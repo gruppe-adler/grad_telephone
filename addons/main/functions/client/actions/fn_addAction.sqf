@@ -100,7 +100,7 @@ if (_isVehicle) then {
           "grad_telephone_action_callEnd",
           localize "STR_grad_telephone_callEnd", "'#FF1111'",
           grad_telephone_fnc_callEnd,
-          grad_telephone_fnc_conditionEnd
+          grad_telephone_fnc_conditionEndInteraction
         ] call GRAD_telephone_fnc_addActionGeneral;
 
 
