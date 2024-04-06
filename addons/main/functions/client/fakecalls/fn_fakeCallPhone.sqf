@@ -9,8 +9,8 @@ params ["_receiverPhoneObject",  ["_sound", ""], ["_text", ""]];
  // go to calling, if receiver can receive
 if ([_receiverPhoneObject, "idle"] call grad_telephone_fnc_callGetStatus) then {
 		
-		// let server handle receiver status
-		[_receiverPhoneObject] call grad_telephone_fnc_callRinging;
+		// let server handle receiver status, needs to be scheduled
+		[_receiverPhoneObject] spawn grad_telephone_fnc_callRinging;
 
 		// fake call starts or was aborted
 		[{
@@ -27,7 +27,7 @@ if ([_receiverPhoneObject, "idle"] call grad_telephone_fnc_callGetStatus) then {
 					// do nothing, just stop
 					diag_log "fake call phone stopped";
 				};
-		}, [_receiverPhoneObject, _sound, _text], random 5 + 15, {
+		}, [_receiverPhoneObject, _sound, _text], 15 + random 5, {
 
 			// end ringing after random delay, if still ringing after 15 + 5 s
 			params ["_receiverPhoneObject"];
