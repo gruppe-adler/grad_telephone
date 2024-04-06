@@ -1,6 +1,7 @@
 /*
 
 	executed on server
+	called by zeus
 
 */
 
@@ -14,7 +15,8 @@ if ([_receiverPhoneObject, "idle"] call grad_telephone_fnc_callGetStatus) then {
 
 		// delay a bit as ringing needs a short time to be set due to spawn
 		[{
-			params ["_receiverPhoneObject"];
+			params ["_receiverPhoneObject", "_sound", "_text"];
+
 			// fake call starts or was aborted
 			[{
 					params ["_receiverPhoneObject"];
@@ -39,7 +41,6 @@ if ([_receiverPhoneObject, "idle"] call grad_telephone_fnc_callGetStatus) then {
 				diag_log "fake call phone endet ringing after random delay";
 
 			}] call CBA_fnc_waitUntilAndExecute;
-
 
 		}, [_receiverPhoneObject, _sound, _text], 0.5] call CBA_fnc_waitAndExecute;
 

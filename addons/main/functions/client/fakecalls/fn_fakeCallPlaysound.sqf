@@ -1,3 +1,7 @@
+/*
+    
+*/
+
 params ["_unit", "_phone1", "_phone2", "_sound"];
 
 if (GRAD_TELEPHONE_DEBUG_MODE) then {
