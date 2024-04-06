@@ -31,6 +31,7 @@ _position set [2, _maxHeight/2];
 private _dummy = createVehicle ["Sign_Sphere25cm_Geometry_F", [0,0,0], [], 0, "CAN_COLLIDE"];
 hideObjectGlobal _dummy;
 _dummy setPos _position;
+_dummy attachTo [_receiverPhoneObject, [0,0,0]];
 
 // dont ring if needed
 if (!(_receiverPhoneObject getVariable ["grad_telephone_dontRing", false]) || _isFakePhone) then {

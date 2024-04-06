@@ -12,18 +12,6 @@ if ([_receiverPhoneObject, "idle"] call grad_telephone_fnc_callGetStatus) then {
 		// let server handle receiver status
 		[_receiverPhoneObject] call grad_telephone_fnc_callRinging;
 
-		// end ringing after random delay, if still ringing
-		[{
-			params ["_receiverPhoneObject"];
-			
-			if ([_receiverPhoneObject, "ringing"] call grad_telephone_fnc_callGetStatus) then {
-				[_receiverPhoneObject, "idle"] call grad_telephone_fnc_callSetStatus;
-
-				diag_log "fake call phone endet ringing after random delay";
-			};
-
-		}, [_receiverPhoneObject], ceil random 15 + 10] call CBA_fnc_waitAndExecute;
-
 		// fake call starts or was aborted
 		[{
 				params ["_receiverPhoneObject"];
@@ -39,8 +27,16 @@ if ([_receiverPhoneObject, "idle"] call grad_telephone_fnc_callGetStatus) then {
 					// do nothing, just stop
 					diag_log "fake call phone stopped";
 				};
-		}, [_receiverPhoneObject, _sound, _text]] call CBA_fnc_waitUntilAndExecute;
+		}, [_receiverPhoneObject, _sound, _text], random 5 + 15, {
+
+			// end ringing after random delay, if still ringing after 15 + 5 s
+			params ["_receiverPhoneObject"];
+			[_receiverPhoneObject, "idle"] call grad_telephone_fnc_callSetStatus;
+			// [objNull, _receiverPhoneObject] remoteExec ["grad_telephone_fnc_callEnd", 2];
+			diag_log "fake call phone endet ringing after random delay";
+
+		}] call CBA_fnc_waitUntilAndExecute;
 
 	} else {
-	hint "telephone already in use";
+	diag_log "telephone already in use";
 };
