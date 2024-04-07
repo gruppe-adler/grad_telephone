@@ -37,7 +37,7 @@ player setVariable ['grad_telephone_isCalling', true];
 
             private _aborted = missionNamespace getVariable ["GRAD_telephone_dialingAborted", false];
             if (_aborted) exitWith {
-                hint "dialing aborted";
+                "Dialing aborted" call CBA_fnc_notify;
                 [player, _callerPhoneObject] call grad_telephone_fnc_callEndAnimation;
                 player setVariable ['grad_telephone_isCalling', false];
             };
@@ -47,7 +47,7 @@ player setVariable ['grad_telephone_isCalling', true];
             // prevent calling yourself
             // [WORKS]
             if (_callerPhoneObject isEqualTo _receiverPhoneObject) exitWith {
-                hint "cant call yourself, dumbass";
+                "Cant call yourself, dumbass" call CBA_fnc_notify;
 
                 [_callerPhoneObject, "idle"] call grad_telephone_fnc_callSetStatus;
 
@@ -90,7 +90,7 @@ player setVariable ['grad_telephone_isCalling', true];
                 }, {
 
                         params ["_callerPhoneObject", "_receiverPhoneObject", "_callerNumber", "_receiverNumber"];
-                        systemChat format ["callStart - waiting %1 from %2", _receiverNumber, _callerNumber];
+                        // systemChat format ["callStart - waiting %1 from %2", _receiverNumber, _callerNumber];
                         private _storedData = [_callerPhoneObject] call grad_telephone_fnc_callGetInfo;
 
                         _storedData params [
