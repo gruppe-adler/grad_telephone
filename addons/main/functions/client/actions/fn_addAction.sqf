@@ -42,15 +42,18 @@ if (_isVehicle) then {
 
 } else {
 
+        // SPECIAL CASE: TAKES TYPEOF UNIT TO ADD TO CLASS, NO OBJECT NEEDED
         [
           _unit,
-          _object,
           "x\grad_telephone\addons\main\data\ico_notepad.paa",
           "grad_telephone_action_sharePhoneBook",
           localize "STR_grad_telephone_sharePhonebook", "'#FF1111'",
           grad_telephone_fnc_sharePhonebook
         ] call grad_telephone_fnc_sharePhonebookAction;
+ 
 
+
+        // ALL ADD ACTION GENERAL
         [
           _unit,
           _object,
@@ -60,8 +63,6 @@ if (_isVehicle) then {
           grad_telephone_fnc_addToPhoneBook,
           {_target distance _player < 3}
         ] call grad_telephone_fnc_addActionGeneral;
-
-
 
         [
           _unit,
