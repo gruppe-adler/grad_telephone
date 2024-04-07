@@ -43,3 +43,5 @@ if (!_isFakeCall) then {
 
 // register call
 [_player1, _player2] remoteExec ["grad_telephone_fnc_callRegister", 2];
+
+["GRAD_telephone_callStarted", [_player1, _player2]] call CBA_fnc_serverEvent;

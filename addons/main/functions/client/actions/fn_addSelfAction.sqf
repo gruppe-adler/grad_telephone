@@ -29,3 +29,13 @@
   grad_telephone_fnc_hookEnd,
   { player getVariable ['grad_telephone_hooking', false] }
 ] call GRAD_telephone_fnc_addActionGeneral;
+
+
+
+[
+  player,
+  "x\grad_telephone\addons\main\data\ico_notepad.paa",
+  "grad_telephone_action_sharePhoneBook",
+  localize "STR_grad_telephone_sharePhonebook", "'#FF1111'",
+  grad_telephone_fnc_sharePhonebook
+] call grad_telephone_fnc_sharePhonebookAction;
