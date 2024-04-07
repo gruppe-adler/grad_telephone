@@ -1,4 +1,4 @@
-params ["_object", "_number"];
+params ["_object", "_number", "_hasPublicPhoneBookEntry"];
 
 // get all existing numbers
 private _currentNumbers = missionNamespace getVariable ['GRAD_TELEPHONE_ALLNUMBERS', []];
@@ -22,7 +22,9 @@ if (count _path < 1) then {
     _currentNumbers set [_selector, [_number, _existingObjects]];
 };
 // only one entry in phonebook for each number
-missionNamespace setVariable ["GRAD_TELEPHONE_ALLNUMBERS", _currentNumbers, true];
+if (_hasPublicPhoneBookEntry) then {
+    missionNamespace setVariable ["GRAD_TELEPHONE_ALLNUMBERS", _currentNumbers, true];
+};
 
 
 private _currentPhones = missionNamespace getVariable ['GRAD_TELEPHONE_ALLPHONES', []];

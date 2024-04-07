@@ -74,7 +74,7 @@ if (isNull (_object getVariable ["GRAD_telephone_phoneModel", objNull])) then {
     
 };
 
-[_object, _number] call grad_telephone_fnc_assignNumber;
+[_object, _number, _hasPublicPhoneBookEntry] call grad_telephone_fnc_assignNumber;
 [_object, "idle"] call grad_telephone_fnc_callSetStatus;
 
 

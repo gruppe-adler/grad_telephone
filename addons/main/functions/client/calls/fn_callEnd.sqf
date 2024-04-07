@@ -144,4 +144,4 @@ if (!isNull _player) then {
 	[_player, _object] call grad_telephone_fnc_callEndAnimation;
 };
 
-["GRAD_telephone_callEnded", [_player1, _player2]] call CBA_fnc_serverEvent;
+["GRAD_telephone_callEnded", [_player1, _player2]] call CBA_fnc_globalEvent;
