@@ -44,7 +44,6 @@ if (_isVehicle) then {
 
         [
           _unit,
-          _object,
           "x\grad_telephone\addons\main\data\ico_notepad.paa",
           "grad_telephone_action_sharePhoneBook",
           localize "STR_grad_telephone_sharePhonebook", "'#FF1111'",
