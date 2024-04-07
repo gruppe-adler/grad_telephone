@@ -49,9 +49,7 @@ player setVariable ['grad_telephone_isCalling', true];
             if (_callerPhoneObject isEqualTo _receiverPhoneObject) exitWith {
                 hint "cant call yourself, dumbass";
 
-                [_callerPhoneObject, "busy"] call grad_telephone_fnc_callSetStatus;
-
-                [_callerPhoneObject] call grad_telephone_fnc_soundBusy;
+                [_callerPhoneObject, "idle"] call grad_telephone_fnc_callSetStatus;
 
                 if (GRAD_TELEPHONE_DEBUG_MODE) then {
                   systemChat "callStart - busy";
@@ -59,8 +57,10 @@ player setVariable ['grad_telephone_isCalling', true];
 
                 [
                     _callerPhoneObject, _receiverPhoneObject,
-                    player, objNull
+                    objNull, objNull
                 ] call grad_telephone_fnc_callSaveInfo;
+
+                [_unit, _callerPhoneObject] remoteExec ["grad_telephone_fnc_callEnd", 2];
             };
 
             if (GRAD_TELEPHONE_DEBUG_MODE) then {
