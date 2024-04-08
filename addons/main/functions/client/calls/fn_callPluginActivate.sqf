@@ -1,6 +1,6 @@
 params ["_phoneObject", "_lineNumber"];
 
-player setVariable ['grad_telephone_isCalling', true];
+player setVariable ['grad_telephone_isCalling', true, false];
 
 private _encryptionKey = ""; // must be nothing
 

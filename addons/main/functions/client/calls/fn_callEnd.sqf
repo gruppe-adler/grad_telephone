@@ -140,7 +140,7 @@ switch (_state) do {
 
 // always end, no matter what happened
 if (!isNull _player) then {
-	_player setVariable ['grad_telephone_isCalling', false];
+	_player setVariable ['grad_telephone_isCalling', false, true];
 	[_player, _object] call grad_telephone_fnc_callEndAnimation;
 };
 

@@ -16,7 +16,7 @@ _currentAngle params ["_angle", "_centerX", "_centerY"];
 _ctrl ctrlSetAngle [_newAngle, _centerX, _centerY, false];
 _ctrl ctrlCommit _timeUp;
 
-player say _sound;
+playSoundUI [_sound, 1];
 
 sleep _timeUp;
 
@@ -31,7 +31,7 @@ _ctrl ctrlSetAngle [_newAngle, _centerX, _centerY, true];
 _ctrl ctrlSetAngle [0, _centerX, _centerY, false];
 _ctrl ctrlCommit _timeDown;
 
-player say _sound;
+playSoundUI [_sound, 1];
 
 sleep _timeDown;
 

@@ -21,7 +21,7 @@ if (_callerPhoneObject getVariable ['grad_telephone_skipDialing', false]) then {
     };
 };
 
-player setVariable ['grad_telephone_isCalling', true];
+player setVariable ['grad_telephone_isCalling', true, false];
 
 [_callerPhoneObject, player] call grad_telephone_fnc_callStartAnimation;
 
@@ -39,7 +39,7 @@ player setVariable ['grad_telephone_isCalling', true];
             if (_aborted) exitWith {
                 "Dialing aborted" call CBA_fnc_notify;
                 [player, _callerPhoneObject] call grad_telephone_fnc_callEndAnimation;
-                player setVariable ['grad_telephone_isCalling', false];
+                player setVariable ['grad_telephone_isCalling', false, true];
             };
 
             [player, _callerPhoneObject] call grad_telephone_fnc_callSetOwner; // set self to owner of current phone
